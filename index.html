@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aligned | Gonstead Chiropractic in Mid Valley, Kuala Lumpur</title>
+<meta name="description" content="Aligned is a premium chiropractic and movement-recovery clinic at Mid Valley City, Kuala Lumpur. We treat the root cause of back pain, stiff necks and recurring injuries with the Gonstead method. A new definition of health." />
+<meta name="theme-color" content="#1B1D1E" />
+<meta property="og:title" content="Aligned | A New Definition Of Health" />
+<meta property="og:description" content="Premium Gonstead chiropractic care at Mid Valley City, Kuala Lumpur. Move better, recover fully, stay aligned." />
+<meta property="og:type" content="website" />
+
+<!-- Favicon: marmalade monogram -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EABF7F'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='18' fill='%231B1D1E' text-anchor='middle' font-weight='700'%3EA%3C/text%3E%3C/svg%3E" />
+
+<!-- Fonts: Hanken Grotesk (display + body). Local design file, so link-loaded. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<!-- Phosphor icons (icon library, not hand-rolled SVG) -->
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+<style>
+/* ============================================================
+   ALIGNED - design tokens (V6 "Neutral, earthy, calming" palette)
+   Palette board (5 colours - sage was retired):
+     cloud     #F2F2F2  light section grounds / tile fills
+     marmalade #EABF7F  CTA (flat translucent glass, ink text) + hairline
+                        accents (eyebrow dash, progress fill, step markers)
+     cocoa     #A68E74  warm accent family; --cocoa-deep is the AA-safe
+                        text/icon accent on white & cloud
+     slate     #73726D  menu glass base + secondary text
+     black     #1B1D1E  ink: headings, body text, footer, and EVERY dark
+                        photo overlay (problem / gonstead / journey / pet)
+   Colour logic:
+     marmalade = conversion (buttons) + thin indicator accents
+     ink       = selected / active states + all dark section washes
+     cocoa     = editorial accents (eyebrows, links, icons)
+   Radius lock (documented mixed rule):
+     interactive (buttons/chips/pills) = full pill
+     containers (cards/media)          = 22-24px
+   Shadows are ink-tinted (never pure black), kept shallow - surfaces
+   are flat glass, not 3D.
+   ============================================================ */
+:root{
+  --white:#FFFFFF;
+  --cloud:#F2F2F2;
+  --cloud-deep:#E4E4E2;   /* borders / divider lines on cloud */
+  --marmalade:#EABF7F;
+  --marmalade-deep:#D9A75F;
+  --cocoa:#A68E74;
+  --cocoa-deep:#7A6248;   /* legible warm accent, AA-safe on white/cloud */
+  --slate:#73726D;
+  --ink:#1B1D1E;
+
+  /* legacy aliases (V5 names) -> V6 palette */
+  --ivory:#FFFFFF;
+  --ivory-deep:var(--cloud);
+  --sand:var(--cloud);
+  --sand-deep:var(--cloud-deep);
+  --yellow:var(--marmalade);
+  --navy:var(--marmalade);
+  --navy-700:var(--marmalade-deep);
+  --navy-900:var(--ink);
+  --powder:var(--cloud);
+  --powder-deep:var(--cloud-deep);
+  --powder-blue:var(--cloud);
+  --powder-blue-deep:var(--cloud-deep);
+  --grey:var(--ink);
+  --grey-soft:var(--slate);
+  --gold:var(--marmalade);
+  --gold-deep:var(--cocoa-deep);
+
+  --r-card:22px;
+  --r-media:24px;
+  --r-btn:999px;
+
+  --shadow-sm:0 4px 14px -8px rgba(27,29,30,.24);
+  --shadow-md:0 22px 48px -26px rgba(27,29,30,.3);
+  --shadow-lg:0 40px 90px -40px rgba(27,29,30,.4);
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --nav-h:68px;
+  --maxw:1320px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;
+  font-family:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  background:var(--ivory);
+  color:var(--grey);
+  font-size:clamp(1rem,.96rem + .25vw,1.075rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+/* faint paper texture - fixed, pointer-events none (perf safe) */
+body::after{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+h1,h2,h3,h4{
+  font-family:"Hanken Grotesk",sans-serif;
+  color:var(--grey);
+  line-height:1.04;
+  letter-spacing:-.02em;
+  margin:0;
+  font-weight:700;
+}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+section{position:relative;z-index:2}
+
+.h-section{font-size:clamp(2rem,1.4rem + 3vw,3.4rem);font-weight:800}
+.lede{font-size:clamp(1.08rem,1rem + .5vw,1.3rem);color:var(--grey);max-width:60ch;line-height:1.6}
+
+/* ---------- Buttons (flat translucent glass, one consistent system) --------
+   No gradients, no inner gloss, no deep 3D shadows: a single translucent
+   fill + hairline light border + one shallow ink-tinted shadow. Hover =
+   fill turns more opaque + 1px lift. Solid fallback under
+   prefers-reduced-transparency. */
+.btn{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  font-family:"Hanken Grotesk",sans-serif;font-weight:700;font-size:1rem;
+  padding:.95rem 1.7rem;border-radius:var(--r-btn);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease);
+  white-space:nowrap;will-change:transform;
+  backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);
+}
+.btn i{font-size:1.15em;position:relative;z-index:2}
+.btn:active{transform:translateY(1px) scale(.985)}
+
+/* marmalade flat glass - the only place marmalade is used as a surface.
+   Ink text: white-on-marmalade fails contrast at this button size. */
+.btn-primary{color:var(--ink);
+  background:rgba(234,191,127,.78);
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 10px 24px -16px rgba(27,29,30,.45)}
+.btn-primary:hover{transform:translateY(-1px);background:rgba(234,191,127,.95)}
+
+/* frosted cloud glass for dark backgrounds */
+.btn-on-dark{color:var(--ink);
+  background:rgba(242,242,242,.82);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 10px 24px -16px rgba(0,0,0,.4)}
+.btn-on-dark:hover{transform:translateY(-1px);background:rgba(255,255,255,.96)}
+
+/* faint ink frost on light sections (secondary action) */
+.btn-ghost{color:var(--ink);
+  background:rgba(27,29,30,.04);border:1px solid rgba(27,29,30,.18)}
+.btn-ghost:hover{transform:translateY(-1px);background:rgba(27,29,30,.09)}
+
+/* frosted glass over dark/video */
+.btn-ghost-light{color:var(--ivory);
+  background:rgba(242,242,242,.1);border:1px solid rgba(242,242,242,.42);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-ghost-light:hover{transform:translateY(-1px);background:rgba(242,242,242,.2)}
+
+/* WhatsApp green, flattened to match */
+.btn-whatsapp{color:#fff;
+  background:rgba(35,180,90,.9);
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 24px -16px rgba(27,29,30,.45)}
+.btn-whatsapp:hover{transform:translateY(-1px);background:rgba(35,180,90,1)}
+
+@media (prefers-reduced-transparency:reduce){
+  .btn{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .btn-primary{background:var(--marmalade)}
+  .btn-on-dark{background:var(--cloud)}
+  .btn-ghost{background:rgba(27,29,30,.06)}
+  .btn-ghost-light{background:rgba(242,242,242,.2)}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn:hover{transform:none}
+}
+
+.text-link{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:"Hanken Grotesk",sans-serif;font-weight:700;color:var(--gold-deep);
+}
+.text-link i{transition:transform .25s var(--ease)}
+.text-link:hover i{transform:translateX(4px)}
+
+/* =====================================================================
+   LANDING BENTO OVERLAY  (first-visit welcome: dark backdrop (layer 2)
+   + rounded glass bento card (layer 1) floating above the site (layer 3))
+   ===================================================================== */
+.landing{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
+  padding:clamp(1.1rem,4vw,2rem)}
+.landing[hidden]{display:none}
+/* layer 2: semi-translucent dark scrim behind the card */
+.landing__backdrop{position:absolute;inset:0;z-index:0;background:rgba(27,29,30,.58);
+  backdrop-filter:blur(7px) saturate(140%);-webkit-backdrop-filter:blur(7px) saturate(140%);
+  opacity:0;transition:opacity .5s var(--ease)}
+/* layer 1: rounded, semi-translucent glass card housing the bento grid */
+.landing__modal{position:relative;z-index:1;width:100%;max-width:860px;
+  border-radius:30px;padding:clamp(.9rem,2.2vw,1.25rem);
+  background:linear-gradient(155deg,rgba(255,255,255,.58),rgba(250,247,241,.4));
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 44px 100px -30px rgba(27,29,30,.55);
+  backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+  opacity:0;transform:translateY(26px) scale(.96);
+  transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+.landing.show .landing__backdrop{opacity:1}
+.landing.show .landing__modal{opacity:1;transform:none}
+.landing__close{position:absolute;top:-14px;right:-14px;z-index:3;width:42px;height:42px;border-radius:999px;
+  display:grid;place-items:center;color:var(--gold-deep);background:var(--ivory);
+  border:1px solid rgba(234,191,127,.18);box-shadow:var(--shadow-md);font-size:1.1rem;
+  transition:transform .3s var(--ease),background .2s}
+.landing__close:hover{transform:rotate(90deg);background:var(--ivory-deep)}
+
+/* the bento grid: one tall image tile (offer/activity) + two stacked info tiles */
+.landing__bento{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:.85rem;
+  min-height:420px}
+.landing__tile{position:relative;border-radius:20px;overflow:hidden;padding:1.4rem;
+  display:flex;flex-direction:column}
+.landing__tile--voucher{grid-column:1;grid-row:1 / span 2;justify-content:flex-end}
+.landing__tile--voucher img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.landing__tile-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(27,29,30,.96) 0%,rgba(27,29,30,.86) 42%,rgba(27,29,30,.15) 80%)}
+.landing__tile-body{position:relative;z-index:2}
+.landing__tile--voucher h3{color:var(--ivory);font-size:1.45rem;line-height:1.1;margin:.4rem 0 .3rem}
+.landing__tile--voucher p{color:rgba(242,242,242,.88);font-size:.9rem;margin:0 0 1rem}
+.landing__tile--voucher .landing__kicker{color:var(--marmalade)}
+.landing__tile--voucher .btn{padding:.75rem 1.25rem;font-size:.9rem}
+
+.landing__tile--news,.landing__tile--tip{background:var(--ivory);border:1px solid rgba(234,191,127,.1);
+  box-shadow:var(--shadow-sm)}
+.landing__tile--news{grid-column:2;grid-row:1}
+.landing__tile--tip{grid-column:2;grid-row:2}
+.landing__kicker{display:block;font-family:"Hanken Grotesk",sans-serif;font-size:.68rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.35rem}
+/* on the news/tip tiles there's no separate heading - the emoji + kicker line acts as the title */
+.landing__tile--news .landing__kicker,.landing__tile--tip .landing__kicker{
+  font-size:1.1rem;font-weight:800;letter-spacing:-.01em;text-transform:none;color:var(--grey);margin-bottom:.55rem}
+.landing__tile p{font-size:.88rem;color:var(--grey);line-height:1.5;margin:0 0 .5rem}
+.landing__tile .text-link{margin-top:auto;font-size:.86rem}
+
+@media (min-width:1000px){
+  .landing__modal{max-width:960px;padding:1.6rem}
+  .landing__bento{min-height:480px;gap:1.1rem}
+  .landing__tile{padding:1.8rem}
+  .landing__tile--voucher h3{font-size:1.8rem}
+  .landing__tile--news .landing__kicker,.landing__tile--tip .landing__kicker{font-size:1.25rem}
+  .landing__tile p{font-size:.96rem}
+}
+@media (max-width:680px){
+  .landing__bento{grid-template-columns:1fr;grid-template-rows:none;min-height:0}
+  .landing__tile--voucher{grid-column:1;grid-row:auto;min-height:220px}
+  .landing__tile--news,.landing__tile--tip{grid-column:1;grid-row:auto}
+  .landing__modal{max-height:88vh;overflow-y:auto}
+}
+@media (prefers-reduced-transparency:reduce){
+  .landing__backdrop{background:rgba(27,29,30,.72);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .landing__modal{background:var(--ivory);backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (prefers-reduced-motion:reduce){.landing__backdrop,.landing__modal{transition:none}}
+
+/* =====================================================================
+   NAVIGATION  (floating slate glass pills: brand | link rail | CTA.
+   The bar itself is transparent - only the pills carry surface. Fixed
+   menu items; hover = faint cloud wash behind the link. Scroll progress
+   lives in the left rail, not here.)
+   ===================================================================== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem 0;
+  background:transparent;
+}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+/* shared slate glass recipe for the floating pieces */
+.brand,.nav__links,.nav__toggle,.nav__lang{
+  background:rgba(74,73,70,.7); /* slate, deepened for legibility */
+  backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 30px -20px rgba(27,29,30,.6);
+  transition:background .3s var(--ease);
+}
+.nav.scrolled .brand,.nav.scrolled .nav__links,.nav.scrolled .nav__toggle,.nav.scrolled .nav__lang{
+  background:rgba(62,61,59,.88)}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:"Hanken Grotesk",sans-serif;
+  font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--ivory);
+  padding:.55rem 1.1rem;border-radius:var(--r-btn)}
+.brand__mark{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:var(--ivory);color:var(--cocoa-deep);font-weight:900;font-size:1.05rem;flex:0 0 auto}
+.brand__logo{height:26px;width:auto;display:block}
+.footer .brand{background:none;border:none;box-shadow:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.footer .brand__logo{height:34px}
+.nav__links{display:flex;align-items:center;gap:.15rem;padding:.3rem;border-radius:var(--r-btn)}
+.nav__links a{display:inline-block;padding:.55rem 1.15rem;border-radius:var(--r-btn);
+  font-size:.93rem;font-weight:600;color:rgba(255,255,255,.82);
+  transition:color .2s,background .25s var(--ease)}
+.nav__links a:hover{color:#fff;background:rgba(242,242,242,.16)}
+.nav__cta{display:flex;align-items:center;gap:.75rem}
+.nav .btn{padding:.68rem 1.35rem;font-size:.92rem}
+.nav__toggle{display:none;width:46px;height:46px;border-radius:var(--r-btn);color:var(--ivory);
+  align-items:center;justify-content:center;font-size:1.4rem}
+
+/* language switcher pill (shows the language you can switch TO) */
+.nav__lang{display:inline-flex;align-items:center;gap:.45rem;padding:.66rem 1.05rem;
+  border-radius:var(--r-btn);color:rgba(255,255,255,.85);
+  font-size:.88rem;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.nav__lang i{font-size:1.1rem}
+.nav .nav__lang:hover{color:#fff;background:rgba(42,41,40,.95)}
+
+/* 6 menu items: tighten the rail before collapsing to the burger */
+@media (max-width:1240px){
+  .nav__links a{padding:.5rem .85rem;font-size:.88rem}
+  .nav .btn{padding:.6rem 1.1rem;font-size:.88rem}
+  .brand__logo{height:23px}
+}
+@media (max-width:1020px){
+  .nav__links{position:fixed;left:1rem;right:1rem;top:calc(var(--nav-h) + .4rem);
+    flex-direction:column;align-items:stretch;
+    gap:.2rem;background:rgba(38,38,37,.94);padding:.6rem;border-radius:24px;
+    transform:translateY(-12px);opacity:0;visibility:hidden;pointer-events:none;
+    transition:transform .35s var(--ease),opacity .3s var(--ease),visibility .35s;
+    box-shadow:0 30px 50px -25px rgba(0,0,0,.6)}
+  .nav__links.open{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto}
+  .nav__links a{padding:.95rem 1.1rem;border-radius:16px;font-size:1.02rem}
+  .nav__toggle{display:flex}
+}
+/* below 880 the sticky mobile book bar takes over the CTA; lang pill stays */
+@media (max-width:880px){
+  .nav__cta .btn{display:none}
+}
+@media (max-width:600px){
+  .nav__lang{padding:.55rem .8rem;font-size:.8rem}
+}
+
+/* =====================================================================
+   HERO  (video background, left text, navy gradient scrim under title)
+   ===================================================================== */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;
+  padding:calc(var(--nav-h) + 2rem) 0 clamp(2.5rem,6vw,5rem);overflow:hidden;background:var(--navy-900)}
+.hero__media{position:absolute;inset:0;z-index:0}
+.hero__media video,.hero__media img{width:100%;height:100%;object-fit:cover}
+.hero__media img{animation:kenburns 22s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.hero__media img{animation:none}}
+
+/* the semi-transparent gradient sitting on top of the video, under the title (white wash) */
+.hero__scrim{position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(98deg, rgba(27,29,30,.94) 0%, rgba(27,29,30,.8) 34%, rgba(27,29,30,.4) 62%, rgba(27,29,30,0) 88%),
+    linear-gradient(0deg, rgba(27,29,30,.82) 0%, rgba(27,29,30,0) 44%);
+}
+.hero__inner{position:relative;z-index:2;width:100%}
+.hero h1{color:var(--ivory);font-size:clamp(2.7rem,2rem + 6vw,5.6rem);font-weight:800;
+  max-width:14ch;margin:.9rem 0 0;letter-spacing:-.03em}
+.hero h1 .alt{color:var(--yellow);font-style:italic;font-weight:700}
+.hero__sub{color:rgba(255,255,255,.88);font-size:clamp(1.05rem,1rem + .5vw,1.3rem);
+  max-width:46ch;margin:1.4rem 0 0;line-height:1.55}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.hero__meta{display:flex;flex-wrap:wrap;gap:1.4rem 2rem;margin-top:2.6rem;
+  padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.2);max-width:560px}
+.hero__meta div{color:var(--ivory)}
+.hero__meta b{font-family:"Hanken Grotesk",sans-serif;font-size:1.5rem;display:block;font-weight:800;line-height:1}
+.hero__meta span{font-size:.85rem;color:rgba(255,255,255,.62)}
+
+/* video control */
+.hero__vidbtn{position:absolute;right:clamp(1.25rem,5vw,3rem);top:calc(var(--nav-h) + 5.4rem);z-index:5;
+  width:48px;height:48px;border-radius:999px;display:grid;place-items:center;color:var(--ivory);
+  background:rgba(27,29,30,.4);backdrop-filter:blur(12px) saturate(150%);-webkit-backdrop-filter:blur(12px) saturate(150%);
+  border:1px solid rgba(242,242,242,.34);font-size:1.2rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 16px 34px -16px rgba(27,29,30,.5);
+  transition:background .25s,transform .25s var(--ease)}
+.hero__vidbtn:hover{background:rgba(27,29,30,.6);transform:translateY(-2px)}
+.hero__media,.hero__inner{will-change:transform}
+
+/* hero load stagger (h1 reveals word-by-word via .tsplit instead) */
+.hero__sub,.hero__actions,.hero__meta{opacity:0;animation:heroIn .95s var(--ease) both}
+.hero__sub{animation-delay:.52s}
+.hero__actions{animation-delay:.68s}
+.hero__meta{animation-delay:.84s}
+@keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .hero__sub,.hero__actions,.hero__meta{opacity:1;animation:none}
+  .hero__media img{animation:none}
+}
+
+@media (max-width:600px){
+  /* extra top padding so the floating announcement bar never overlaps the eyebrow */
+  .hero{align-items:flex-end;padding-top:calc(var(--nav-h) + 5rem)}
+  .hero__meta{gap:1rem 1.5rem}
+  .hero__meta b{font-size:1.25rem}
+}
+
+/* =====================================================================
+   Reveal-on-scroll utility
+   ===================================================================== */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.09s}
+.reveal[data-d="2"]{transition-delay:.18s}
+.reveal[data-d="3"]{transition-delay:.27s}
+.reveal[data-d="4"]{transition-delay:.36s}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* =====================================================================
+   Title reveal (.tsplit): headings are split into words by JS, each word
+   sits inside a clipped mask and slides up into place when the heading
+   scrolls into view. Padding on the mask keeps descenders/italics from
+   being cropped; negative margin cancels it out visually.
+   ===================================================================== */
+.tsplit .tw{display:inline-block;overflow:hidden;vertical-align:bottom;
+  padding:.06em .06em .14em 0;margin:-.06em -.06em -.14em 0}
+.tsplit .tw__i{display:inline-block;transform:translateY(120%);
+  transition:transform .95s var(--ease)}
+.tsplit.ts-in .tw__i{transform:none}
+@media (prefers-reduced-motion:reduce){.tsplit .tw__i{transform:none;transition:none}}
+
+/* =====================================================================
+   BELIEF  (asymmetric split: statement left, image right)
+   ===================================================================== */
+.belief{padding:clamp(5rem,10vw,9rem) 0}
+.belief__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.belief__title{font-size:clamp(2.2rem,1.5rem + 3.5vw,4rem);font-weight:800;line-height:1.02;margin:1.1rem 0 0}
+.belief__title em{color:var(--gold-deep);font-style:italic}
+.belief__body{margin-top:1.6rem;display:grid;gap:1.1rem;max-width:54ch}
+.belief__sig{margin-top:2rem;display:flex;align-items:center;gap:.9rem;color:var(--grey);
+  font-family:"Hanken Grotesk",sans-serif;font-weight:700}
+.belief__sig i{font-size:1.5rem;color:var(--gold-deep)}
+.belief__media{position:relative;border-radius:var(--r-media);overflow:hidden;box-shadow:var(--shadow-lg);
+  aspect-ratio:4/5}
+.belief__media img{width:100%;height:100%;object-fit:cover}
+.belief__badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(242,242,242,.92);
+  backdrop-filter:blur(6px);border-radius:16px;padding:.9rem 1.1rem;box-shadow:var(--shadow-sm);max-width:230px}
+.belief__badge b{display:block;font-family:"Hanken Grotesk",sans-serif;color:var(--grey);font-size:1.05rem}
+.belief__badge span{font-size:.82rem;color:var(--grey-soft)}
+@media (max-width:820px){
+  .belief__grid{grid-template-columns:1fr;gap:2.4rem}
+  .belief__media{aspect-ratio:16/12;order:-1}
+}
+
+/* =====================================================================
+   PROBLEM  (full-bleed photo background + powder-blue scrim)
+   ===================================================================== */
+.problem{position:relative;color:var(--ivory);padding:clamp(6rem,12vw,9rem) 0;overflow:hidden;
+  background-color:var(--grey)}
+.problem__bg{position:absolute;inset:0;z-index:0}
+.problem__bg img{width:100%;height:100%;object-fit:cover}
+/* ivory wash: heavy behind the copy (left), clearing to reveal the photo on the right */
+.problem__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(100deg, rgba(27,29,30,.97) 0%, rgba(27,29,30,.9) 36%, rgba(27,29,30,.6) 66%, rgba(27,29,30,.25) 100%),
+    linear-gradient(0deg, rgba(27,29,30,.5), transparent 42%)}
+.problem .container{position:relative;z-index:2}
+.problem__copy{max-width:60ch}
+.problem h2{color:var(--ivory);font-size:clamp(1.9rem,1.3rem + 3vw,3.2rem);max-width:18ch;margin:1.1rem 0 0}
+.problem h2 .u{color:var(--yellow);text-decoration:underline;text-decoration-color:rgba(234,191,127,.6);text-underline-offset:6px}
+.problem__sub{color:rgba(255,255,255,.85);max-width:58ch;margin:1.5rem 0 0;font-size:1.15rem}
+.problem__tags{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.2rem}
+.problem__tags span{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.05rem;border-radius:999px;color:var(--gold-deep);
+  background:rgba(255,255,255,.72);border:1px solid rgba(234,191,127,.22);font-size:.92rem;font-weight:600;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.problem__tags i{color:var(--gold-deep)}
+@media (max-width:820px){
+  /* copy spans full width on mobile, so wash the photo more evenly */
+  .problem__scrim{background:linear-gradient(0deg, rgba(27,29,30,.95) 0%, rgba(27,29,30,.9) 55%, rgba(27,29,30,.82) 100%)}
+}
+
+/* =====================================================================
+   SELF-CHECK  (3D coverflow deck, iPod-style: dark glass cards on the
+   cloud ground; drag / tap to browse, progress bar below)
+   ===================================================================== */
+.conditions{padding:clamp(5rem,10vw,8rem) 0;background:var(--ivory-deep);overflow:hidden}
+.selfcheck__head{text-align:center;max-width:none;margin:0 auto clamp(2.4rem,5vw,3.4rem)}
+.selfcheck__head .h-section{margin-top:1rem;font-size:clamp(2rem,1.4rem + 2.2vw,3rem)}
+@media (min-width:760px){.selfcheck__head .h-section{white-space:nowrap}}
+.selfcheck__head p{margin:1rem auto 0;max-width:52ch}
+
+.selfcheck{max-width:1180px;margin:0 auto}
+
+/* the coverflow stage. Card transforms (x / rotateY / z / blur) are driven
+   from JS so drag, snap and autoplay share one continuous position value. */
+.cf-stage{position:relative;height:clamp(440px,54vw,510px);
+  perspective:1300px;perspective-origin:50% 44%;
+  touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.cf-stage.dragging{cursor:grabbing}
+.cf-card{position:absolute;left:50%;top:50%;width:min(78vw,430px);height:clamp(400px,50vw,460px);
+  border-radius:26px;overflow:hidden;display:flex;flex-direction:column;
+  color:var(--cloud);cursor:pointer;
+  background:linear-gradient(165deg,rgba(40,42,42,.97),rgba(27,29,30,.95));
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 34px 70px -34px rgba(27,29,30,.6);
+  will-change:transform,opacity,filter;backface-visibility:hidden}
+/* photo on top, washing down into the dark card body */
+.cf-card__media{position:relative;flex:0 0 47%;overflow:hidden}
+.cf-card__media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85)}
+.cf-card__media::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(27,29,30,.92) 0%,rgba(27,29,30,.26) 45%,rgba(27,29,30,.1) 100%)}
+.cf-card__n{position:absolute;top:.95rem;right:1.05rem;z-index:2;
+  font-family:"Hanken Grotesk",sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;
+  color:rgba(242,242,242,.85);background:rgba(27,29,30,.45);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  padding:.28rem .7rem;border-radius:999px}
+.cf-card__body{padding:1.1rem clamp(1.4rem,2.4vw,1.8rem) clamp(1.4rem,2.4vw,1.8rem);
+  display:flex;flex-direction:column}
+.cf-card h3{color:var(--white);font-size:clamp(1.55rem,1.2rem + 1.5vw,2.05rem);margin:0 0 .55rem}
+.cf-card p{font-size:.95rem;line-height:1.55;color:rgba(242,242,242,.72);max-width:40ch}
+
+/* control bar under the deck: arrows + progress track + counter */
+.cf-bar{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.7rem}
+.sc-arrow{flex:0 0 auto;width:48px;height:48px;border-radius:999px;display:grid;place-items:center;
+  color:var(--gold-deep);font-size:1.25rem;cursor:pointer;
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 16px 30px -16px rgba(27,29,30,.42);
+  backdrop-filter:blur(12px) saturate(155%);-webkit-backdrop-filter:blur(12px) saturate(155%);
+  transition:transform .25s var(--ease),background .25s,color .25s}
+.sc-arrow:hover{transform:translateY(-2px);background:var(--ink);color:var(--cloud)}
+.cf-track{position:relative;width:min(300px,40vw);height:3px;border-radius:3px;
+  background:rgba(27,29,30,.14);overflow:hidden}
+.cf-fill{position:absolute;inset:0;border-radius:3px;background:var(--ink);
+  transform:scaleX(0);transform-origin:left}
+.cf-count{font-family:"Hanken Grotesk",sans-serif;font-size:.85rem;font-weight:700;
+  color:var(--slate);letter-spacing:.06em;min-width:58px;text-align:center}
+.cf-count b{color:var(--ink);font-size:1rem}
+.sc-hint{display:flex;align-items:center;justify-content:center;gap:.5rem;
+  font-size:.84rem;color:var(--grey-soft);margin-top:1.1rem}
+.sc-hint i{color:var(--gold-deep)}
+@media (max-width:680px){
+  .cf-stage{height:470px}
+  .cf-card{height:440px}
+  .cf-card__media{flex-basis:44%}
+  .sc-arrow{width:42px;height:42px;font-size:1.1rem}
+}
+
+/* =====================================================================
+   ALIGNED METHOD  (3 service tiles - Chiro / Rehab / Pet + feature icons)
+   ===================================================================== */
+.method{padding:clamp(5rem,10vw,9rem) 0;background:var(--ivory)}
+.method__head{max-width:60ch;margin-bottom:clamp(2.4rem,5vw,3.5rem)}
+.method__head .h-section{margin-top:1rem}
+.method__head p{margin-top:1.2rem}
+
+/* bento: one tall tile (left) + two stacked tiles (right). Title + context
+   sit in a floating glass panel laid over each full-bleed image. */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:clamp(1.1rem,2vw,1.5rem)}
+.svc{position:relative;border-radius:var(--r-card);overflow:hidden;min-height:300px;
+  display:flex;align-items:flex-end;box-shadow:var(--shadow-md);border:1px solid rgba(234,191,127,.1);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.svc--tall{grid-row:1 / span 2}
+.svc__media{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--powder-deep)}
+.svc__media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.svc:hover .svc__media img{transform:scale(1.06)}
+.svc__media::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(27,29,30,.94) 0%,rgba(27,29,30,.72) 32%,rgba(27,29,30,.28) 62%,transparent 100%)}
+/* title + context sit directly on the image (no glass tile, no icon) */
+.svc__body{position:relative;z-index:2;width:100%;
+  padding:clamp(1.5rem,2.6vw,2rem);display:flex;flex-direction:column}
+.svc h3{color:var(--ivory);font-size:1.5rem;margin-bottom:.5rem}
+.svc p{font-size:.96rem;color:rgba(242,242,242,.9);margin-bottom:1rem}
+.svc .text-link{color:var(--ivory);margin-top:auto}
+.svc .text-link i{color:var(--white)}
+.svc--tall .svc__body{padding:clamp(1.8rem,2.4vw,2.4rem)}
+.svc--tall h3{font-size:1.8rem}
+
+/* feature icon row (navy plinth): safe for all ages / precision / personalise / x-ray */
+.feat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+  margin-top:clamp(1.6rem,3vw,2.2rem);background:var(--ivory-deep);border-radius:var(--r-card);
+  border:1px solid var(--powder-blue-deep);
+  padding:clamp(1.6rem,3vw,2.2rem);color:var(--grey);position:relative;overflow:hidden}
+.feat-row::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.55),transparent 65%);pointer-events:none}
+.feat-row li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.3rem;position:relative;z-index:1}
+.feat__icn{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;
+  background:rgba(234,191,127,.16);color:var(--gold-deep);font-size:1.5rem;margin-bottom:.4rem}
+.feat-row b{font-family:"Hanken Grotesk",sans-serif;color:var(--grey);font-size:1rem}
+.feat-row li>span:last-child{font-size:.82rem;color:var(--grey-soft)}
+@media (max-width:820px){
+  .svc-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+  .svc--tall{grid-row:auto}
+  .svc{min-height:300px}
+}
+@media (max-width:680px){.feat-row{grid-template-columns:1fr 1fr;gap:1.5rem 1rem}}
+
+/* =====================================================================
+   GONSTEAD METHOD  (5 tiles, hover swaps the background image, auto-rotates)
+   ===================================================================== */
+.gonstead{padding:clamp(5rem,10vw,9rem) 0;background:var(--grey);color:var(--ivory);overflow:hidden}
+.gonstead__bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.gonstead__layer{position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.05);transition:opacity .8s var(--ease),transform 6s var(--ease)}
+.gonstead__layer.active{opacity:1;transform:scale(1.13)}
+/* gradient ivory overlay: heavy behind the top heading, clearing downward
+   so the swapping photo reads through around the tiles */
+.gonstead__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(27,29,30,.95) 0%, rgba(27,29,30,.85) 36%, rgba(27,29,30,.7) 70%, rgba(27,29,30,.6) 100%),
+    radial-gradient(760px 420px at 84% 6%, rgba(255,255,255,.42), transparent 62%);}
+.gonstead .container{position:relative;z-index:2}
+.gonstead__head{max-width:60ch;margin-bottom:clamp(2.2rem,5vw,3.2rem)}
+.gonstead h2{color:var(--ivory);font-size:clamp(2rem,1.4rem + 3vw,3.2rem);margin-top:1rem}
+.gonstead__sub{color:rgba(255,255,255,.85);margin-top:1.1rem;max-width:50ch}
+
+.gon-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.7rem,1.5vw,1rem)}
+.gon-tile{text-align:left;border-radius:18px;padding:1.4rem 1.3rem;min-height:230px;
+  display:flex;flex-direction:column;color:var(--gold-deep);cursor:pointer;
+  background:rgba(255,255,255,.62);border:1px solid rgba(234,191,127,.18);
+  box-shadow:0 10px 26px -18px rgba(27,29,30,.32);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease),box-shadow .4s var(--ease)}
+.gon-tile:hover,.gon-tile.active{background:rgba(255,255,255,.92);border-color:rgba(234,191,127,.55);transform:translateY(-4px);
+  box-shadow:0 18px 36px -18px rgba(27,29,30,.36)}
+.gon-tile__n{font-family:"Hanken Grotesk",sans-serif;font-weight:800;color:var(--gold-deep);font-size:1.05rem}
+.gon-tile__icn{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(234,191,127,.16);color:var(--gold-deep);font-size:1.4rem;margin:1rem 0 .9rem;
+  transition:background .4s var(--ease),color .4s var(--ease)}
+.gon-tile:hover .gon-tile__icn,.gon-tile.active .gon-tile__icn{background:var(--ink);color:var(--marmalade)}
+.gon-tile__t{font-family:"Hanken Grotesk",sans-serif;font-weight:700;font-size:1.12rem;margin-bottom:.45rem;color:var(--grey)}
+.gon-tile__d{font-size:.85rem;color:var(--grey);line-height:1.45;margin-top:auto}
+@media (max-width:860px){
+  .gon-tiles{grid-template-columns:1fr 1fr;gap:.8rem}
+  .gon-tile{min-height:auto}
+}
+@media (max-width:480px){.gon-tiles{grid-template-columns:1fr}}
+
+/* =====================================================================
+   SERVICE JOURNEY  (5-step rail over a split-photo background)
+   ===================================================================== */
+.journey{padding:clamp(5rem,10vw,9rem) 0;position:relative;overflow:hidden;color:var(--ivory);background:var(--grey)}
+.journey__bg{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:repeat(5,1fr)}
+.journey__bg span{background-size:cover;background-position:center;position:relative}
+.journey__bg span+span{border-left:1px solid rgba(255,255,255,.15)}
+/* gradient ivory overlay: lighter at the top (photo reads behind the
+   centred heading), heavier toward the base so the step labels stay legible */
+.journey__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg, rgba(27,29,30,.82) 0%, rgba(27,29,30,.86) 42%, rgba(27,29,30,.93) 80%, rgba(27,29,30,.96) 100%)}
+.journey .container{position:relative;z-index:2}
+.journey__head{text-align:center;max-width:60ch;margin:0 auto clamp(2.6rem,5vw,4rem)}
+.journey__head .h-section{margin-top:1rem;color:var(--ivory)}
+.journey__head p{margin-top:1rem;color:rgba(255,255,255,.85)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;position:relative}
+.steps::before{content:"";position:absolute;top:34px;left:8%;right:8%;height:2px;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 10px,transparent 10px 18px);z-index:0}
+.step{position:relative;z-index:1;text-align:center}
+.step__num{width:68px;height:68px;margin:0 auto 1.1rem;border-radius:999px;display:grid;place-items:center;
+  background:rgba(255,255,255,.78);box-shadow:var(--shadow-sm);border:2px solid rgba(234,191,127,.4);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  font-family:"Hanken Grotesk",sans-serif;font-weight:800;font-size:1.5rem;color:var(--gold-deep);position:relative}
+.step:nth-child(odd) .step__num{background:var(--marmalade);color:var(--ink);border-color:var(--marmalade)}
+.step__num i{font-size:1.6rem}
+.step h3{font-size:1.2rem;margin-bottom:.4rem;color:var(--ivory)}
+.step p{font-size:.9rem;color:rgba(255,255,255,.78)}
+@media (max-width:820px){
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps::before{top:34px;bottom:34px;left:33px;right:auto;width:2px;height:auto;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.35) 0 10px,transparent 10px 18px)}
+  .step{display:grid;grid-template-columns:68px 1fr;column-gap:1.1rem;text-align:left;
+    align-items:center;padding:1.1rem 0}
+  .step__num{margin:0;grid-column:1;grid-row:1 / span 2;align-self:start}
+  .step h3{grid-column:2;grid-row:1;align-self:end;margin-bottom:.25rem}
+  .step p{grid-column:2;grid-row:2;align-self:start;max-width:38ch}
+  .journey__bg{grid-template-columns:1fr;grid-template-rows:repeat(5,1fr)}
+  .journey__bg span+span{border-left:none;border-top:1px solid rgba(255,255,255,.15)}
+}
+
+/* =====================================================================
+   DOCTORS  (profile cards)
+   ===================================================================== */
+.doctors{padding:clamp(5rem,10vw,9rem) 0}
+.doctors__head{max-width:60ch;margin-bottom:clamp(2.2rem,4vw,3rem)}
+.doctors__head .h-section{margin-top:1rem}.doctors__head p{margin-top:1rem}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2rem)}
+.doc-grid--one{grid-template-columns:min(760px,100%);justify-content:center}
+.doc{background:var(--ivory-deep);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);
+  display:grid;grid-template-columns:42% 1fr;border:1px solid rgba(234,191,127,.12)}
+.doc__photo{position:relative;background:var(--powder-deep)}
+.doc__photo img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.doc__body{padding:1.6rem 1.6rem 1.8rem}
+.doc__body h3{font-size:1.4rem}
+.doc__role{color:var(--gold-deep);font-weight:700;font-family:"Hanken Grotesk",sans-serif;font-size:.92rem;
+  margin:.3rem 0 .9rem}
+.doc__body p{font-size:.94rem;color:var(--grey)}
+.doc__tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.doc__tags span{font-size:.78rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;
+  background:var(--ivory);color:var(--gold-deep);border:1px solid rgba(234,191,127,.18)}
+@media (max-width:860px){.doc-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.doc{grid-template-columns:1fr}.doc__photo img{min-height:300px}}
+
+/* =====================================================================
+   STORIES  (testimonial carousel + video thumbs)
+   ===================================================================== */
+.stories{padding:clamp(5rem,10vw,9rem) 0;background:var(--ivory-deep)}
+.stories__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.4rem;margin-bottom:2.4rem}
+.stories__head .h-section{margin-top:1rem}
+.story-track{display:flex;gap:clamp(1rem,2.4vw,1.5rem);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:.5rem .5rem 1.4rem;margin:0 -.5rem;scrollbar-width:none;cursor:grab}
+.story-track::-webkit-scrollbar{display:none}
+.story-track.dragging{cursor:grabbing}.story-track.dragging *{pointer-events:none}
+.story{scroll-snap-align:start;flex:0 0 min(86vw,420px);background:var(--ivory);border-radius:var(--r-card);
+  overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.story__vid{position:relative;aspect-ratio:16/10;background:var(--navy-900)}
+.story__vid img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.story__play{position:absolute;inset:0;display:grid;place-items:center}
+.story__play span{width:62px;height:62px;border-radius:999px;background:rgba(242,242,242,.92);color:var(--gold-deep);
+  display:grid;place-items:center;font-size:1.5rem;box-shadow:var(--shadow-md);transition:transform .25s}
+.story:hover .story__play span{transform:scale(1.08)}
+.story__body{padding:1.5rem 1.6rem 1.7rem;position:relative}
+.story__body::after{content:"";position:absolute;top:1.2rem;right:1.4rem;width:88px;height:33px;
+  background:url('images/google-reviews.png') no-repeat right center/contain;
+  opacity:.95;pointer-events:none}
+.story__quote{font-family:"Hanken Grotesk",sans-serif;color:var(--grey);font-size:1.12rem;font-weight:600;line-height:1.4}
+.story__by{display:flex;align-items:center;gap:.7rem;margin-top:1.1rem}
+.story__by b{font-size:.95rem;color:var(--grey);font-family:"Hanken Grotesk",sans-serif}
+.story__by span{font-size:.85rem;color:var(--grey-soft);display:block}
+.story__by .av{width:42px;height:42px;border-radius:999px;object-fit:cover;flex:0 0 auto}
+.stars{color:var(--gold-deep);font-size:.9rem;margin-bottom:1.1rem;letter-spacing:2px}
+
+/* =====================================================================
+   CREDENTIALS  (badge strip)
+   ===================================================================== */
+.creds{padding:clamp(3.5rem,7vw,5.5rem) 0;background:var(--ivory);text-align:center}
+.creds p.k{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--grey-soft);
+  font-family:"Hanken Grotesk",sans-serif}
+.creds__row{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1.4rem,4vw,3.4rem);margin-top:1.8rem;align-items:center}
+.cred{display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--grey);max-width:160px}
+.cred i{font-size:2rem;color:var(--gold-deep)}
+.cred b{font-family:"Hanken Grotesk",sans-serif;font-size:.98rem}
+.cred span{font-size:.78rem;color:var(--grey-soft)}
+
+/* =====================================================================
+   PET CHIRO  ("one more thing" - full-bleed feature)
+   ===================================================================== */
+.pet{padding:clamp(2rem,5vw,3rem) clamp(1.25rem,5vw,3rem)}
+.pet__inner{max-width:var(--maxw);margin:0 auto;border-radius:clamp(24px,4vw,40px);overflow:hidden;
+  position:relative;background:var(--ink);color:var(--cloud);border:1px solid rgba(255,255,255,.08);
+  display:grid;grid-template-columns:1.1fr 1fr;min-height:440px}
+.pet__copy{padding:clamp(2.4rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center;z-index:2}
+.pet__tag{color:var(--marmalade);font-family:"Hanken Grotesk",sans-serif;font-weight:700;letter-spacing:.04em;
+  font-size:1rem;font-style:italic}
+.pet h2{color:var(--ivory);font-size:clamp(2rem,1.4rem + 3vw,3.2rem);margin:.7rem 0 0}
+.pet p{color:rgba(242,242,242,.85);margin:1.2rem 0 0;max-width:42ch}
+.pet__actions{margin-top:2rem}
+.pet__media{position:relative}
+.pet__media img{width:100%;height:100%;object-fit:cover;min-height:300px}
+.pet__media::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,var(--ink) 0%,rgba(27,29,30,.5) 40%,rgba(27,29,30,.08) 70%)}
+@media (max-width:820px){
+  .pet__inner{grid-template-columns:1fr}
+  .pet__media{order:-1;min-height:240px}
+  .pet__media::before{background:linear-gradient(0deg,var(--ink) 0%,rgba(27,29,30,.4) 60%,rgba(27,29,30,.05) 100%)}
+}
+
+/* =====================================================================
+   FINAL CTA  (full-bleed navy over a photo background)
+   ===================================================================== */
+.final{position:relative;background:#F7EFE2;color:var(--grey);padding:clamp(5rem,11vw,9rem) 0;text-align:center;overflow:hidden}
+.final__bg{position:absolute;inset:0;z-index:0}
+.final__bg img{width:100%;height:100%;object-fit:cover;opacity:.35}
+.final__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(0deg,rgba(247,239,226,.92),rgba(247,239,226,.86)),
+    radial-gradient(700px 360px at 50% -10%,rgba(255,255,255,.55),transparent 60%)}
+.final .container{position:relative;z-index:2}
+.final h2{color:var(--grey);font-size:clamp(2.1rem,1.4rem + 3.6vw,3.8rem);max-width:18ch;margin:0 auto;line-height:1.06}
+.final h2 em{color:var(--gold-deep);font-style:italic}
+.final p{color:var(--grey);margin:1.4rem auto 0;max-width:48ch;font-size:1.15rem}
+.final__actions{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.4rem}
+
+/* =====================================================================
+   FOOTER  (grey - per brand rule)
+   ===================================================================== */
+.footer{background:var(--grey);color:rgba(242,242,242,.78);padding:clamp(3.5rem,7vw,5rem) 0 2rem}
+.footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:2.4rem}
+.footer .brand{color:var(--ivory);margin-bottom:1rem}
+.footer__about{max-width:34ch;font-size:.94rem;line-height:1.6}
+.footer h4{color:var(--ivory);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:1.1rem;font-family:"Hanken Grotesk",sans-serif}
+.footer ul li{margin-bottom:.7rem}
+.footer ul a{font-size:.94rem;transition:color .2s}.footer ul a:hover{color:var(--ivory)}
+.footer__contact div{display:flex;gap:.7rem;align-items:flex-start;margin-bottom:.9rem;font-size:.94rem}
+.footer__contact i{color:var(--cocoa);font-size:1.2rem;margin-top:1px;flex:0 0 auto}
+.footer__social{display:flex;gap:.7rem;margin-top:1.2rem}
+.footer__social a{width:42px;height:42px;border-radius:999px;display:grid;place-items:center;
+  background:rgba(242,242,242,.1);color:var(--ivory);font-size:1.2rem;transition:background .25s,transform .25s}
+.footer__social a:hover{background:var(--marmalade);color:var(--ink);transform:translateY(-2px)}
+.footer__bar{border-top:1px solid rgba(242,242,242,.14);margin-top:2.6rem;padding-top:1.6rem;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.85rem;color:rgba(242,242,242,.6)}
+@media (max-width:860px){.footer__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.footer__grid{grid-template-columns:1fr}}
+
+/* =====================================================================
+   STICKY MOBILE BOOK BUTTON
+   ===================================================================== */
+.mobile-book{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:90;display:none;
+  transform:translateY(140%);transition:transform .4s var(--ease)}
+.mobile-book.show{transform:translateY(0)}
+.mobile-book .btn{width:100%;padding:1.05rem;box-shadow:var(--shadow-lg)}
+@media (max-width:880px){.mobile-book{display:block}}
+
+/* =====================================================================
+   VERTICAL PAGE PROGRESS  (fixed left rail; fill = scroll position,
+   vertical label = the section currently in view. Slate track reads on
+   both light and dark sections; the label uses blend-mode difference so
+   it stays legible over any ground.)
+   ===================================================================== */
+.vprog{position:fixed;left:clamp(.7rem,1.4vw,1.4rem);top:50%;transform:translateY(-50%);
+  display:flex;align-items:flex-start;gap:.65rem;z-index:95;pointer-events:none}
+.vprog__track{position:relative;width:3px;height:62vh;border-radius:3px;
+  background:rgba(115,114,109,.3);overflow:hidden}
+.vprog__fill{position:absolute;inset:0;border-radius:3px;background:var(--marmalade);
+  transform:scaleY(0);transform-origin:top}
+.vprog__label{writing-mode:vertical-rl;font-family:"Hanken Grotesk",sans-serif;
+  font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:#8f8e8a;mix-blend-mode:difference;transition:opacity .35s var(--ease);white-space:nowrap}
+.vprog__label.swap{opacity:0}
+@media (max-width:880px){.vprog{display:none}}
+
+/* skip link */
+.skip{position:absolute;left:-999px;top:.5rem;z-index:200;background:var(--ink);color:var(--cloud);
+  padding:.7rem 1.2rem;border-radius:8px}
+.skip:focus{left:.5rem}
+
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- vertical scroll progress (left rail) + current section label -->
+<div class="vprog" aria-hidden="true">
+  <div class="vprog__track"><span class="vprog__fill" id="vprogFill"></span></div>
+  <span class="vprog__label" id="vprogLabel">Home</span>
+</div>
+
+<!-- ====================== LANDING BENTO (welcome overlay, pops on every visit) ====================== -->
+<div class="landing" id="landing" hidden>
+  <div class="landing__backdrop" id="landingBackdrop"></div>
+  <div class="landing__modal" role="dialog" aria-modal="true" aria-label="Welcome to Aligned">
+    <button class="landing__close" id="landingClose" aria-label="Close"><i class="ph ph-x"></i></button>
+    <div class="landing__bento">
+      <div class="landing__tile landing__tile--voucher">
+        <img src="images/gonstead-exam.jpg" alt="" loading="lazy" />
+        <div class="landing__tile-scrim"></div>
+        <div class="landing__tile-body">
+          <span class="landing__kicker">🎁 Limited-time offer</span>
+          <h3>RM50 off your first assessment</h3>
+          <p>New patients only &mdash; valid this month.</p>
+          <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Claim This Offer</a>
+        </div>
+      </div>
+      <div class="landing__tile landing__tile--news">
+        <span class="landing__kicker">📣 What's new</span>
+        <p>Now open on Saturdays &mdash; and <strong>Animal Chiro</strong> consultations are here.</p>
+        <a href="#book" class="text-link">Book your slot <i class="ph ph-arrow-right"></i></a>
+      </div>
+      <div class="landing__tile landing__tile--tip">
+        <span class="landing__kicker">💡 This month's health tip</span>
+        <p>Sit less, move more &mdash; a 2-minute stretch break every hour keeps your spine happier.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="brand" href="#top" aria-label="Aligned home">
+      <img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" />
+    </a>
+    <!-- No "Home" item: the logo is home. -->
+    <ul class="nav__links" id="navLinks">
+      <li><a href="chiropractic.html">Gonstead</a></li>
+      <li><a href="pet-chiro.html">Animal Chiro</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="news.html">News &amp; Update</a></li>
+      <li><a href="shop.html">Shop</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#book" class="btn btn-primary">Book Assessment</a>
+      <button class="nav__lang" id="langBtn" aria-label="Switch language"><i class="ph ph-globe"></i> 中文</button>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <i class="ph ph-list"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<a id="top"></a>
+
+<!-- ====================== HERO ====================== -->
+<header class="hero" data-progress="Home">
+
+  <div class="hero__media">
+    <!-- Local clinic footage. Poster carries the look if video is unavailable. -->
+    <video autoplay muted loop playsinline id="heroVideo"
+      poster="images/hero-poster.jpg">
+      <source src="images/hero-adjustment.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero__scrim"></div>
+
+  <button class="hero__vidbtn" id="vidBtn" aria-label="Pause background video"><i class="ph ph-pause"></i></button>
+
+  <div class="hero__inner">
+    <div class="container">
+      <h1 class="tsplit" data-tsdelay=".35">A New <span class="alt">Definition</span> Of Health</h1>
+      <p class="hero__sub">We treat the root cause of your pain, not just the symptom. Precise, evidence-based spinal care built around long-term recovery.</p>
+      <div class="hero__actions">
+        <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+        <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="ph ph-whatsapp-logo"></i> WhatsApp Us</a>
+      </div>
+      <div class="hero__meta">
+        <div><b>12+</b><span>Years of practice</span></div>
+        <div><b>4,800+</b><span>Patients realigned</span></div>
+        <div><b>4.9</b><span>Average patient rating</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ====================== BELIEF ====================== -->
+<section class="belief" id="belief" data-progress="Our Belief">
+  <div class="container belief__grid">
+    <div>
+      <h2 class="belief__title tsplit">Movement is <em>freedom.</em></h2>
+      <div class="belief__body reveal" data-d="2">
+        <p>Aligned exists to provide the best pain management solution by improving your spinal health through the Gonstead Chiropractic system.</p>
+        <p>Our doctors are committed to the highest quality of care, delivered with the compassion, excellence and professionalism you deserve. We start with why, then we get to work.</p>
+      </div>
+      <div class="belief__sig reveal" data-d="3">
+        <i class="ph ph-quotes"></i> Relief should not be temporary.
+      </div>
+      <div style="margin-top:1.8rem" class="reveal" data-d="3">
+        <a href="#method" class="text-link">Learn how we do it <i class="ph ph-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="belief__media reveal" data-d="2">
+      <!-- Swap for a real lifestyle image of a patient moving freely -->
+      <img src="https://picsum.photos/seed/aligned-freedom-walk/900/1125" alt="A patient moving freely and pain-free outdoors" loading="lazy" />
+      <div class="belief__badge">
+        <b>Gonstead System</b>
+        <span>A precise, full-spine method trusted worldwide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PROBLEM ====================== -->
+<section class="problem" data-progress="The Problem">
+  <div class="problem__bg" aria-hidden="true">
+    <img src="images/gonstead-exam.jpg" alt="" loading="lazy" />
+  </div>
+  <div class="problem__scrim"></div>
+  <div class="container">
+    <div class="problem__copy">
+      <h2 class="tsplit">Back pain, a stiff neck, or pain that <span class="u">keeps coming back?</span></h2>
+      <p class="problem__sub reveal" data-d="2">Too many people live with recurring pain, poor posture, stress and old injuries that quietly limit everyday life. You adapt around it until adapting stops working.</p>
+      <div class="problem__tags reveal" data-d="3">
+        <span><i class="ph ph-arrows-in-line-vertical"></i> Recurring pain</span>
+        <span><i class="ph ph-person-simple-walk"></i> Poor posture</span>
+        <span><i class="ph ph-lightning"></i> Old injuries</span>
+        <span><i class="ph ph-brain"></i> Daily stress load</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SELF-CHECK (floating tile + dot slider) ====================== -->
+<section class="conditions" id="conditions" data-progress="Self-Check">
+  <div class="container">
+    <div class="selfcheck__head">
+      <h2 class="h-section tsplit">What are we helping you with?</h2>
+      <p class="reveal" data-d="2">We treat a wide range of conditions. Drag through the deck &mdash; or just let it play.</p>
+    </div>
+
+    <div class="selfcheck reveal" data-d="2">
+      <!-- coverflow deck: cards are generated from CONDS in JS -->
+      <div class="cf-stage" id="cfStage" aria-roledescription="carousel" aria-label="Conditions we treat"></div>
+
+      <!-- control bar: arrows + progress + counter -->
+      <div class="cf-bar">
+        <button class="sc-arrow" id="scPrev" aria-label="Previous condition"><i class="ph ph-caret-left"></i></button>
+        <div class="cf-track" aria-hidden="true"><span class="cf-fill" id="cfFill"></span></div>
+        <span class="cf-count"><b id="scNum">01</b> / <span id="scTotal">16</span></span>
+        <button class="sc-arrow" id="scNext" aria-label="Next condition"><i class="ph ph-caret-right"></i></button>
+      </div>
+      <div class="sc-hint"><i class="ph ph-arrows-left-right"></i> Drag the cards, or tap one to bring it forward</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== ALIGNED METHOD (3 service tiles) ====================== -->
+<section class="method" id="method" data-progress="Services">
+  <div class="container">
+    <div class="method__head">
+      <h2 class="h-section tsplit">Three ways we get you moving.</h2>
+      <p class="reveal" data-d="2">Evidence-based care tailored to your body. From precise spinal adjustments to active rehab &mdash; and gentle care for the companions who move beside you.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc svc--tall reveal">
+        <div class="svc__media"><img src="images/gonstead-exam.jpg" alt="A precise spinal adjustment in progress" loading="lazy" /></div>
+        <div class="svc__body">
+          <h3>Chiro Adjustment</h3>
+          <p>Specific, full-spine Gonstead adjustments that restore alignment and take pressure off the nerve &mdash; treating the root cause, not just the symptom.</p>
+          <a href="#gonstead" class="text-link">See the method <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="svc reveal" data-d="1">
+        <div class="svc__media"><img src="images/chiro-physio-together.jpg" alt="Rehabilitation and movement coaching" loading="lazy" /></div>
+        <div class="svc__body">
+          <h3>Rehab</h3>
+          <p>Targeted movement and strengthening that rebuilds what the pain took away, so the same problem does not return once you are back on your feet.</p>
+          <a href="#book" class="text-link">Start rehab <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="svc reveal" data-d="2">
+        <div class="svc__media"><img src="images/pet-senior-mobility.jpg" alt="A calm pet receiving gentle chiropractic care" loading="lazy" /></div>
+        <div class="svc__body">
+          <h3>Animal Chiro</h3>
+          <p>The same precise, gentle philosophy &mdash; now for your animals. Chiropractic care designed to keep pets moving comfortably through every life stage.</p>
+          <a href="#book" class="text-link">Explore Animal Chiro <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+
+    <ul class="feat-row reveal" data-d="2" aria-label="Why our care works">
+      <li><span class="feat__icn"><i class="ph ph-users-three"></i></span><b>Safe for all ages</b><span>Children to seniors</span></li>
+      <li><span class="feat__icn"><i class="ph ph-crosshair-simple"></i></span><b>Precision</b><span>Down to the segment</span></li>
+      <li><span class="feat__icn"><i class="ph ph-user-focus"></i></span><b>Personalised</b><span>Your plan, never a template</span></li>
+      <li><span class="feat__icn"><i class="ph ph-scan"></i></span><b>On-site X-ray</b><span>Weight-bearing analysis</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== GONSTEAD METHOD (5 tiles, hover swaps background) ====================== -->
+<section class="gonstead" id="gonstead" data-progress="Gonstead">
+  <div class="gonstead__bg" id="gonBg">
+    <div class="gonstead__layer active" style="background-image:url('images/gonstead-exam.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/chiro-physio-together.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/hero-poster.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/gonstead-exam.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/hero-poster.jpg')"></div>
+  </div>
+  <div class="gonstead__scrim"></div>
+  <div class="container">
+    <div class="gonstead__head">
+      <h2 class="tsplit">Five-point diagnostics, down to the millimetre.</h2>
+      <p class="gonstead__sub reveal" data-d="2">Precision is not optional. Hover or tap each step to see it &mdash; the Gonstead system checks your spine five ways before a single adjustment is made.</p>
+    </div>
+    <div class="gon-tiles" id="gonTiles">
+      <button class="gon-tile active" data-i="0">
+        <span class="gon-tile__n">01</span>
+        <span class="gon-tile__icn"><i class="ph ph-eye"></i></span>
+        <span class="gon-tile__t">Visualization</span>
+        <span class="gon-tile__d">Reading posture, gait and symmetry for the subtle deviations that point to where the trouble starts.</span>
+      </button>
+      <button class="gon-tile" data-i="1">
+        <span class="gon-tile__n">02</span>
+        <span class="gon-tile__icn"><i class="ph ph-thermometer"></i></span>
+        <span class="gon-tile__t">Instrumentation</span>
+        <span class="gon-tile__d">A dual-probe Nervoscope detects localised skin-temperature differences caused by nerve inflammation.</span>
+      </button>
+      <button class="gon-tile" data-i="2">
+        <span class="gon-tile__n">03</span>
+        <span class="gon-tile__icn"><i class="ph ph-hand-pointing"></i></span>
+        <span class="gon-tile__t">Static palpation</span>
+        <span class="gon-tile__d">Feeling the spine at rest for swelling, tenderness and tight muscles around each segment.</span>
+      </button>
+      <button class="gon-tile" data-i="3">
+        <span class="gon-tile__n">04</span>
+        <span class="gon-tile__icn"><i class="ph ph-arrows-out-cardinal"></i></span>
+        <span class="gon-tile__t">Motion palpation</span>
+        <span class="gon-tile__d">Moving the spine through its ranges to find fixed or locked joints that are not travelling freely.</span>
+      </button>
+      <button class="gon-tile" data-i="4">
+        <span class="gon-tile__n">05</span>
+        <span class="gon-tile__icn"><i class="ph ph-scan"></i></span>
+        <span class="gon-tile__t">X-ray analysis</span>
+        <span class="gon-tile__d">Full-length, weight-bearing radiographs reveal exact alignment and disc integrity under real load.</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== DOCTORS ====================== -->
+<section class="doctors" id="doctors" data-progress="About Us">
+  <div class="container">
+    <div class="doctors__head">
+      <h2 class="h-section tsplit">The doctor behind every adjustment.</h2>
+      <p class="reveal" data-d="2">Human connection first. You will know your doctor, and your doctor will know your spine.</p>
+    </div>
+    <div class="doc-grid doc-grid--one">
+      <article class="doc reveal" data-d="1">
+        <div class="doc__photo">
+          <!-- Replace with Dr Daniel's real portrait -->
+          <img src="https://picsum.photos/seed/aligned-dr-daniel-portrait/500/700" alt="Portrait of Dr Daniel Tan" loading="lazy" />
+        </div>
+        <div class="doc__body">
+          <h3>Dr Daniel Tan</h3>
+          <p class="doc__role">Chiropractor &middot; Gonstead System</p>
+          <p>Believes recovery is a partnership. Daniel built Aligned around patient education and the kind of careful, full-spine work that holds up over years, not weeks. Registered with the Gonstead Chiropractic Society (Australia) and the Association of Chiropractic Malaysia.</p>
+          <div class="doc__tags"><span>Gonstead</span><span>Sports recovery</span><span>Posture</span><span>Animal Chiro</span></div>
+          <div style="margin-top:1.2rem"><a href="about.html" class="text-link">More about Dr Daniel <i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== STORIES ====================== -->
+<section class="stories" id="stories" data-progress="Stories">
+  <div class="container">
+    <div class="stories__head">
+      <div>
+        <h2 class="h-section tsplit">Real people, back in motion.</h2>
+      </div>
+      <p class="reveal" data-d="2" style="max-width:34ch">Short stories from patients who stopped working around their pain.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="story-track" id="storyTrack">
+      <article class="story">
+        <div class="story__vid">
+          <img src="https://picsum.photos/seed/aligned-story-mei/800/500" alt="Patient story video thumbnail" loading="lazy" />
+          <div class="story__play"><span><i class="ph ph-play"></i></span></div>
+        </div>
+        <div class="story__body">
+          <div class="stars">★★★★★</div>
+          <p class="story__quote">"Two years of lower back pain, gone in a structured plan. I finally understand my own spine."</p>
+          <div class="story__by">
+            <img class="av" src="https://picsum.photos/seed/aligned-mei-face/100/100" alt="" loading="lazy" />
+            <div><b>Mei Ling Chong</b><span>Office manager, Cheras</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="story">
+        <div class="story__vid">
+          <img src="https://picsum.photos/seed/aligned-story-arvind/800/500" alt="Patient story video thumbnail" loading="lazy" />
+          <div class="story__play"><span><i class="ph ph-play"></i></span></div>
+        </div>
+        <div class="story__body">
+          <div class="stars">★★★★★</div>
+          <p class="story__quote">"My sciatica used to dictate my week. Now I am back to weekend football with my kids."</p>
+          <div class="story__by">
+            <img class="av" src="https://picsum.photos/seed/aligned-arvind-face/100/100" alt="" loading="lazy" />
+            <div><b>Arvind Rajoo</b><span>Engineer, Kuala Lumpur</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="story">
+        <div class="story__vid">
+          <img src="https://picsum.photos/seed/aligned-story-faiz/800/500" alt="Patient story video thumbnail" loading="lazy" />
+          <div class="story__play"><span><i class="ph ph-play"></i></span></div>
+        </div>
+        <div class="story__body">
+          <div class="stars">★★★★★</div>
+          <p class="story__quote">"The x-ray analysis showed me exactly what was wrong. No guessing, just a clear plan."</p>
+          <div class="story__by">
+            <img class="av" src="https://picsum.photos/seed/aligned-faiz-face/100/100" alt="" loading="lazy" />
+            <div><b>Faiz Abdullah</b><span>Photographer, Ampang</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SERVICE JOURNEY (split-photo background) ====================== -->
+<section class="journey" data-progress="Your Journey">
+  <div class="journey__bg" aria-hidden="true">
+    <span style="background-image:url('images/hero-poster.jpg')"></span>
+    <span style="background-image:url('images/gonstead-exam.jpg')"></span>
+    <span style="background-image:url('images/chiro-physio-together.jpg')"></span>
+    <span style="background-image:url('images/hero-poster.jpg')"></span>
+    <span style="background-image:url('images/gonstead-exam.jpg')"></span>
+  </div>
+  <div class="journey__scrim"></div>
+  <div class="container">
+    <div class="journey__head">
+      <h2 class="h-section tsplit">Five steps, from listening to lasting.</h2>
+      <p class="reveal" data-d="2">A guided path that reduces uncertainty at every stage, so you always know what comes next.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step__num"><i class="ph ph-ear"></i></div>
+        <h3>Listen</h3><p>We take a full history and understand how pain shapes your day.</p>
+      </div>
+      <div class="step reveal" data-d="1">
+        <div class="step__num"><i class="ph ph-magnifying-glass"></i></div>
+        <h3>Assess</h3><p>Examination, pre-check and weight-bearing x-ray analysis.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <div class="step__num"><i class="ph ph-user-focus"></i></div>
+        <h3>Personalise</h3><p>A treatment plan built around your spine and your goals.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="step__num"><i class="ph ph-hand-heart"></i></div>
+        <h3>Restore</h3><p>Specific adjustments and rehab to restore alignment and integrity.</p>
+      </div>
+      <div class="step reveal" data-d="4">
+        <div class="step__num"><i class="ph ph-shield-check"></i></div>
+        <h3>Maintain</h3><p>Guidance and follow-up so relief holds for the long term.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CREDENTIALS ====================== -->
+<section class="creds" data-progress="Credentials">
+  <div class="container">
+    <p class="k reveal">Credentials &amp; certifications</p>
+    <div class="creds__row">
+      <div class="cred reveal"><i class="ph ph-certificate"></i><b>Gonstead Certified</b><span>Full-spine system</span></div>
+      <div class="cred reveal" data-d="1"><i class="ph ph-leaf"></i><b>TCM Accredited</b><span>Integrative care</span></div>
+      <div class="cred reveal" data-d="2"><i class="ph ph-shield-check"></i><b>Licensed Practice</b><span>Registered clinic</span></div>
+      <div class="cred reveal" data-d="3"><i class="ph ph-scan"></i><b>On-site X-ray</b><span>Weight-bearing analysis</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PET CHIRO ("one more thing") ====================== -->
+<section class="pet" id="pet" data-progress="Animal Chiro">
+  <div class="pet__inner reveal">
+    <div class="pet__copy">
+      <span class="pet__tag">One more thing.</span>
+      <h2 class="tsplit">Now with Animal Chiro.</h2>
+      <p>The same precise, gentle philosophy, for the companions who move beside you. Chiropractic care designed for pets, now at Aligned.</p>
+      <div class="pet__actions">
+        <a href="#book" class="btn btn-primary"><i class="ph ph-paw-print"></i> Explore Animal Chiro</a>
+      </div>
+    </div>
+    <div class="pet__media">
+      <img src="https://picsum.photos/seed/aligned-pet-chiro-dog/900/700" alt="A calm dog receiving gentle chiropractic care" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA (photo background) ====================== -->
+<section class="final" id="book" data-progress="Contact">
+  <div class="final__bg" aria-hidden="true">
+    <img src="images/gonstead-exam.jpg" alt="" loading="lazy" />
+  </div>
+  <div class="final__scrim"></div>
+  <div class="container">
+    <h2 class="tsplit">Your body has carried you this far. <em>Let's help it carry you further.</em></h2>
+    <p class="reveal" data-d="1">Book a comprehensive assessment at Mid Valley and find out exactly what your spine needs.</p>
+    <div class="final__actions reveal" data-d="2">
+      <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+      <a href="tel:+60186625503" class="btn btn-ghost"><i class="ph ph-phone"></i> +6018 662 5503</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="#top"><img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" /></a>
+        <p class="footer__about">A premium chiropractic and movement-recovery clinic at Mid Valley City, Kuala Lumpur, treating the root cause of pain with the Gonstead method.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+          <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="chiropractic.html">Gonstead Chiropractic</a></li>
+          <li><a href="chiropractic.html#conditions">Conditions</a></li>
+          <li><a href="chiropractic.html#gonstead">Gonstead diagnostics</a></li>
+          <li><a href="#stories">Patient stories</a></li>
+          <li><a href="pet-chiro.html">Animal Chiro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clinic</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="news.html">News &amp; Update</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="chiropractic.html#pricing">Pricing</a></li>
+          <li><a href="chiropractic.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <div class="footer__contact">
+          <div><i class="ph ph-map-pin"></i> <span>No 23-8, The Boulevard, Mid Valley City, Lingkaran Syed Putra, 59200 Kuala Lumpur</span></div>
+          <div><i class="ph ph-phone"></i> <span>+6018 662 5503</span></div>
+          <div><i class="ph ph-clock"></i> <span>Mon to Sat, 9am to 7pm</span></div>
+        </div>
+        <a href="#book" class="btn btn-primary" style="margin-top:.4rem"><i class="ph ph-calendar-check"></i> Book now</a>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2026 Aligned Clinic. Helping Malaysia move better.</span>
+      <span>Mid Valley City, Kuala Lumpur, Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile booking -->
+<div class="mobile-book" id="mobileBook">
+  <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Landing bento: welcome overlay, shows on every page load ---------- */
+  var landing = document.getElementById("landing");
+  if(landing){
+    var landingBackdrop = document.getElementById("landingBackdrop");
+    var landingClose = document.getElementById("landingClose");
+    var hideT = null;
+    function onLandingKey(e){ if(e.key === "Escape") closeLanding(); }
+    function closeLanding(){
+      landing.classList.remove("show");
+      document.removeEventListener("keydown", onLandingKey);
+      clearTimeout(hideT);
+      hideT = setTimeout(function(){ landing.hidden = true; }, reduce ? 0 : 500);
+    }
+    function openLanding(){
+      clearTimeout(hideT);
+      landing.hidden = false;
+      requestAnimationFrame(function(){ landing.classList.add("show"); });
+      document.addEventListener("keydown", onLandingKey);
+    }
+    setTimeout(openLanding, 1400);
+    landingClose.addEventListener("click", closeLanding);
+    landingBackdrop.addEventListener("click", closeLanding);
+  }
+
+  /* ---------- Language switcher (EN / 中文) ----------
+     UI + persisted preference only; the actual translated pages/strings
+     land with the multilingual build. The pill shows the language you
+     can switch TO. */
+  var langBtn = document.getElementById("langBtn");
+  if(langBtn){
+    var lang = "en";
+    try{ lang = localStorage.getItem("aligned-lang") || "en"; }catch(err){}
+    function renderLang(){
+      langBtn.innerHTML = '<i class="ph ph-globe"></i> ' + (lang === "en" ? "中文" : "EN");
+      langBtn.setAttribute("aria-label", lang === "en" ? "切换到中文" : "Switch to English");
+      document.documentElement.lang = lang === "en" ? "en" : "zh";
+    }
+    langBtn.addEventListener("click", function(){
+      lang = lang === "en" ? "zh" : "en";
+      try{ localStorage.setItem("aligned-lang", lang); }catch(err){}
+      renderLang();
+    });
+    renderLang();
+  }
+
+  /* ---------- Nav: scroll state + mobile toggle ---------- */
+  var nav = document.getElementById("nav");
+  var navToggle = document.getElementById("navToggle");
+  var navLinks = document.getElementById("navLinks");
+  var heroMedia = document.querySelector(".hero__media");
+  var heroInner = document.querySelector(".hero__inner");
+  var vh = window.innerHeight;
+  window.addEventListener("resize", function(){ vh = window.innerHeight; }, {passive:true});
+
+  // single rAF-batched scroll handler: nav state + hero parallax + page progress
+  var vprogFill = document.getElementById("vprogFill");
+  var ticking = false;
+  function onScrollFrame(){
+    var y = window.scrollY;
+    nav.classList.toggle("scrolled", y > 24);
+    if(!reduce && y < vh){
+      heroMedia.style.transform = "translateY(" + (y * 0.18).toFixed(1) + "px) scale(" + (1 + y * 0.0002).toFixed(4) + ")";
+      heroInner.style.transform = "translateY(" + (y * 0.07).toFixed(1) + "px)";
+      heroInner.style.opacity = Math.max(0, 1 - y / (vh * 0.82)).toFixed(3);
+    }
+    if(vprogFill){
+      var dh = document.documentElement.scrollHeight - vh;
+      vprogFill.style.transform = "scaleY(" + (dh > 0 ? Math.min(1, y / dh) : 0).toFixed(4) + ")";
+    }
+    ticking = false;
+  }
+  onScrollFrame();
+  window.addEventListener("scroll", function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(onScrollFrame); }
+  }, {passive:true});
+  navToggle.addEventListener("click", function(){
+    var open = navLinks.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", open ? "true":"false");
+    navToggle.innerHTML = open ? '<i class="ph ph-x"></i>' : '<i class="ph ph-list"></i>';
+  });
+  navLinks.addEventListener("click", function(e){
+    if(e.target.closest("a")){
+      navLinks.classList.remove("open");
+      navToggle.setAttribute("aria-expanded","false");
+      navToggle.innerHTML = '<i class="ph ph-list"></i>';
+    }
+  });
+
+  /* ---------- Left rail: current-section label (fades between titles) ---------- */
+  var vprogLabel = document.getElementById("vprogLabel");
+  if(vprogLabel && "IntersectionObserver" in window){
+    var labT = null;
+    var labIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var t = en.target.getAttribute("data-progress");
+        if(!t || t === vprogLabel.textContent) return;
+        if(reduce){ vprogLabel.textContent = t; return; }
+        clearTimeout(labT);
+        vprogLabel.classList.add("swap");
+        labT = setTimeout(function(){
+          vprogLabel.textContent = t;
+          vprogLabel.classList.remove("swap");
+        }, 180);
+      });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+    document.querySelectorAll("[data-progress]").forEach(function(s){ labIO.observe(s); });
+  }
+
+  /* ---------- Hero video control ---------- */
+  var vid = document.getElementById("heroVideo");
+  var vidBtn = document.getElementById("vidBtn");
+  vidBtn.addEventListener("click", function(){
+    if(vid.paused){ vid.play(); vidBtn.innerHTML='<i class="ph ph-pause"></i>'; vidBtn.setAttribute("aria-label","Pause background video"); }
+    else { vid.pause(); vidBtn.innerHTML='<i class="ph ph-play"></i>'; vidBtn.setAttribute("aria-label","Play background video"); }
+  });
+
+  /* ---------- Hero stat count-up ---------- */
+  function countUp(el){
+    var raw = el.textContent.trim();
+    var num = parseFloat(raw.replace(/[^0-9.]/g, ""));
+    if(isNaN(num)) return;
+    var dec = raw.indexOf(".") > -1 ? 1 : 0;
+    var comma = raw.indexOf(",") > -1;
+    var suffix = raw.replace(/[0-9.,]/g, "");
+    var start = null, dur = 1700;
+    function tick(t){
+      if(!start) start = t;
+      var p = Math.min((t - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var v = num * eased;
+      var out = dec ? v.toFixed(1) : Math.round(v).toString();
+      if(comma) out = parseInt(out, 10).toLocaleString("en-US");
+      el.textContent = out + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    el.textContent = "0" + suffix;
+    requestAnimationFrame(tick);
+  }
+  if(!reduce){ setTimeout(function(){ document.querySelectorAll(".hero__meta b").forEach(countUp); }, 850); }
+
+  /* ---------- Title reveal: split .tsplit headings into masked words ---------- */
+  function splitTitle(el){
+    var units=[];
+    var base=parseFloat(el.getAttribute("data-tsdelay"))||0;
+    Array.prototype.slice.call(el.childNodes).forEach(function(node){
+      if(node.nodeType===3){
+        var frag=document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function(p){
+          if(!p) return;
+          if(/^\s+$/.test(p)){ frag.appendChild(document.createTextNode(" ")); return; }
+          var m=document.createElement("span"); m.className="tw";
+          var w=document.createElement("span"); w.className="tw__i"; w.textContent=p;
+          m.appendChild(w); frag.appendChild(m); units.push(w);
+        });
+        node.parentNode.replaceChild(frag,node);
+      } else if(node.nodeType===1){
+        /* styled inline elements (em / .alt / .u) slide as one unit, keeping their look */
+        var m2=document.createElement("span"); m2.className="tw";
+        var w2=document.createElement("span"); w2.className="tw__i";
+        node.parentNode.insertBefore(m2,node);
+        w2.appendChild(node); m2.appendChild(w2); units.push(w2);
+      }
+    });
+    units.forEach(function(u,i){ u.style.transitionDelay=(base + i*0.06).toFixed(2)+"s"; });
+  }
+  var titles=document.querySelectorAll(".tsplit");
+  if(!reduce && "IntersectionObserver" in window){
+    titles.forEach(splitTitle);
+    var tIO=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add("ts-in"); tIO.unobserve(e.target); }
+      });
+    },{threshold:.25,rootMargin:"0px 0px -8% 0px"});
+    titles.forEach(function(t){ tIO.observe(t); });
+  } else {
+    titles.forEach(function(t){ t.classList.add("ts-in"); });
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  var reveals = document.querySelectorAll(".reveal");
+  if(reduce){ reveals.forEach(function(el){ el.classList.add("in"); }); }
+  else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {threshold:.14, rootMargin:"0px 0px -8% 0px"});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- Drag-to-scroll for a horizontal track (stories) ---------- */
+  function makeDraggable(track){
+    if(!track) return;
+    var down=false, startX=0, startScroll=0, moved=0;
+    track.addEventListener("pointerdown", function(e){
+      down=true; moved=0; startX=e.pageX; startScroll=track.scrollLeft;
+      track.classList.add("dragging"); track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener("pointermove", function(e){
+      if(!down) return;
+      var dx=e.pageX-startX; moved=Math.max(moved,Math.abs(dx));
+      track.scrollLeft=startScroll-dx;
+    });
+    function end(){ down=false; track.classList.remove("dragging"); }
+    track.addEventListener("pointerup", end);
+    track.addEventListener("pointercancel", end);
+    track.addEventListener("pointerleave", end);
+    // prevent click-through after a real drag
+    track.addEventListener("click", function(e){ if(moved>6){ e.preventDefault(); e.stopPropagation(); } }, true);
+  }
+  makeDraggable(document.getElementById("storyTrack"));
+
+  /* ---------- Self-check: 3D coverflow deck (iPod-style) ----------
+     One continuous float position `cur` eases toward `target`; drag,
+     arrows, card taps and autoplay all move the same value, so the
+     deck never jumps. The bar below shows continuous progress. */
+  var cfStage = document.getElementById("cfStage");
+  if(cfStage){
+    /* s = picsum placeholder seed - swap each for a real condition photo later */
+    var CONDS = [
+      {n:"Slipped Disc",       s:"slipped-disc",   d:"A bulging or herniated disc pressing on nearby nerves, causing pain, numbness or weakness."},
+      {n:"Back Pain",          s:"back-pain",      d:"Lower or mid-back pain from poor posture, strain or spinal misalignment that wears you down."},
+      {n:"Sciatica",           s:"sciatica",       d:"Sharp, radiating pain down the leg from an irritated or compressed sciatic nerve."},
+      {n:"Neck Pain",          s:"neck-pain",      d:"Stiffness and ache from tech-neck, tension or restricted joints in the upper spine."},
+      {n:"Headache & Migraine",s:"migraine",       d:"Recurring head pain often rooted in upper-neck tension and spinal misalignment."},
+      {n:"Whiplash",           s:"whiplash",       d:"Neck strain after a sudden impact, leaving lingering stiffness, pain and headaches."},
+      {n:"Shoulder Pain",      s:"shoulder-pain",  d:"Restricted, aching shoulders from posture, overuse or underlying joint dysfunction."},
+      {n:"Tennis Elbow",       s:"tennis-elbow",   d:"Painful, inflamed tendons on the outer elbow from repetitive gripping and strain."},
+      {n:"Carpal Tunnel",      s:"carpal-tunnel",  d:"Tingling, numbness and weakness in the hand from a compressed nerve at the wrist."},
+      {n:"Hip Pain",           s:"hip-pain",       d:"Stiffness or pain in the hip that quietly limits how freely you move and walk."},
+      {n:"Knee Pain",          s:"knee-pain",      d:"Aching or unstable knees from alignment issues, overuse or an old injury."},
+      {n:"Sports Injury",      s:"sports-injury",  d:"Strains, sprains and overuse injuries that keep you off the field or out of training."},
+      {n:"Scoliosis",          s:"scoliosis",      d:"A sideways curve of the spine that we assess, monitor and help you manage."},
+      {n:"Posture Correction", s:"posture",        d:"Retraining rounded shoulders and a forward head back into healthy alignment."},
+      {n:"Pregnancy",          s:"pregnancy",      d:"Gentle, safe care for back and pelvic comfort through every trimester."},
+      {n:"Paediatric",         s:"paediatric",     d:"Gentle assessments and care tailored to growing spines and developing posture."}
+    ];
+    var scNum=document.getElementById("scNum");
+    var scTotal=document.getElementById("scTotal");
+    var cfFill=document.getElementById("cfFill");
+    var scPrev=document.getElementById("scPrev");
+    var scNext=document.getElementById("scNext");
+    var scWrap=document.querySelector(".selfcheck");
+    var N=CONDS.length;
+    var cur=0, target=0, raf=null, timer=null, paused=false, autoDir=1;
+    var dragging=false, startX=0, startCur=0, moved=0, lastX=0, lastT=0, vel=0;
+
+    scTotal.textContent = N;
+
+    // build the deck
+    CONDS.forEach(function(c,i){
+      var card=document.createElement("article");
+      card.className="cf-card";
+      card.innerHTML=
+        '<div class="cf-card__media">'+
+          '<img src="https://picsum.photos/seed/aligned-'+c.s+'/640/420" alt="'+c.n+'" loading="lazy" />'+
+          '<span class="cf-card__n">'+("0"+(i+1)).slice(-2)+'</span>'+
+        '</div>'+
+        '<div class="cf-card__body"><h3>'+c.n+'</h3><p>'+c.d+'</p></div>';
+      card.addEventListener("click", function(e){
+        if(moved>8){ e.preventDefault(); e.stopPropagation(); return; } // drag, not a tap
+        if(Math.round(cur)!==i){ e.preventDefault(); goTo(i); kick(); }
+      });
+      cfStage.appendChild(card);
+    });
+    var cards=cfStage.querySelectorAll(".cf-card");
+
+    function spacing(){
+      var w=cfStage.clientWidth||1000;
+      return Math.min(340, Math.max(210, w*0.3));
+    }
+    function render(){
+      var sp=spacing();
+      var i, card, d, ad, rot, z, s, op, bl;
+      for(i=0;i<N;i++){
+        card=cards[i]; d=i-cur; ad=Math.abs(d);
+        if(ad>3.4){ card.style.opacity="0"; card.style.visibility="hidden"; card.setAttribute("aria-hidden","true"); continue; }
+        card.style.visibility="visible";
+        rot=reduce?0:(-Math.max(-1,Math.min(1,d))*42);
+        z=-ad*170 + (ad<1 ? (1-ad)*70 : 0);
+        s=1-Math.min(ad*.05,.18);
+        op=ad<1?1:Math.max(.2,1-(ad-1)*.38);
+        bl=reduce?0:Math.min(Math.max(0,ad-.45)*1.8,3.2);
+        card.style.transform="translate(-50%,-50%) translateX("+(d*sp).toFixed(1)+"px) translateZ("+z.toFixed(1)+"px) rotateY("+rot.toFixed(2)+"deg) scale("+s.toFixed(3)+")";
+        card.style.opacity=op.toFixed(3);
+        card.style.filter=bl>0.05?"blur("+bl.toFixed(2)+"px)":"none";
+        card.style.zIndex=String(200-Math.round(ad*10));
+        card.setAttribute("aria-hidden", Math.round(cur)===i?"false":"true");
+      }
+      var idx=Math.max(0,Math.min(N-1,Math.round(cur)));
+      scNum.textContent=("0"+(idx+1)).slice(-2);
+      cfFill.style.transform="scaleX("+(N>1?(Math.max(0,Math.min(N-1,cur))/(N-1)).toFixed(4):1)+")";
+    }
+    function loop(){
+      var d=target-cur;
+      if(!dragging && Math.abs(d)<.002){ cur=target; render(); raf=null; return; }
+      if(!dragging){ cur+=d*(reduce?1:.14); }
+      render();
+      raf=requestAnimationFrame(loop);
+    }
+    function startLoop(){ if(!raf) raf=requestAnimationFrame(loop); }
+    function goTo(i){ target=Math.max(0,Math.min(N-1,i)); startLoop(); }
+    function play(){ if(reduce) return; stop();
+      timer=setInterval(function(){
+        if(paused||dragging) return;
+        var nx=Math.round(target)+autoDir;
+        if(nx>=N||nx<0){ autoDir*=-1; nx=Math.round(target)+autoDir; }
+        goTo(nx);
+      }, 3800);
+    }
+    function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+    function kick(){ stop(); play(); }
+
+    /* drag: cur follows the pointer 1:1 (in card-widths), release snaps
+       to the nearest card with a small velocity fling */
+    cfStage.addEventListener("pointerdown", function(e){
+      dragging=true; moved=0; startX=e.clientX; startCur=cur;
+      lastX=e.clientX; lastT=e.timeStamp; vel=0;
+      cfStage.classList.add("dragging");
+      cfStage.setPointerCapture(e.pointerId);
+      paused=true;
+    });
+    cfStage.addEventListener("pointermove", function(e){
+      if(!dragging) return;
+      var dx=e.clientX-startX;
+      moved=Math.max(moved,Math.abs(dx));
+      cur=Math.max(-.35, Math.min(N-1+.35, startCur-dx/spacing()));
+      var dt=e.timeStamp-lastT;
+      if(dt>0){ vel=(e.clientX-lastX)/dt; lastX=e.clientX; lastT=e.timeStamp; }
+      render();
+    });
+    function endDrag(){
+      if(!dragging) return;
+      dragging=false; cfStage.classList.remove("dragging");
+      target=Math.round(Math.max(0,Math.min(N-1, cur - vel*200/spacing())));
+      paused=false; kick(); startLoop();
+    }
+    cfStage.addEventListener("pointerup", endDrag);
+    cfStage.addEventListener("pointercancel", endDrag);
+
+    scPrev.addEventListener("click", function(){ goTo(Math.round(target)-1); kick(); });
+    scNext.addEventListener("click", function(){ goTo(Math.round(target)+1); kick(); });
+
+    if(scWrap){
+      scWrap.addEventListener("mouseenter", function(){ paused=true; });
+      scWrap.addEventListener("mouseleave", function(){ if(!dragging) paused=false; });
+      scWrap.addEventListener("focusin", function(){ paused=true; });
+      scWrap.addEventListener("focusout", function(){ paused=false; });
+    }
+    document.addEventListener("visibilitychange", function(){ paused = document.hidden; });
+    window.addEventListener("resize", render, {passive:true});
+
+    render();
+    play();
+  }
+
+  /* ---------- Gonstead: 5 tiles, hover swaps background, auto-rotates when idle ---------- */
+  var gonTiles=document.getElementById("gonTiles");
+  if(gonTiles){
+    var gtItems=gonTiles.querySelectorAll(".gon-tile");
+    var gonLayers=document.querySelectorAll(".gonstead__layer");
+    var gonIdx=0, gonTimer=null, gonPaused=false;
+    function gonShow(i){
+      gonIdx=i;
+      gtItems.forEach(function(t,n){ t.classList.toggle("active", n===i); });
+      gonLayers.forEach(function(l,n){ l.classList.toggle("active", n===i); });
+    }
+    function gonNext(){ gonShow((gonIdx+1) % gtItems.length); }
+    function gonPlay(){ if(reduce) return; gonStop(); gonTimer=setInterval(function(){ if(!gonPaused) gonNext(); }, 3200); }
+    function gonStop(){ if(gonTimer){ clearInterval(gonTimer); gonTimer=null; } }
+    gtItems.forEach(function(t,i){
+      t.addEventListener("mouseenter", function(){ gonPaused=true; gonShow(i); });
+      t.addEventListener("mouseleave", function(){ gonPaused=false; });
+      t.addEventListener("focus", function(){ gonPaused=true; gonShow(i); });
+      t.addEventListener("blur", function(){ gonPaused=false; });
+      t.addEventListener("click", function(){ gonShow(i); });
+    });
+    document.addEventListener("visibilitychange", function(){ gonPaused = document.hidden; });
+    gonShow(0);
+    gonPlay();
+  }
+
+  /* ---------- Sticky mobile book button (hide near final CTA / footer) ---------- */
+  var mobileBook=document.getElementById("mobileBook");
+  var finalCta=document.getElementById("book");
+  var heroEl=document.querySelector(".hero");
+  if(mobileBook && "IntersectionObserver" in window){
+    // show after hero scrolls away
+    var heroIO=new IntersectionObserver(function(es){
+      es.forEach(function(e){ mobileBook.classList.toggle("show", !e.isIntersecting); });
+    },{threshold:.2});
+    heroIO.observe(heroEl);
+    // hide again when final CTA visible
+    var ctaIO=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) mobileBook.classList.remove("show"); });
+    },{threshold:.3});
+    ctaIO.observe(finalCta);
+  }
+})();
+</script>
+</body>
+</html>

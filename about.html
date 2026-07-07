@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us | Aligned — A New Definition of Health</title>
+<meta name="description" content="Meet Dr Daniel Tan and the story behind Aligned — a Gonstead chiropractic clinic at Mid Valley City, Kuala Lumpur, built on precision, patient education and long-term recovery." />
+<meta name="theme-color" content="#1B1D1E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EABF7F'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='18' fill='%231B1D1E' text-anchor='middle' font-weight='700'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="assets/site.css" />
+
+<style>
+/* ---------- page: about (editorial) ---------- */
+.sec{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.sec--cloud{background:var(--cloud)}
+.sec__head{max-width:62ch;margin-bottom:clamp(2.2rem,4.5vw,3.2rem)}
+.sec__head .h-section{margin-top:1rem}
+.sec__head--center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* editorial hero: big type on cloud, no photo */
+.ahero{padding:calc(var(--nav-h) + clamp(4rem,10vw,7rem)) 0 clamp(3.5rem,8vw,6rem);background:var(--cloud)}
+.ahero h1{font-size:clamp(2.6rem,1.8rem + 5.4vw,5.4rem);font-weight:800;letter-spacing:-.03em;
+  max-width:18ch;line-height:1.02;margin-top:1.1rem}
+.ahero h1 em{color:var(--gold-deep);font-style:italic}
+.ahero__sub{max-width:56ch;margin-top:1.5rem;font-size:clamp(1.05rem,1rem + .4vw,1.25rem);color:var(--slate)}
+
+/* belief split */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.split__media{position:relative;border-radius:var(--r-media);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
+.split__media img{width:100%;height:100%;object-fit:cover}
+.split__body{display:grid;gap:1.1rem;max-width:54ch;margin-top:1.5rem}
+.split__sig{margin-top:1.6rem;display:flex;align-items:center;gap:.9rem;font-weight:700}
+.split__sig i{font-size:1.5rem;color:var(--gold-deep)}
+@media (max-width:820px){.split{grid-template-columns:1fr;gap:2.2rem}.split__media{aspect-ratio:16/11;order:-1}}
+
+/* timeline */
+.tl{position:relative;max-width:760px;margin:0 auto;padding-left:2.2rem}
+.tl::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;
+  background:repeating-linear-gradient(0deg,rgba(234,191,127,.7) 0 10px,transparent 10px 18px)}
+.tl__item{position:relative;padding:0 0 2.2rem}
+.tl__item:last-child{padding-bottom:0}
+.tl__item::before{content:"";position:absolute;left:-2.2rem;top:6px;width:22px;height:22px;border-radius:999px;
+  background:var(--marmalade);border:4px solid var(--white);box-shadow:var(--shadow-sm)}
+.tl__year{font-size:.8rem;font-weight:800;letter-spacing:.14em;color:var(--gold-deep);text-transform:uppercase}
+.tl__item h3{font-size:1.25rem;margin:.3rem 0 .35rem}
+.tl__item p{font-size:.95rem;color:var(--slate);max-width:52ch}
+
+/* doctor profile */
+.profile{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.profile__media{position:relative;border-radius:var(--r-media);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
+.profile__media img{width:100%;height:100%;object-fit:cover}
+.profile__role{color:var(--gold-deep);font-weight:700;margin:.4rem 0 1.1rem}
+.profile__body{display:grid;gap:1rem;max-width:56ch}
+.profile__creds{display:grid;gap:.7rem;margin-top:1.4rem}
+.profile__creds li{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem;line-height:1.5}
+.profile__creds i{color:var(--gold-deep);font-size:1.25rem;margin-top:2px;flex:0 0 auto}
+.profile__quote{margin-top:1.6rem;padding:1.2rem 1.4rem;border-left:3px solid var(--marmalade);
+  background:var(--cloud);border-radius:0 16px 16px 0;font-weight:600;font-style:italic}
+@media (max-width:820px){.profile{grid-template-columns:1fr}.profile__media{aspect-ratio:4/4.4;max-width:440px}}
+
+/* gallery */
+.gal{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.4rem .4rem 1.2rem;
+  margin:0 -.4rem;scrollbar-width:none;cursor:grab}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{margin:0;flex:0 0 min(74vw,420px);scroll-snap-align:start;border-radius:var(--r-media);
+  overflow:hidden;position:relative;box-shadow:var(--shadow-sm)}
+.gal img{width:100%;height:300px;object-fit:cover;transition:transform .6s var(--ease)}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:2rem 1.2rem .9rem;color:var(--white);
+  font-size:.88rem;font-weight:600;background:linear-gradient(0deg,rgba(27,29,30,.85),transparent)}
+
+/* creds strip */
+.creds__row{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1.4rem,4vw,3.4rem);margin-top:1.8rem;align-items:flex-start}
+.cred{display:flex;flex-direction:column;align-items:center;gap:.5rem;max-width:170px;text-align:center}
+.cred i{font-size:2rem;color:var(--gold-deep)}
+.cred b{font-size:.98rem}
+.cred span{font-size:.78rem;color:var(--slate)}
+
+/* visit block */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2rem);align-items:stretch}
+.visit__card{background:var(--white);border:1px solid var(--cloud-deep);border-radius:var(--r-card);
+  padding:clamp(1.8rem,3vw,2.4rem)}
+.visit__card h3{font-size:1.3rem;margin-bottom:1.2rem}
+.visit__row{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1rem;font-size:.97rem}
+.visit__row i{color:var(--gold-deep);font-size:1.3rem;margin-top:2px;flex:0 0 auto}
+.visit__map{border-radius:var(--r-card);overflow:hidden;position:relative;min-height:320px;
+  background:var(--ink);box-shadow:var(--shadow-sm)}
+.visit__map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
+.visit__map a{position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.4rem;color:var(--white);
+  background:linear-gradient(0deg,rgba(27,29,30,.8),transparent 55%);font-weight:700}
+.visit__map a span{display:inline-flex;align-items:center;gap:.5rem}
+@media (max-width:820px){.visit{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="Aligned home">
+      <img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" />
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="chiropractic.html">Gonstead</a></li>
+      <li><a href="pet-chiro.html">Animal Chiro</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="news.html">News &amp; Update</a></li>
+      <li><a href="shop.html">Shop</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#book" class="btn btn-primary">Book Assessment</a>
+      <button class="nav__lang" id="langBtn" aria-label="Switch language"><i class="ph ph-globe"></i> 中文</button>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ====================== EDITORIAL HERO ====================== -->
+<header class="ahero">
+  <div class="container">
+    <h1 class="tsplit" data-tsdelay=".2">We started with one question: <em>why does the pain keep coming back?</em></h1>
+    <p class="ahero__sub reveal" data-d="2">Aligned was built for the patients who had tried everything temporary — massages that faded, painkillers that wore off, generic care that never asked why. Our answer is the Gonstead system: find the cause, correct it precisely, and teach you how to keep it corrected.</p>
+  </div>
+</header>
+
+<!-- ====================== BELIEF ====================== -->
+<section class="sec">
+  <div class="container split">
+    <div>
+      <h2 class="h-section tsplit">Movement is <em style="color:var(--gold-deep)">freedom.</em></h2>
+      <div class="split__body reveal" data-d="1">
+        <p>Health is not the absence of symptoms — it is a body that moves the way it was designed to. That is the "new definition of health" in our name.</p>
+        <p>So we do not chase pain around your body. We examine the spine as a system, correct the segments that have stopped doing their job, and rebuild the strength that keeps them working. Care delivered with compassion, excellence and the professionalism you deserve.</p>
+      </div>
+      <div class="split__sig reveal" data-d="2"><i class="ph ph-quotes"></i> Relief should not be temporary.</div>
+    </div>
+    <div class="split__media reveal" data-d="1">
+      <img src="https://picsum.photos/seed/aligned-freedom-walk/900/1125" alt="A patient moving freely and pain-free outdoors" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TIMELINE ====================== -->
+<section class="sec sec--cloud">
+  <div class="container">
+    <div class="sec__head sec__head--center">
+      <h2 class="h-section tsplit">Small clinic. Stubborn standards.</h2>
+    </div>
+    <div class="tl">
+      <div class="tl__item reveal"><span class="tl__year">The beginning</span><h3>Trained in the Gonstead system</h3><p>Years of study under the full-spine Gonstead discipline — precision diagnostics before any adjustment, every time.</p></div>
+      <div class="tl__item reveal" data-d="1"><span class="tl__year">Founding</span><h3>Aligned opens its doors</h3><p>A clinic built around one promise: patients leave understanding their own spine, not just feeling briefly better.</p></div>
+      <div class="tl__item reveal" data-d="2"><span class="tl__year">Growth</span><h3>On-site X-ray &amp; rehab care</h3><p>Weight-bearing X-ray analysis and movement rehab brought under one roof, so nothing about your care is guesswork.</p></div>
+      <div class="tl__item reveal" data-d="3"><span class="tl__year">Today</span><h3>Animal Chiro joins the family</h3><p>The same gentle philosophy, extended to the dogs and cats who move beside us — no referral needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== DOCTOR PROFILE ====================== -->
+<section class="sec" id="doctor">
+  <div class="container profile">
+    <div class="profile__media reveal">
+      <!-- Replace with Dr Daniel's real portrait -->
+      <img src="https://picsum.photos/seed/aligned-dr-daniel-portrait/500/700" alt="Portrait of Dr Daniel Tan" loading="lazy" />
+    </div>
+    <div>
+      <h2 class="h-section tsplit">Dr Daniel Tan</h2>
+      <p class="profile__role reveal" data-d="1">Chiropractor &middot; Gonstead System</p>
+      <div class="profile__body reveal" data-d="1">
+        <p>Daniel believes recovery is a partnership. His consultations are famously unhurried — because a patient who understands their spine makes better decisions for it, long after they leave the clinic.</p>
+        <p>He built Aligned around patient education and the kind of careful, full-spine work that holds up over years, not weeks. When he is not adjusting spines, he is probably explaining one — with the X-ray on the screen and a model vertebra in hand.</p>
+      </div>
+      <ul class="profile__creds reveal" data-d="2">
+        <li><i class="ph ph-certificate"></i> Registered, Gonstead Chiropractic Society (Australia)</li>
+        <li><i class="ph ph-certificate"></i> Member, Association of Chiropractic Malaysia</li>
+        <li><i class="ph ph-crosshair-simple"></i> Focus: full-spine Gonstead, sports recovery, posture</li>
+        <li><i class="ph ph-paw-print"></i> Also leads our Animal Chiro care for dogs &amp; cats</li>
+      </ul>
+      <div class="profile__quote reveal" data-d="3">"If I can't explain why it hurts, I haven't finished examining."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CLINIC GALLERY ====================== -->
+<section class="sec sec--cloud">
+  <div class="container">
+    <div class="sec__head">
+      <h2 class="h-section tsplit">Come see where the work happens.</h2>
+      <p class="lede reveal" data-d="1">Bright, calm and built for care — swipe through, or better, drop by.</p>
+    </div>
+    <div class="gal reveal" data-d="1">
+      <figure><img src="https://picsum.photos/seed/aligned-clinic-front/840/600" alt="Aligned clinic reception" loading="lazy" /><figcaption>Reception &mdash; The Boulevard, Mid Valley</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/aligned-clinic-adjust/840/600" alt="Adjustment room" loading="lazy" /><figcaption>Adjustment rooms</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/aligned-clinic-xray/840/600" alt="X-ray suite" loading="lazy" /><figcaption>On-site X-ray suite</figcaption></figure>
+      <figure><img src="https://picsum.photos/seed/aligned-clinic-rehab/840/600" alt="Rehab corner" loading="lazy" /><figcaption>Rehab &amp; movement corner</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CREDENTIALS ====================== -->
+<section class="sec" style="text-align:center;padding-top:clamp(3rem,6vw,4.5rem);padding-bottom:clamp(3rem,6vw,4.5rem)">
+  <div class="container">
+    <div class="creds__row">
+      <div class="cred reveal"><i class="ph ph-certificate"></i><b>Gonstead Certified</b><span>Full-spine system</span></div>
+      <div class="cred reveal" data-d="1"><i class="ph ph-globe-hemisphere-east"></i><b>GCS Australia</b><span>Registered member</span></div>
+      <div class="cred reveal" data-d="2"><i class="ph ph-shield-check"></i><b>ACM Member</b><span>Association of Chiropractic Malaysia</span></div>
+      <div class="cred reveal" data-d="3"><i class="ph ph-scan"></i><b>On-site X-ray</b><span>Weight-bearing analysis</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== VISIT US ====================== -->
+<section class="sec sec--cloud" id="visit">
+  <div class="container">
+    <div class="sec__head">
+      <h2 class="h-section tsplit">Right in Mid Valley City.</h2>
+    </div>
+    <div class="visit">
+      <div class="visit__card reveal">
+        <h3>Aligned Clinic</h3>
+        <div class="visit__row"><i class="ph ph-map-pin"></i><span>No 23-8, The Boulevard, Mid Valley City,<br />Lingkaran Syed Putra, 59200 Kuala Lumpur</span></div>
+        <div class="visit__row"><i class="ph ph-phone"></i><span>+6018 662 5503</span></div>
+        <div class="visit__row"><i class="ph ph-clock"></i><span>Mon to Sat, 9am to 7pm</span></div>
+        <div class="visit__row"><i class="ph ph-car"></i><span>Parking at The Boulevard / Mid Valley Megamall, a short covered walk away</span></div>
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem">
+          <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="ph ph-whatsapp-logo"></i> WhatsApp Us</a>
+          <a href="tel:+60186625503" class="btn btn-ghost"><i class="ph ph-phone"></i> Call</a>
+        </div>
+      </div>
+      <div class="visit__map reveal" data-d="1">
+        <img src="https://picsum.photos/seed/aligned-map-midvalley/900/620" alt="" loading="lazy" />
+        <a href="https://maps.google.com/?q=The+Boulevard+Mid+Valley+City+Kuala+Lumpur" target="_blank" rel="noopener"><span><i class="ph ph-map-trifold"></i> Open in Google Maps</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section class="final" id="book">
+  <div class="final__bg" aria-hidden="true"><img src="images/gonstead-exam.jpg" alt="" loading="lazy" /></div>
+  <div class="final__scrim"></div>
+  <div class="container">
+    <h2 class="tsplit">Now you know us. <em>Let us get to know your spine.</em></h2>
+    <p class="reveal" data-d="1">Book a first assessment with Dr Daniel — 60 to 90 minutes, plain-language answers.</p>
+    <div class="final__actions reveal" data-d="2">
+      <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+      <a href="tel:+60186625503" class="btn btn-ghost"><i class="ph ph-phone"></i> +6018 662 5503</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" /></a>
+        <p class="footer__about">A premium chiropractic and movement-recovery clinic at Mid Valley City, Kuala Lumpur, treating the root cause of pain with the Gonstead method.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="https://wa.me/60186625503" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+          <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="chiropractic.html">Gonstead Chiropractic</a></li>
+          <li><a href="chiropractic.html#conditions">Conditions</a></li>
+          <li><a href="chiropractic.html#gonstead">Gonstead diagnostics</a></li>
+          <li><a href="pet-chiro.html">Animal Chiro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clinic</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="news.html">News &amp; Update</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="chiropractic.html#pricing">Pricing</a></li>
+          <li><a href="chiropractic.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <div class="footer__contact">
+          <div><i class="ph ph-map-pin"></i> <span>No 23-8, The Boulevard, Mid Valley City, Lingkaran Syed Putra, 59200 Kuala Lumpur</span></div>
+          <div><i class="ph ph-phone"></i> <span>+6018 662 5503</span></div>
+          <div><i class="ph ph-clock"></i> <span>Mon to Sat, 9am to 7pm</span></div>
+        </div>
+        <a href="#book" class="btn btn-primary" style="margin-top:.4rem"><i class="ph ph-calendar-check"></i> Book now</a>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2026 Aligned Clinic. Helping Malaysia move better.</span>
+      <span>Mid Valley City, Kuala Lumpur, Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile booking -->
+<div class="mobile-book" id="mobileBook">
+  <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

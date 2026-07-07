@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gonstead Chiropractic in Kuala Lumpur | Aligned — Mid Valley KL</title>
+<meta name="description" content="The Gonstead method: engineered precision for slipped disc, back pain, sciatica and neck pain. Five diagnostic criteria, on-site X-ray, transparent pricing at Mid Valley, Kuala Lumpur." />
+<meta name="theme-color" content="#1B1D1E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EABF7F'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='18' fill='%231B1D1E' text-anchor='middle' font-weight='700'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="assets/site.css" />
+
+<style>
+/* ---------- page: chiropractic ---------- */
+.sec{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.sec--cloud{background:var(--cloud)}
+.sec__head{max-width:62ch;margin-bottom:clamp(2.2rem,4.5vw,3.2rem)}
+.sec__head .h-section{margin-top:1rem}
+.sec__head p{margin-top:1.1rem}
+.sec__head--center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* conditions grid */
+.cond-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.cond{position:relative;border-radius:18px;overflow:hidden;min-height:210px;display:flex;
+  align-items:flex-end;background:var(--ink);box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.cond:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.cond img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.85);transition:transform .6s var(--ease)}
+.cond:hover img{transform:scale(1.06)}
+.cond::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(27,29,30,.94) 0%,rgba(27,29,30,.45) 46%,rgba(27,29,30,.05) 100%)}
+.cond__body{position:relative;z-index:2;padding:1.1rem 1.2rem}
+.cond h3{color:var(--white);font-size:1.12rem;margin-bottom:.3rem}
+.cond p{color:rgba(242,242,242,.78);font-size:.83rem;line-height:1.45}
+
+/* gonstead 5 checks */
+.gsteps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.gstep{background:var(--white);border:1px solid var(--cloud-deep);border-radius:18px;
+  padding:1.5rem 1.3rem;display:flex;flex-direction:column;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.gstep:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.gstep__n{font-weight:800;color:var(--gold-deep);font-size:1rem}
+.gstep__icn{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(234,191,127,.16);color:var(--gold-deep);font-size:1.4rem;margin:1rem 0 .9rem}
+.gstep h3{font-size:1.1rem;margin-bottom:.45rem}
+.gstep p{font-size:.85rem;color:var(--slate);line-height:1.5}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;align-items:stretch}
+.price{background:var(--white);border:1px solid var(--cloud-deep);border-radius:var(--r-card);
+  padding:clamp(1.8rem,3vw,2.4rem);display:flex;flex-direction:column;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.price:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.price--hi{background:var(--ink);color:var(--cloud);border-color:var(--ink)}
+.price--hi h3{color:var(--white)}
+.price__k{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.price--hi .price__k{color:var(--marmalade)}
+.price h3{font-size:1.3rem;margin:.5rem 0 .2rem}
+.price__amt{font-size:clamp(1.9rem,1.5rem + 1.4vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin:.6rem 0 .2rem}
+.price__amt small{font-size:.55em;font-weight:700;color:var(--slate)}
+.price--hi .price__amt small{color:rgba(242,242,242,.6)}
+.price__per{font-size:.85rem;color:var(--slate);margin-bottom:1.2rem}
+.price--hi .price__per{color:rgba(242,242,242,.6)}
+.price ul{display:grid;gap:.55rem;margin-bottom:1.6rem}
+.price li{display:flex;gap:.6rem;font-size:.92rem;align-items:flex-start;line-height:1.45}
+.price li i{color:var(--gold-deep);margin-top:3px;flex:0 0 auto}
+.price--hi li i{color:var(--marmalade)}
+.price .btn{margin-top:auto;justify-content:center}
+.price__foot{text-align:center;margin-top:1.8rem;font-size:.9rem;color:var(--slate)}
+.price__foot i{color:var(--gold-deep);vertical-align:-2px}
+
+/* why aligned */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+  background:var(--cloud);border-radius:var(--r-card);border:1px solid var(--cloud-deep);
+  padding:clamp(1.6rem,3vw,2.2rem)}
+.why-grid li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.3rem}
+.why__icn{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;
+  background:rgba(234,191,127,.16);color:var(--gold-deep);font-size:1.5rem;margin-bottom:.4rem}
+.why-grid b{font-size:1rem}
+.why-grid li>span:last-child{font-size:.82rem;color:var(--slate)}
+
+/* doctor snippet */
+.doc{background:var(--cloud);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);
+  display:grid;grid-template-columns:38% 1fr;border:1px solid rgba(234,191,127,.12);
+  max-width:820px;margin:0 auto}
+.doc__photo img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.doc__body{padding:1.8rem 1.8rem 2rem}
+.doc__body h3{font-size:1.45rem}
+.doc__role{color:var(--gold-deep);font-weight:700;font-size:.92rem;margin:.3rem 0 .9rem}
+.doc__body p{font-size:.95rem}
+@media (max-width:640px){.doc{grid-template-columns:1fr}}
+
+/* =====================================================================
+   FOUNDER HERO  (full-viewport, archival duotone photo, ink scrim left,
+   stats row — the Dr. Gonstead story)
+   ===================================================================== */
+.fhero{position:relative;min-height:92vh;display:flex;align-items:flex-end;
+  padding:calc(var(--nav-h) + 2.5rem) 0 clamp(2.5rem,6vw,4.5rem);overflow:hidden;background:var(--ink)}
+.fhero__media{position:absolute;inset:0;z-index:0}
+.fhero__media img{width:100%;height:100%;object-fit:cover;filter:sepia(.32) saturate(.78) contrast(1.02)}
+.fhero__scrim{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(98deg, rgba(27,29,30,.95) 0%, rgba(27,29,30,.84) 38%, rgba(27,29,30,.5) 66%, rgba(27,29,30,.14) 92%),
+  linear-gradient(0deg, rgba(27,29,30,.85) 0%, rgba(27,29,30,0) 46%)}
+.fhero .container{position:relative;z-index:2}
+.fhero h1{color:var(--white);font-size:clamp(2.5rem,1.9rem + 4.4vw,4.9rem);font-weight:800;
+  max-width:16ch;margin:.9rem 0 0;letter-spacing:-.03em}
+.fhero h1 .alt{color:var(--marmalade);font-style:italic;font-weight:700}
+.fhero__sub{color:rgba(255,255,255,.87);max-width:58ch;margin:1.3rem 0 0;
+  font-size:clamp(1.02rem,1rem + .4vw,1.2rem);line-height:1.6}
+.fhero__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.9rem}
+@media (max-width:600px){
+  .fhero{padding-top:calc(var(--nav-h) + 4.5rem)}
+}
+
+/* founder quote strip (thin ink band under the hero) */
+.quote{background:var(--ink);color:var(--cloud);padding:clamp(2.2rem,4.5vw,3.2rem) 0;
+  border-top:1px solid rgba(255,255,255,.08)}
+.quote blockquote{margin:0 auto;max-width:56ch;text-align:center;
+  font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-style:italic;
+  font-size:clamp(1.15rem,1rem + 1vw,1.55rem);line-height:1.45;color:var(--white)}
+.quote cite{display:block;margin-top:1rem;font-style:normal;font-size:.82rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--marmalade);font-weight:700}
+
+/* =====================================================================
+   SCRUB  ("The method, frame by frame": pinned video scrubbed by scroll,
+   3 panels alternating in from left/right.
+   Base state = static stack (no JS / reduced motion / save-data / video
+   failure). JS adds .scrub--on to switch to the pinned 300vh layout.
+   Production video must be all-keyframe:
+   ffmpeg -i raw.mp4 -vf "scale=1600:-2" -an -g 1 -keyint_min 1 \
+     -pix_fmt yuv420p -crf 24 -movflags +faststart images/gonstead-scrub.mp4
+   ===================================================================== */
+/* NOTE: no overflow on .scrub — overflow:hidden on the wrapper kills the
+   sticky stage. Clipping lives on the stage instead. */
+.scrub{position:relative;background:var(--ink);color:var(--cloud)}
+.scrub__stage{position:relative;padding:clamp(4.5rem,9vw,7rem) 0;overflow:hidden}
+.scrub__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scrub__scrim{position:absolute;inset:0;background:rgba(27,29,30,.84)}
+.scrub__panels{position:relative;z-index:2;display:grid;gap:clamp(3rem,7vw,5rem);
+  max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+.scrub__panel{max-width:520px}
+.scrub__panel[data-side="right"]{margin-left:auto}
+.scrub__panel h3{color:var(--white);font-size:clamp(1.8rem,1.3rem + 2.4vw,3rem);
+  margin:0;letter-spacing:-.02em;line-height:1.05}
+.scrub__panel p{color:rgba(242,242,242,.86);margin-top:1rem;font-size:1.05rem;line-height:1.6;max-width:44ch}
+.scrub__cta{margin-top:1.6rem}
+.scrub__dots{display:none}
+/* enhanced: pinned stage, absolute panels driven by scroll progress */
+.scrub--on{height:300vh}
+.scrub--on .scrub__stage{position:sticky;top:0;height:100vh;padding:0}
+.scrub--on .scrub__scrim{background:
+  linear-gradient(90deg, rgba(27,29,30,.86) 0%, rgba(27,29,30,.3) 42%, rgba(27,29,30,.3) 58%, rgba(27,29,30,.86) 100%),
+  linear-gradient(0deg, rgba(27,29,30,.6) 0%, rgba(27,29,30,.1) 30%, rgba(27,29,30,.1) 72%, rgba(27,29,30,.5) 100%)}
+.scrub--on .scrub__panels{position:static;padding:0}
+.scrub--on .scrub__panel{position:absolute;top:50%;z-index:2;max-width:min(480px,84vw);
+  opacity:0;pointer-events:none;will-change:transform,opacity;
+  transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.scrub--on .scrub__panel[data-side="left"]{left:clamp(1.25rem,7vw,6rem);margin:0;
+  transform:translate(-64px,-50%)}
+.scrub--on .scrub__panel[data-side="right"]{right:clamp(1.25rem,7vw,6rem);left:auto;margin:0;
+  transform:translate(64px,-50%)}
+.scrub--on .scrub__panel.active{opacity:1;transform:translate(0,-50%);pointer-events:auto}
+.scrub--on .scrub__dots{position:absolute;left:50%;bottom:2rem;transform:translateX(-50%);
+  display:flex;gap:.5rem;z-index:3}
+.scrub--on .scrub__dots span{width:26px;height:4px;border-radius:4px;
+  background:rgba(242,242,242,.28);transition:background .3s}
+.scrub--on .scrub__dots span.on{background:var(--marmalade)}
+
+@media (max-width:1020px){.cond-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:860px){
+  .gsteps{grid-template-columns:1fr 1fr}
+  .price-grid{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .cond-grid{grid-template-columns:1fr 1fr}
+  .gsteps{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr;gap:1.4rem 1rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="Aligned home">
+      <img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" />
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="chiropractic.html" class="active">Gonstead</a></li>
+      <li><a href="pet-chiro.html">Animal Chiro</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="news.html">News &amp; Update</a></li>
+      <li><a href="shop.html">Shop</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#book" class="btn btn-primary">Book Assessment</a>
+      <button class="nav__lang" id="langBtn" aria-label="Switch language"><i class="ph ph-globe"></i> 中文</button>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ====================== FOUNDER HERO ====================== -->
+<header class="fhero">
+  <div class="fhero__media"><img src="images/gonstead-exam.jpg" alt="" /></div>
+  <div class="fhero__scrim"></div>
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> <i class="ph ph-caret-right"></i> <span>Gonstead</span></div>
+    <h1 class="tsplit" data-tsdelay=".2">Built by an engineer. <span class="alt">Trusted for a century.</span></h1>
+    <p class="fhero__sub">Dr. Clarence S. Gonstead was a mechanical engineer before he was a chiropractor. He brought one principle to the spine &mdash; <em>a structure is only as sound as its foundation</em> &mdash; and turned it into the most precise system of spinal analysis in chiropractic. His small-town Wisconsin clinic grew into the largest in the world, with its own airstrip and hotel for the patients who flew in from every continent.</p>
+    <div class="fhero__actions">
+      <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+      <a href="#method" class="btn btn-ghost-light"><i class="ph ph-play"></i> See the Method</a>
+    </div>
+  </div>
+</header>
+
+<!-- ====================== FOUNDER QUOTE ====================== -->
+<section class="quote" aria-label="Dr. Gonstead's principle">
+  <div class="container">
+    <blockquote class="reveal">&ldquo;Find the subluxation, accept it where you find it, correct it, and leave it alone.&rdquo;
+      <cite>Dr. Clarence S. Gonstead &middot; 1898&ndash;1978</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ====================== THE METHOD, FRAME BY FRAME (scroll-scrub) ====================== -->
+<section class="scrub" id="method" aria-label="The Gonstead method, step by step">
+  <div class="scrub__stage">
+    <!-- no src attr: JS fetches the file as a blob (always seekable, even on
+         hosts without Range support) and assigns it. No-JS shows the poster. -->
+    <video class="scrub__video" muted playsinline preload="none"
+      poster="images/method-poster.jpg"
+      data-src="images/gonstead-scrub.mp4"
+      data-src-mobile="images/gonstead-scrub-720.mp4" aria-hidden="true" tabindex="-1"></video>
+    <div class="scrub__scrim"></div>
+    <div class="scrub__panels">
+      <article class="scrub__panel" data-side="left">
+        <h3>We look. We feel.</h3>
+        <p>Visualization and palpation come first: posture, gait, and how each spinal segment moves under trained hands &mdash; before anything is adjusted.</p>
+      </article>
+      <article class="scrub__panel" data-side="right">
+        <h3>We measure. We don't guess.</h3>
+        <p>A Nervoscope reading and a full-spine, weight-bearing X-ray put the problem in black and white: the exact level, the exact direction.</p>
+      </article>
+      <article class="scrub__panel" data-side="left">
+        <h3>One specific adjustment.</h3>
+        <p>By hand, only where the evidence points &mdash; and nowhere else. Then we leave it alone and let the body do what it was built to do: heal.</p>
+        <div class="scrub__cta"><a href="#book" class="btn btn-on-dark"><i class="ph ph-calendar-check"></i> Experience the Precision</a></div>
+      </article>
+    </div>
+    <div class="scrub__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- ====================== GONSTEAD 5 CRITERIA (detail) ====================== -->
+<section class="sec sec--cloud" id="gonstead">
+  <div class="container">
+    <div class="sec__head">
+      <h2 class="h-section tsplit">The five criteria, in detail.</h2>
+      <p class="lede reveal" data-d="1">Most back pain gets a guess. Yours gets a five-point diagnostic system — so when we adjust, we adjust the right segment, in the right direction, at the right time.</p>
+    </div>
+    <div class="gsteps">
+      <div class="gstep reveal"><span class="gstep__n">01</span><span class="gstep__icn"><i class="ph ph-eye"></i></span><h3>Visualization</h3><p>Reading posture, gait and symmetry for the subtle deviations that point to where trouble starts.</p></div>
+      <div class="gstep reveal" data-d="1"><span class="gstep__n">02</span><span class="gstep__icn"><i class="ph ph-thermometer"></i></span><h3>Instrumentation</h3><p>A dual-probe Nervoscope detects skin-temperature differences caused by nerve inflammation.</p></div>
+      <div class="gstep reveal" data-d="2"><span class="gstep__n">03</span><span class="gstep__icn"><i class="ph ph-hand-pointing"></i></span><h3>Static palpation</h3><p>Feeling the spine at rest for swelling, tenderness and tight muscles around each segment.</p></div>
+      <div class="gstep reveal" data-d="3"><span class="gstep__n">04</span><span class="gstep__icn"><i class="ph ph-arrows-out-cardinal"></i></span><h3>Motion palpation</h3><p>Moving the spine through its ranges to find joints that are locked or not travelling freely.</p></div>
+      <div class="gstep reveal" data-d="4"><span class="gstep__n">05</span><span class="gstep__icn"><i class="ph ph-scan"></i></span><h3>X-ray analysis</h3><p>Full-length, weight-bearing radiographs reveal exact alignment and disc integrity under real load.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CONDITIONS ====================== -->
+<section class="sec" id="conditions">
+  <div class="container">
+    <div class="sec__head">
+      <h2 class="h-section tsplit">If it stops you moving, start here.</h2>
+      <p class="lede reveal" data-d="1">Sixteen of the most common reasons people walk through our door. If yours is not on the list, message us — the assessment will tell us if chiropractic is right for you.</p>
+    </div>
+    <div class="cond-grid">
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-slipped-disc/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Slipped Disc</h3><p>Bulging or herniated discs pressing on nearby nerves.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-back-pain/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Back Pain</h3><p>Lower or mid-back pain from posture, strain or misalignment.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-sciatica/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Sciatica</h3><p>Sharp, radiating pain down the leg from a compressed nerve.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-neck-pain/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Neck Pain</h3><p>Stiffness from tech-neck, tension or restricted joints.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-migraine/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Headache &amp; Migraine</h3><p>Recurring head pain rooted in upper-neck tension.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-whiplash/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Whiplash</h3><p>Lingering neck strain after a sudden impact.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-shoulder-pain/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Shoulder Pain</h3><p>Restricted, aching shoulders from posture or overuse.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-tennis-elbow/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Tennis Elbow</h3><p>Inflamed tendons from repetitive gripping and strain.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-carpal-tunnel/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Carpal Tunnel</h3><p>Tingling and weakness from a compressed wrist nerve.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-hip-pain/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Hip Pain</h3><p>Stiffness that quietly limits how freely you walk.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-knee-pain/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Knee Pain</h3><p>Aching or unstable knees from alignment issues or injury.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-sports-injury/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Sports Injury</h3><p>Strains and overuse injuries keeping you out of training.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-scoliosis/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Scoliosis</h3><p>Sideways spinal curves we assess, monitor and manage.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-posture/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Posture Correction</h3><p>Retraining rounded shoulders and forward head.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-pregnancy/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Pregnancy</h3><p>Gentle, safe care for back and pelvic comfort.</p></div></article>
+      <article class="cond reveal"><img src="https://picsum.photos/seed/aligned-paediatric/500/380" alt="" loading="lazy" /><div class="cond__body"><h3>Paediatric</h3><p>Gentle assessments tailored to growing spines.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PRICING ====================== -->
+<section class="sec sec--cloud" id="pricing">
+  <div class="container">
+    <div class="sec__head sec__head--center">
+      <h2 class="h-section tsplit">No hidden fees. No surprise add-ons.</h2>
+      <p class="lede reveal" data-d="1" style="margin-left:auto;margin-right:auto">You will always know the cost before any treatment begins. Ranges below cover most cases &mdash; your exact plan is confirmed at your report.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price reveal">
+        <span class="price__k">Start here</span>
+        <h3>First Assessment</h3>
+        <div class="price__amt">RM 150&ndash;250<small></small></div>
+        <div class="price__per">one-time, 60&ndash;90 minutes</div>
+        <ul>
+          <li><i class="ph ph-check-circle"></i> Full history &amp; consultation</li>
+          <li><i class="ph ph-check-circle"></i> Five-point Gonstead examination</li>
+          <li><i class="ph ph-check-circle"></i> On-site X-ray analysis (if needed)</li>
+          <li><i class="ph ph-check-circle"></i> Report of findings, in plain language</li>
+        </ul>
+        <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+      </div>
+      <div class="price price--hi reveal" data-d="1">
+        <span class="price__k">Ongoing care</span>
+        <h3>Adjustment Session</h3>
+        <div class="price__amt">RM 150&ndash;250</div>
+        <div class="price__per">per visit, based on your plan</div>
+        <ul>
+          <li><i class="ph ph-check-circle"></i> Specific Gonstead adjustment</li>
+          <li><i class="ph ph-check-circle"></i> Progress re-check each visit</li>
+          <li><i class="ph ph-check-circle"></i> Rehab &amp; movement guidance</li>
+          <li><i class="ph ph-check-circle"></i> Same doctor, every session</li>
+        </ul>
+        <a href="#book" class="btn btn-on-dark"><i class="ph ph-calendar-check"></i> Start Care</a>
+      </div>
+      <div class="price reveal" data-d="2">
+        <span class="price__k">Best value</span>
+        <h3>Care Plans</h3>
+        <div class="price__amt">Package<small> rates</small></div>
+        <div class="price__per">for regular patients</div>
+        <ul>
+          <li><i class="ph ph-check-circle"></i> Discounted multi-session rates</li>
+          <li><i class="ph ph-check-circle"></i> Built around your recovery goals</li>
+          <li><i class="ph ph-check-circle"></i> Recommended only after assessment</li>
+          <li><i class="ph ph-check-circle"></i> No lock-ins, no pressure</li>
+        </ul>
+        <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-whatsapp-logo"></i> Ask About Plans</a>
+      </div>
+    </div>
+    <p class="price__foot reveal" data-d="2"><i class="ph ph-shield-check"></i> Final pricing is always confirmed with you before treatment starts.</p>
+  </div>
+</section>
+
+<!-- ====================== WHY ALIGNED ====================== -->
+<section class="sec">
+  <div class="container">
+    <div class="sec__head">
+      <h2 class="h-section tsplit">Care that holds up over years, not weeks.</h2>
+    </div>
+    <ul class="why-grid reveal" data-d="1">
+      <li><span class="why__icn"><i class="ph ph-users-three"></i></span><b>Safe for all ages</b><span>Children to seniors</span></li>
+      <li><span class="why__icn"><i class="ph ph-crosshair-simple"></i></span><b>Precision</b><span>Down to the segment</span></li>
+      <li><span class="why__icn"><i class="ph ph-user-focus"></i></span><b>Personalised</b><span>Your plan, never a template</span></li>
+      <li><span class="why__icn"><i class="ph ph-scan"></i></span><b>On-site X-ray</b><span>Weight-bearing analysis</span></li>
+    </ul>
+
+    <div style="margin-top:clamp(2.5rem,5vw,4rem)">
+      <div class="doc reveal" data-d="1">
+        <div class="doc__photo"><img src="https://picsum.photos/seed/aligned-dr-daniel-portrait/500/700" alt="Portrait of Dr Daniel Tan" loading="lazy" /></div>
+        <div class="doc__body">
+          <h3>Dr Daniel Tan</h3>
+          <p class="doc__role">Chiropractor &middot; Gonstead System</p>
+          <p>Every adjustment at Aligned is doctor-led. Daniel is registered with the Gonstead Chiropractic Society (Australia) and the Association of Chiropractic Malaysia, and built the clinic around patient education and careful, full-spine work.</p>
+          <div style="margin-top:1.2rem"><a href="about.html" class="text-link">More about Dr Daniel <i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FAQ ====================== -->
+<section class="sec sec--cloud" id="faq">
+  <div class="container">
+    <div class="sec__head sec__head--center">
+      <h2 class="h-section tsplit">Before you ask &mdash; probably this.</h2>
+    </div>
+    <div class="faq reveal" data-d="1">
+      <details>
+        <summary>Does a chiropractic adjustment hurt? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Most adjustments are painless — many patients describe relief, not pain. The Gonstead approach is specific and controlled: no twisting your whole body, no forcing. Some mild soreness afterwards (like after exercise) is normal for the first day or two.</p>
+      </details>
+      <details>
+        <summary>How many sessions will I need? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">It depends on how long the problem has been building and what the examination shows. After your first assessment you will get a clear recommendation — including how many visits, how often, and how we will measure progress. No open-ended plans.</p>
+      </details>
+      <details>
+        <summary>Is it safe for children, seniors or pregnancy? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Yes — techniques are adapted to each body. We use gentler, more specific setups for children, older spines and pregnancy. The five-point examination first tells us exactly what is (and is not) safe to adjust.</p>
+      </details>
+      <details>
+        <summary>Do I need an X-ray? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Only when your case needs one. Weight-bearing X-rays show alignment under real load, which guides precise care — but if you have recent films, bring them and we may not need new ones.</p>
+      </details>
+      <details>
+        <summary>What is the difference between chiropractic and physiotherapy? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Chiropractic focuses on correcting spinal joint misalignment affecting the nervous system; physiotherapy focuses on rehabilitating muscles and movement. They complement each other — our care plans often include rehab-style strengthening once your spine holds its alignment.</p>
+      </details>
+      <details>
+        <summary>Can I claim insurance? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Some Malaysian insurers and employee benefit plans cover chiropractic care. We will issue receipts and reports you can submit — check with your provider, and message us if they need any supporting documents.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section class="final" id="book">
+  <div class="final__bg" aria-hidden="true"><img src="images/gonstead-exam.jpg" alt="" loading="lazy" /></div>
+  <div class="final__scrim"></div>
+  <div class="container">
+    <h2 class="tsplit">Stop working around the pain. <em>Find out what is causing it.</em></h2>
+    <p class="reveal" data-d="1">Book your first assessment at Mid Valley — 60 to 90 minutes, transparent pricing, plain-language answers.</p>
+    <div class="final__actions reveal" data-d="2">
+      <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+      <a href="tel:+60186625503" class="btn btn-ghost"><i class="ph ph-phone"></i> +6018 662 5503</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" /></a>
+        <p class="footer__about">A premium chiropractic and movement-recovery clinic at Mid Valley City, Kuala Lumpur, treating the root cause of pain with the Gonstead method.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="https://wa.me/60186625503" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+          <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="chiropractic.html">Gonstead Chiropractic</a></li>
+          <li><a href="chiropractic.html#conditions">Conditions</a></li>
+          <li><a href="chiropractic.html#gonstead">Gonstead diagnostics</a></li>
+          <li><a href="pet-chiro.html">Animal Chiro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clinic</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="news.html">News &amp; Update</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="chiropractic.html#pricing">Pricing</a></li>
+          <li><a href="chiropractic.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <div class="footer__contact">
+          <div><i class="ph ph-map-pin"></i> <span>No 23-8, The Boulevard, Mid Valley City, Lingkaran Syed Putra, 59200 Kuala Lumpur</span></div>
+          <div><i class="ph ph-phone"></i> <span>+6018 662 5503</span></div>
+          <div><i class="ph ph-clock"></i> <span>Mon to Sat, 9am to 7pm</span></div>
+        </div>
+        <a href="#book" class="btn btn-primary" style="margin-top:.4rem"><i class="ph ph-calendar-check"></i> Book now</a>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2026 Aligned Clinic. Helping Malaysia move better.</span>
+      <span>Mid Valley City, Kuala Lumpur, Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile booking -->
+<div class="mobile-book" id="mobileBook">
+  <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

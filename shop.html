@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop | Aligned — Recovery Essentials, Doctor-Picked</title>
+<meta name="description" content="A small, doctor-picked range of recovery essentials from Aligned, Mid Valley KL — cervical pillows, lumbar support, posture care and gift vouchers. Order via WhatsApp." />
+<meta name="theme-color" content="#1B1D1E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EABF7F'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='18' fill='%231B1D1E' text-anchor='middle' font-weight='700'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="assets/site.css" />
+
+<style>
+/* ============================================================
+   page: shop — "hero landing" layout. Few products, so each one
+   gets its own full act: a giant centred image on a glowing
+   stage (scales in on scroll, then floats), name, price, story,
+   straight to WhatsApp payment. No cart, no checkout maze.
+   ============================================================ */
+
+/* intro hero */
+.shero{padding:calc(var(--nav-h) + clamp(4rem,10vw,7rem)) 0 clamp(3rem,7vw,5rem);
+  background:var(--ink);color:var(--cloud);text-align:center;overflow:hidden;position:relative}
+.shero::before{content:"";position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);
+  width:min(920px,120vw);height:min(920px,120vw);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(234,191,127,.18),transparent 62%)}
+.shero .container{position:relative;z-index:2}
+.shero h1{color:var(--white);font-size:clamp(2.6rem,1.8rem + 5vw,5rem);font-weight:800;
+  letter-spacing:-.03em;max-width:17ch;margin:1rem auto 0;line-height:1.03}
+.shero h1 em{color:var(--marmalade);font-style:italic}
+.shero p{color:rgba(242,242,242,.82);max-width:52ch;margin:1.4rem auto 0;font-size:1.1rem}
+.shero__hint{display:inline-flex;align-items:center;gap:.5rem;margin-top:2.4rem;
+  font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,242,242,.55)}
+.shero__hint i{color:var(--marmalade);animation:bob 2s var(--ease) infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.shero__hint i{animation:none}}
+
+/* product act */
+.prod{padding:clamp(4.5rem,10vw,8rem) 0;text-align:center;overflow:hidden}
+.prod--cloud{background:var(--cloud)}
+.prod--warm{background:#F7EFE2}
+.prod__n{font-size:.85rem;font-weight:800;letter-spacing:.2em;color:var(--gold-deep);text-transform:uppercase}
+.prod h2{font-size:clamp(2rem,1.5rem + 2.6vw,3.4rem);font-weight:800;letter-spacing:-.02em;margin:.7rem 0 0}
+.prod__price{display:inline-flex;align-items:baseline;gap:.5rem;margin-top:.8rem;
+  font-weight:800;font-size:clamp(1.4rem,1.2rem + 1vw,1.9rem);color:var(--gold-deep)}
+.prod__price small{font-size:.6em;font-weight:700;color:var(--slate)}
+/* the stage: glow + giant image that scales in, then floats */
+.prod__stage{position:relative;max-width:760px;margin:clamp(1.8rem,4vw,2.8rem) auto}
+.prod__stage::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:130%;aspect-ratio:1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(234,191,127,.28),transparent 60%)}
+.prod__img{position:relative;z-index:2;border-radius:clamp(22px,3vw,32px);overflow:hidden;
+  box-shadow:var(--shadow-lg);aspect-ratio:16/10;
+  opacity:0;transform:translateY(46px) scale(.92);
+  transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+.prod__img img{width:100%;height:100%;object-fit:cover}
+.prod.in .prod__img{opacity:1;transform:none}
+/* gentle float once revealed */
+.prod.in .prod__img{animation:floaty 7s ease-in-out 1.2s infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){
+  .prod__img{opacity:1;transform:none;transition:none}
+  .prod.in .prod__img{animation:none}
+}
+.prod__desc{max-width:56ch;margin:0 auto;color:var(--slate);font-size:1.02rem}
+.prod__points{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin:1.4rem auto 0}
+.prod__points span{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem 1rem;border-radius:999px;
+  font-size:.86rem;font-weight:600;color:var(--gold-deep);background:var(--white);border:1px solid var(--cloud-deep)}
+.prod--dark .prod__points span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:var(--marmalade)}
+.prod__cta{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem;margin-top:2rem}
+/* dark act (gift voucher) */
+.prod--dark{background:var(--ink);color:var(--cloud)}
+.prod--dark h2{color:var(--white)}
+.prod--dark .prod__n{color:var(--marmalade)}
+.prod--dark .prod__price{color:var(--marmalade)}
+.prod--dark .prod__price small,.prod--dark .prod__desc{color:rgba(242,242,242,.7)}
+
+/* how it works */
+.how{padding:clamp(4.5rem,9vw,7rem) 0;background:var(--cloud)}
+.how__head{text-align:center;max-width:60ch;margin:0 auto clamp(2.2rem,4.5vw,3rem)}
+.how__head .h-section{margin-top:1rem}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1020px;margin:0 auto}
+.how__step{background:var(--white);border:1px solid var(--cloud-deep);border-radius:var(--r-card);
+  padding:2rem 1.6rem;text-align:center;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.how__step:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.how__icn{width:56px;height:56px;margin:0 auto 1rem;border-radius:16px;display:grid;place-items:center;
+  background:rgba(234,191,127,.16);color:var(--gold-deep);font-size:1.7rem}
+.how__step h3{font-size:1.15rem;margin-bottom:.45rem}
+.how__step p{font-size:.9rem;color:var(--slate)}
+.how__foot{text-align:center;margin-top:1.8rem;font-size:.9rem;color:var(--slate)}
+.how__foot i{color:var(--gold-deep);vertical-align:-2px}
+@media (max-width:760px){.how-grid{grid-template-columns:1fr}}
+
+/* doctor note */
+.note{padding:clamp(4rem,8vw,6rem) 0}
+.note__inner{display:grid;grid-template-columns:110px 1fr;gap:1.6rem;align-items:center;
+  max-width:800px;margin:0 auto;background:var(--white);border:1px solid var(--cloud-deep);
+  border-radius:var(--r-card);padding:clamp(1.6rem,3.5vw,2.4rem);box-shadow:var(--shadow-sm)}
+.note__inner img{width:110px;height:110px;border-radius:999px;object-fit:cover}
+.note__inner blockquote{margin:0;font-size:1.05rem;font-weight:600;font-style:italic;line-height:1.55}
+.note__inner cite{display:block;margin-top:.7rem;font-style:normal;font-size:.88rem;color:var(--slate)}
+@media (max-width:560px){.note__inner{grid-template-columns:1fr;text-align:center;justify-items:center}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="Aligned home">
+      <img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" />
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="chiropractic.html">Gonstead</a></li>
+      <li><a href="pet-chiro.html">Animal Chiro</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="news.html">News &amp; Update</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#book" class="btn btn-primary">Book Assessment</a>
+      <button class="nav__lang" id="langBtn" aria-label="Switch language"><i class="ph ph-globe"></i> 中文</button>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ====================== SHOP HERO ====================== -->
+<header class="shero">
+  <div class="container">
+    <h1 class="tsplit" data-tsdelay=".2">Recover at home, <em>the aligned way.</em></h1>
+    <p class="reveal" data-d="2">We only sell what we prescribe. Four recovery essentials, hand-picked by Dr Daniel — no fillers, no gimmicks, ordered in one WhatsApp message.</p>
+    <span class="shero__hint reveal" data-d="3">Scroll to browse <i class="ph ph-arrow-down"></i></span>
+  </div>
+</header>
+
+<!-- ====================== PRODUCT 01 ====================== -->
+<section class="prod prod--cloud reveal" id="pillow">
+  <div class="container">
+    <span class="prod__n">01 / 04 &mdash; Sleep</span>
+    <h2 class="tsplit">Cervical Support Pillow</h2>
+    <div class="prod__price">RM 189</div>
+    <div class="prod__stage">
+      <div class="prod__img"><img src="https://picsum.photos/seed/aligned-shop-pillow/1200/750" alt="Cervical support pillow" loading="lazy" /></div>
+    </div>
+    <p class="prod__desc">Eight hours a night is your longest treatment session — make it count. Contoured to keep the neck's natural curve supported whether you sleep on your back or side.</p>
+    <div class="prod__points">
+      <span><i class="ph ph-moon"></i> Back &amp; side sleepers</span>
+      <span><i class="ph ph-arrows-vertical"></i> Two height profiles</span>
+      <span><i class="ph ph-leaf"></i> Hypoallergenic foam</span>
+    </div>
+    <div class="prod__cta">
+      <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20I%27d%20like%20to%20order%3A%20Cervical%20Support%20Pillow%20(RM189)" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="ph ph-whatsapp-logo"></i> Order via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PRODUCT 02 ====================== -->
+<section class="prod reveal" id="lumbar">
+  <div class="container">
+    <span class="prod__n">02 / 04 &mdash; Sit</span>
+    <h2 class="tsplit">Lumbar Support Cushion</h2>
+    <div class="prod__price">RM 139</div>
+    <div class="prod__stage">
+      <div class="prod__img"><img src="https://picsum.photos/seed/aligned-shop-lumbar/1200/750" alt="Lumbar support cushion" loading="lazy" /></div>
+    </div>
+    <p class="prod__desc">For the office chair, the car seat, and every long Grab ride in between. Fills the gap your lower back has been bracing against all day.</p>
+    <div class="prod__points">
+      <span><i class="ph ph-office-chair"></i> Office &amp; car</span>
+      <span><i class="ph ph-anchor-simple"></i> Anti-slip strap</span>
+      <span><i class="ph ph-wind"></i> Breathable mesh cover</span>
+    </div>
+    <div class="prod__cta">
+      <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20I%27d%20like%20to%20order%3A%20Lumbar%20Support%20Cushion%20(RM139)" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="ph ph-whatsapp-logo"></i> Order via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PRODUCT 03 ====================== -->
+<section class="prod prod--warm reveal" id="posture">
+  <div class="container">
+    <span class="prod__n">03 / 04 &mdash; Stand</span>
+    <h2 class="tsplit">Posture Trainer</h2>
+    <div class="prod__price">RM 89</div>
+    <div class="prod__stage">
+      <div class="prod__img"><img src="https://picsum.photos/seed/aligned-shop-posture/1200/750" alt="Posture trainer strap" loading="lazy" /></div>
+    </div>
+    <p class="prod__desc">A gentle reminder, not a cage. Worn 20&ndash;30 minutes a day to retrain rounded shoulders while your adjustments hold the new alignment.</p>
+    <div class="prod__points">
+      <span><i class="ph ph-timer"></i> 20&ndash;30 min a day</span>
+      <span><i class="ph ph-arrows-out-line-horizontal"></i> Adjustable fit</span>
+      <span><i class="ph ph-t-shirt"></i> Wearable under clothes</span>
+    </div>
+    <div class="prod__cta">
+      <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20I%27d%20like%20to%20order%3A%20Posture%20Trainer%20(RM89)" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="ph ph-whatsapp-logo"></i> Order via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PRODUCT 04 (GIFT) ====================== -->
+<section class="prod prod--dark reveal" id="voucher">
+  <div class="container">
+    <span class="prod__n">04 / 04 &mdash; Give</span>
+    <h2 class="tsplit">Gift a Spine Check</h2>
+    <div class="prod__price">RM 100 <small>/</small> RM 200</div>
+    <div class="prod__stage">
+      <div class="prod__img"><img src="https://picsum.photos/seed/aligned-shop-voucher/1200/750" alt="Aligned gift voucher" loading="lazy" /></div>
+    </div>
+    <p class="prod__desc">For the parent who "is fine", the friend who cracks their own neck, the runner who limps on Mondays. A voucher toward any assessment or session — human or pet.</p>
+    <div class="prod__points">
+      <span><i class="ph ph-gift"></i> Digital or printed card</span>
+      <span><i class="ph ph-users"></i> Valid for any service</span>
+      <span><i class="ph ph-calendar-blank"></i> 6-month validity</span>
+    </div>
+    <div class="prod__cta">
+      <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20I%27d%20like%20to%20order%3A%20Gift%20Voucher" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="ph ph-whatsapp-logo"></i> Order via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== HOW ORDERING WORKS ====================== -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how__head">
+      <h2 class="h-section tsplit">Three steps. No checkout maze.</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how__step reveal"><span class="how__icn"><i class="ph ph-chat-circle-text"></i></span><h3>1. Message us</h3><p>Tap "Order via WhatsApp" — the message is pre-filled with your item. Ask us anything before you commit.</p></div>
+      <div class="how__step reveal" data-d="1"><span class="how__icn"><i class="ph ph-credit-card"></i></span><h3>2. Pay your way</h3><p>Bank transfer or Touch 'n Go by WhatsApp, or pay at the clinic when you collect. Receipt included.</p></div>
+      <div class="how__step reveal" data-d="2"><span class="how__icn"><i class="ph ph-package"></i></span><h3>3. Collect or deliver</h3><p>Pick up at Mid Valley with a free fitting from our team, or we ship anywhere in Malaysia.</p></div>
+    </div>
+    <p class="how__foot reveal" data-d="2"><i class="ph ph-arrows-counter-clockwise"></i> Wrong size or firmness? Exchange within 7 days, unused.</p>
+  </div>
+</section>
+
+<!-- ====================== DOCTOR NOTE ====================== -->
+<section class="note">
+  <div class="container">
+    <div class="note__inner reveal">
+      <img src="https://picsum.photos/seed/aligned-dr-daniel-portrait/300/300" alt="Dr Daniel Tan" loading="lazy" />
+      <div>
+        <blockquote>"Patients kept asking what pillow to buy, so I did the homework once, properly. This is the shortlist — the same four things I recommend in the treatment room. If you don't need it, I'll tell you."</blockquote>
+        <cite>&mdash; Dr Daniel Tan, Aligned</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section class="final" id="book">
+  <div class="final__bg" aria-hidden="true"><img src="images/gonstead-exam.jpg" alt="" loading="lazy" /></div>
+  <div class="final__scrim"></div>
+  <div class="container">
+    <h2 class="tsplit">Tools help. <em>Alignment fixes.</em></h2>
+    <p class="reveal" data-d="1">The right pillow supports a healthy spine — the assessment is what gets you one. Start there.</p>
+    <div class="final__actions reveal" data-d="2">
+      <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+      <a href="tel:+60186625503" class="btn btn-ghost"><i class="ph ph-phone"></i> +6018 662 5503</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" /></a>
+        <p class="footer__about">A premium chiropractic and movement-recovery clinic at Mid Valley City, Kuala Lumpur, treating the root cause of pain with the Gonstead method.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="https://wa.me/60186625503" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+          <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="chiropractic.html">Gonstead Chiropractic</a></li>
+          <li><a href="chiropractic.html#conditions">Conditions</a></li>
+          <li><a href="chiropractic.html#gonstead">Gonstead diagnostics</a></li>
+          <li><a href="pet-chiro.html">Animal Chiro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clinic</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="news.html">News &amp; Update</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="chiropractic.html#pricing">Pricing</a></li>
+          <li><a href="chiropractic.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <div class="footer__contact">
+          <div><i class="ph ph-map-pin"></i> <span>No 23-8, The Boulevard, Mid Valley City, Lingkaran Syed Putra, 59200 Kuala Lumpur</span></div>
+          <div><i class="ph ph-phone"></i> <span>+6018 662 5503</span></div>
+          <div><i class="ph ph-clock"></i> <span>Mon to Sat, 9am to 7pm</span></div>
+        </div>
+        <a href="#book" class="btn btn-primary" style="margin-top:.4rem"><i class="ph ph-calendar-check"></i> Book now</a>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2026 Aligned Clinic. Helping Malaysia move better.</span>
+      <span>Mid Valley City, Kuala Lumpur, Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile booking -->
+<div class="mobile-book" id="mobileBook">
+  <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

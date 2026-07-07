@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Animal Chiropractic for Dogs &amp; Cats in KL | Aligned</title>
+<meta name="description" content="Is your dog slowing down — or getting stuck? Gentle, precise animal chiropractic for dogs and cats at Aligned, Mid Valley Kuala Lumpur. No vet referral needed." />
+<meta name="theme-color" content="#1B1D1E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EABF7F'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='18' fill='%231B1D1E' text-anchor='middle' font-weight='700'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="assets/site.css" />
+
+<style>
+/* ---------- page: animal chiro (warmer, gentler) ---------- */
+.sec{padding:clamp(4.5rem,9vw,7.5rem) 0}
+
+/* problem-led story hero: taller than the standard subhero, copy sits low */
+.subhero--story{min-height:92vh}
+.subhero--story .subhero__sub{max-width:56ch}
+
+/* hidden-pain stat band: three white cards on the cloud ground */
+.statband{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.statband>div{background:var(--white);border:1px solid var(--cloud-deep);border-radius:18px;
+  padding:1.6rem 1.5rem;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.statband>div:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.statband b{display:block;font-family:"Hanken Grotesk",sans-serif;font-weight:800;
+  font-size:clamp(1.6rem,1.3rem + 1.2vw,2.1rem);letter-spacing:-.02em;color:var(--gold-deep);
+  margin-bottom:.45rem;line-height:1.1}
+.statband span{font-size:.95rem;color:var(--slate);line-height:1.55}
+@media (max-width:820px){.statband{grid-template-columns:1fr}}
+.sec--cloud{background:var(--cloud)}
+.sec--warm{background:#F7EFE2}
+.sec__head{max-width:62ch;margin-bottom:clamp(2.2rem,4.5vw,3.2rem)}
+.sec__head .h-section{margin-top:1rem}
+.sec__head p{margin-top:1.1rem}
+.sec__head--center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* signs checklist — same tile recipe as chiropractic's "what we treat" grid:
+   photo background, ink gradient wash, white title + light description */
+.signs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.sign{position:relative;border-radius:18px;overflow:hidden;min-height:210px;display:flex;
+  align-items:flex-end;background:var(--ink);box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.sign:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.sign img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.85);transition:transform .6s var(--ease)}
+.sign:hover img{transform:scale(1.06)}
+.sign::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(27,29,30,.94) 0%,rgba(27,29,30,.45) 46%,rgba(27,29,30,.05) 100%)}
+.sign__body{position:relative;z-index:2;padding:1.1rem 1.2rem}
+.sign h3{color:var(--white);font-size:1.12rem;margin-bottom:.3rem}
+.sign p{color:rgba(242,242,242,.78);font-size:.83rem;line-height:1.45}
+.signs__foot{text-align:center;margin-top:2rem;font-size:.95rem;color:var(--slate)}
+.signs__foot a{font-weight:700;color:var(--gold-deep)}
+
+/* what is / split */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.split__media{position:relative;border-radius:var(--r-media);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
+.split__media img{width:100%;height:100%;object-fit:cover}
+.split__badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(242,242,242,.92);
+  backdrop-filter:blur(6px);border-radius:16px;padding:.9rem 1.1rem;box-shadow:var(--shadow-sm);max-width:240px}
+.split__badge b{display:block;font-size:1.02rem}
+.split__badge span{font-size:.82rem;color:var(--slate)}
+.split__body{display:grid;gap:1.1rem;max-width:56ch;margin-top:1.4rem}
+.split__points{display:grid;gap:.8rem;margin-top:1.4rem}
+.split__points li{display:flex;gap:.7rem;align-items:flex-start;font-size:.97rem;line-height:1.5}
+.split__points i{color:var(--gold-deep);font-size:1.25rem;margin-top:2px;flex:0 0 auto}
+@media (max-width:820px){.split{grid-template-columns:1fr;gap:2.2rem}.split__media{aspect-ratio:16/11;order:-1}}
+
+/* who it's for */
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.who{position:relative;border-radius:18px;overflow:hidden;min-height:250px;display:flex;align-items:flex-end;
+  background:var(--ink);box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.who:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.who img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.who:hover img{transform:scale(1.06)}
+.who::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(27,29,30,.92) 0%,rgba(27,29,30,.4) 48%,rgba(27,29,30,.05) 100%)}
+.who__body{position:relative;z-index:2;padding:1.15rem 1.25rem}
+.who h3{color:var(--white);font-size:1.15rem;margin-bottom:.3rem}
+.who p{color:rgba(242,242,242,.8);font-size:.84rem;line-height:1.45}
+
+/* process rail */
+.pjourney{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;position:relative}
+.pjourney::before{content:"";position:absolute;top:33px;left:10%;right:10%;height:2px;
+  background:repeating-linear-gradient(90deg,rgba(27,29,30,.22) 0 10px,transparent 10px 18px)}
+.pstep{position:relative;z-index:1;text-align:center}
+.pstep__num{width:66px;height:66px;margin:0 auto 1rem;border-radius:999px;display:grid;place-items:center;
+  background:var(--white);border:2px solid rgba(234,191,127,.5);box-shadow:var(--shadow-sm);
+  font-size:1.5rem;color:var(--gold-deep)}
+.pstep:nth-child(odd) .pstep__num{background:var(--marmalade);color:var(--ink);border-color:var(--marmalade)}
+.pstep h3{font-size:1.12rem;margin-bottom:.35rem}
+.pstep p{font-size:.88rem;color:var(--slate);max-width:30ch;margin:0 auto}
+@media (max-width:860px){
+  .pjourney{grid-template-columns:1fr;gap:0}
+  .pjourney::before{top:33px;bottom:33px;left:32px;right:auto;width:2px;height:auto;
+    background:repeating-linear-gradient(0deg,rgba(27,29,30,.22) 0 10px,transparent 10px 18px)}
+  .pstep{display:grid;grid-template-columns:66px 1fr;column-gap:1.1rem;text-align:left;align-items:center;padding:1rem 0}
+  .pstep__num{margin:0;grid-row:1 / span 2;align-self:start}
+  .pstep h3{align-self:end;margin-bottom:.2rem}
+  .pstep p{align-self:start;margin:0;max-width:40ch}
+}
+
+/* reassurance strip */
+.assure{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
+  background:var(--white);border:1px solid var(--cloud-deep);border-radius:var(--r-card);
+  padding:clamp(1.6rem,3vw,2.2rem)}
+.assure li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.35rem}
+.assure__icn{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;
+  background:rgba(234,191,127,.16);color:var(--gold-deep);font-size:1.5rem;margin-bottom:.35rem}
+.assure b{font-size:1rem}
+.assure li>span:last-child{font-size:.84rem;color:var(--slate);max-width:26ch}
+
+@media (max-width:1020px){.signs{grid-template-columns:repeat(3,1fr)}.who-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.signs{grid-template-columns:1fr 1fr}.who-grid{grid-template-columns:1fr}.assure{grid-template-columns:1fr;gap:1.4rem}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="Aligned home">
+      <img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" />
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="chiropractic.html">Gonstead</a></li>
+      <li><a href="pet-chiro.html" class="active">Animal Chiro</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="news.html">News &amp; Update</a></li>
+      <li><a href="shop.html">Shop</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#book" class="btn btn-primary">Book Assessment</a>
+      <button class="nav__lang" id="langBtn" aria-label="Switch language"><i class="ph ph-globe"></i> 中文</button>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ====================== HERO (problem-led) ====================== -->
+<header class="subhero subhero--story">
+  <div class="subhero__media"><img src="images/pet-senior-mobility.jpg" alt="" /></div>
+  <div class="subhero__scrim"></div>
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> <i class="ph ph-caret-right"></i> <span>Animal Chiro</span></div>
+    <h1 class="tsplit" data-tsdelay=".2">Your dog isn't just getting old. <span class="alt">He's getting stuck.</span></h1>
+    <p class="subhero__sub">The stairs he now avoids. The jump he won't attempt. The walk that keeps getting shorter. We call it aging &mdash; but often it's a spine that has stopped moving the way it should. And that, unlike age, can be helped.</p>
+    <div class="subhero__actions">
+      <a href="#signs" class="btn btn-primary"><i class="ph ph-list-checks"></i> Check the 8 Signs</a>
+      <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20I%27d%20like%20to%20book%20an%20Animal%20Chiro%20assessment." target="_blank" rel="noopener" class="btn btn-ghost-light"><i class="ph ph-paw-print"></i> Book Pet Assessment</a>
+    </div>
+  </div>
+</header>
+
+<!-- ====================== WHY YOU MISS IT (context) ====================== -->
+<section class="sec sec--cloud" id="hidden-pain">
+  <div class="container">
+    <div class="sec__head">
+      <h2 class="h-section tsplit">Dogs are built to hide it.</h2>
+      <p class="lede reveal" data-d="1">In a pack, a limping dog is a liability. That instinct never left &mdash; so by the time you can see stiffness, the problem has usually been there for months.</p>
+    </div>
+    <div class="statband">
+      <div class="reveal"><b>Silent by design</b><span>Dogs instinctively mask pain and keep up with the pack. They don't complain &mdash; they compensate, quietly, until they can't.</span></div>
+      <div class="reveal" data-d="1"><b>1 in 4</b><span>dogs develops arthritis in its lifetime &mdash; and the signs show up in movement long before they show up on a scan.</span></div>
+      <div class="reveal" data-d="2"><b>Not "just age"</b><span>Much of what owners file under getting old is restricted joints &mdash; and unlike age, a restricted joint is something we can work with.</span></div>
+    </div>
+    <div class="split" style="margin-top:clamp(2.6rem,5vw,4rem)">
+      <div>
+        <h2 class="h-section tsplit">His spine works exactly like yours.</h2>
+        <div class="split__body reveal" data-d="1">
+          <p>Same segments, same discs, same nerves &mdash; just carried horizontally. When one segment stops moving well, the body around it compensates: other joints take the load, muscles guard, and movement quietly reorganises itself.</p>
+          <p>That compensation is what you're seeing on the stairs. It looks like aging. Often, it's a joint that simply needs to move again.</p>
+        </div>
+      </div>
+      <div class="split__media reveal" data-d="1">
+        <img src="https://picsum.photos/seed/aligned-dog-spine/900/1125" alt="A dog standing in profile, spine visible along its back" loading="lazy" />
+        <div class="split__badge"><b>Same joints, same logic</b><span>The Gonstead approach, scaled down and softened</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SIGNS CHECKLIST ====================== -->
+<section class="sec" id="signs">
+  <div class="container">
+    <div class="sec__head sec__head--center">
+      <h2 class="h-section tsplit">Watch what he does, not what he says.</h2>
+      <p class="lede reveal" data-d="1" style="margin-left:auto;margin-right:auto">Your pet can't tell you &mdash; but movement talks. These eight quiet changes are the most common first clues that a joint is restricted or the spine is under strain.</p>
+    </div>
+    <div class="signs">
+      <article class="sign reveal"><img src="https://picsum.photos/seed/aligned-sign-jump/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Won't jump anymore</h3><p>Hesitates at the sofa, the car boot or the stairs they used to fly up.</p></div></article>
+      <article class="sign reveal" data-d="1"><img src="https://picsum.photos/seed/aligned-sign-gait/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Walks unevenly</h3><p>Favouring one side, running at an angle, or an odd swing in the hips.</p></div></article>
+      <article class="sign reveal" data-d="2"><img src="https://picsum.photos/seed/aligned-sign-stiff/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Stiff after resting</h3><p>Slow, careful first steps after a nap — loosening up only after a while.</p></div></article>
+      <article class="sign reveal" data-d="3"><img src="https://picsum.photos/seed/aligned-sign-touch/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Flinches when touched</h3><p>Ducks, growls or snaps when a specific spot on the back or neck is handled.</p></div></article>
+      <article class="sign reveal"><img src="https://picsum.photos/seed/aligned-sign-lick/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Licks one spot</h3><p>Obsessively licking or chewing a joint, paw or patch along the spine.</p></div></article>
+      <article class="sign reveal" data-d="1"><img src="https://picsum.photos/seed/aligned-sign-mood/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Mood has changed</h3><p>A playful dog gone withdrawn, or a calm cat suddenly reactive.</p></div></article>
+      <article class="sign reveal" data-d="2"><img src="https://picsum.photos/seed/aligned-sign-play/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Slower at play</h3><p>Less eager to chase, tug or climb — tiring faster than they used to.</p></div></article>
+      <article class="sign reveal" data-d="3"><img src="https://picsum.photos/seed/aligned-sign-posture/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Posture looks off</h3><p>A roached back, a low tail carriage, or a head held stiffly to one side.</p></div></article>
+    </div>
+    <p class="signs__foot reveal" data-d="2">Ticked more than one? <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20my%20pet%20is%20showing%20some%20of%20the%20signs%20on%20your%20checklist.">Message us a short video of your pet walking</a> — it helps us see what you see.</p>
+  </div>
+</section>
+
+<!-- ====================== WHAT IS PET CHIRO ====================== -->
+<section class="sec sec--cloud">
+  <div class="container split">
+    <div>
+      <h2 class="h-section tsplit">Chiropractic, translated for four legs.</h2>
+      <div class="split__body reveal" data-d="1">
+        <p>Animal spines work like ours: when a joint stops moving well, the body compensates — and pain, stiffness and behaviour changes follow. Animal chiropractic finds those restricted segments and restores their motion with gentle, specific adjustments.</p>
+        <p>No cracking, no force. Adjustments for animals use far lighter pressure than human care, sized to the animal — a Chihuahua is not adjusted like a Golden Retriever.</p>
+      </div>
+      <ul class="split__points reveal" data-d="2">
+        <li><i class="ph ph-check-circle"></i> Gentle, animal-specific techniques — most pets relax into it</li>
+        <li><i class="ph ph-check-circle"></i> Works alongside your vet's care, never against it</li>
+        <li><i class="ph ph-check-circle"></i> <b>No referral needed</b> — book directly, bring any vet reports you have</li>
+      </ul>
+    </div>
+    <div class="split__media reveal" data-d="1">
+      <img src="https://picsum.photos/seed/aligned-pet-gentle-adjust/900/1125" alt="A calm dog receiving a gentle chiropractic assessment" loading="lazy" />
+      <div class="split__badge"><b>Dogs &amp; cats welcome</b><span>All breeds, all sizes, all temperaments</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== WHO IT'S FOR ====================== -->
+<section class="sec">
+  <div class="container">
+    <div class="sec__head">
+      <h2 class="h-section tsplit">From senior nappers to weekend sprinters.</h2>
+    </div>
+    <div class="who-grid">
+      <article class="who reveal"><img src="https://picsum.photos/seed/aligned-senior-dog/500/450" alt="" loading="lazy" /><div class="who__body"><h3>Senior pets</h3><p>Ageing joints, arthritis support and easier day-to-day movement.</p></div></article>
+      <article class="who reveal" data-d="1"><img src="https://picsum.photos/seed/aligned-active-dog/500/450" alt="" loading="lazy" /><div class="who__body"><h3>Active &amp; sporting dogs</h3><p>Agility, flyball and park athletes who land hard and turn fast.</p></div></article>
+      <article class="who reveal" data-d="2"><img src="https://picsum.photos/seed/aligned-recovery-pet/500/450" alt="" loading="lazy" /><div class="who__body"><h3>Post-injury recovery</h3><p>Rebuilding comfortable movement after slips, falls or surgery.</p></div></article>
+      <article class="who reveal" data-d="3"><img src="https://picsum.photos/seed/aligned-cat-chiro/500/450" alt="" loading="lazy" /><div class="who__body"><h3>Cats too</h3><p>Quiet limpers and reluctant jumpers — handled calmly, at their pace.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PROCESS ====================== -->
+<section class="sec sec--warm">
+  <div class="container">
+    <div class="sec__head sec__head--center">
+      <h2 class="h-section tsplit">Calm, unhurried, at their pace.</h2>
+      <p class="lede reveal" data-d="1" style="margin-left:auto;margin-right:auto">A pet visit is built around trust. We never rush an anxious animal — the first minutes belong to them.</p>
+    </div>
+    <div class="pjourney">
+      <div class="pstep reveal"><div class="pstep__num"><i class="ph ph-chats-circle"></i></div><h3>Chat &amp; history</h3><p>You tell us what changed. Bring vet reports or scans if you have them.</p></div>
+      <div class="pstep reveal" data-d="1"><div class="pstep__num"><i class="ph ph-eye"></i></div><h3>Gait &amp; posture</h3><p>We watch them walk, sit and turn — often the clearest diagnostic we have.</p></div>
+      <div class="pstep reveal" data-d="2"><div class="pstep__num"><i class="ph ph-hand-heart"></i></div><h3>Gentle adjustment</h3><p>Light, specific corrections, sized to their body and temperament.</p></div>
+      <div class="pstep reveal" data-d="3"><div class="pstep__num"><i class="ph ph-house-line"></i></div><h3>Home guidance</h3><p>Simple do's and don'ts, and when (or whether) to come back.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== REASSURANCE ====================== -->
+<section class="sec">
+  <div class="container">
+    <div class="sec__head sec__head--center">
+      <h2 class="h-section tsplit">Handled like family. Because they are.</h2>
+    </div>
+    <ul class="assure reveal" data-d="1">
+      <li><span class="assure__icn"><i class="ph ph-certificate"></i></span><b>Doctor-led care</b><span>Every pet is seen by Dr Daniel Tan — the same standard as our human patients.</span></li>
+      <li><span class="assure__icn"><i class="ph ph-heartbeat"></i></span><b>Vet-friendly</b><span>We complement veterinary care and will tell you honestly if a vet visit should come first.</span></li>
+      <li><span class="assure__icn"><i class="ph ph-paw-print"></i></span><b>No referral needed</b><span>Dogs and cats can be booked directly — no paperwork before the first visit.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== FAQ ====================== -->
+<section class="sec sec--cloud" id="faq">
+  <div class="container">
+    <div class="sec__head sec__head--center">
+      <h2 class="h-section tsplit">What pet parents usually ask.</h2>
+    </div>
+    <div class="faq reveal" data-d="1">
+      <details>
+        <summary>Will it hurt my pet? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">No — adjustments for animals use very light, specific pressure. Most pets visibly relax during the session, and many owners are surprised how calm their usually-nervous dog or cat becomes on the table.</p>
+      </details>
+      <details>
+        <summary>Do I need a referral from my vet? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">No referral is needed — you can book directly for dogs and cats. If your pet has an existing condition, bring any vet reports or X-rays along; they help us build the full picture.</p>
+      </details>
+      <details>
+        <summary>My cat hates carriers and strangers. Can this still work? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Yes. Cat visits are paced entirely around the cat — we let them settle, work in short windows, and stop before stress builds. If a session needs to be shorter, we adapt rather than force it.</p>
+      </details>
+      <details>
+        <summary>How many sessions will my pet need? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Many pets show visible change within one to three visits. Chronic or age-related cases may benefit from ongoing maintenance every few weeks. We will tell you honestly what we see after the first assessment.</p>
+      </details>
+      <details>
+        <summary>When should I go to the vet instead? <i class="ph ph-plus"></i></summary>
+        <p class="faq__a">Sudden severe pain, suspected fractures, wounds, fever, or any rapidly worsening condition should go to your vet first. Chiropractic care is for movement and alignment — and we will redirect you to a vet the moment something looks outside our scope.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section class="final" id="book">
+  <div class="final__bg" aria-hidden="true"><img src="https://picsum.photos/seed/aligned-pet-chiro-dog/1600/900" alt="" loading="lazy" /></div>
+  <div class="final__scrim"></div>
+  <div class="container">
+    <h2 class="tsplit">They'd book it themselves <em>if they had thumbs.</em></h2>
+    <p class="reveal" data-d="1">WhatsApp us a short video of your pet walking, or book a gentle first assessment at Mid Valley.</p>
+    <div class="final__actions reveal" data-d="2">
+      <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20I%27d%20like%20to%20book%20a%20Animal%20Chiro%20assessment." target="_blank" rel="noopener" class="btn btn-primary"><i class="ph ph-paw-print"></i> Book Pet Assessment</a>
+      <a href="tel:+60186625503" class="btn btn-ghost"><i class="ph ph-phone"></i> +6018 662 5503</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand__logo" src="images/aligned-logo-white.png" alt="Aligned — A New Definition of Health" width="453" height="111" /></a>
+        <p class="footer__about">A premium chiropractic and movement-recovery clinic at Mid Valley City, Kuala Lumpur, treating the root cause of pain with the Gonstead method.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="https://wa.me/60186625503" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+          <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="chiropractic.html">Gonstead Chiropractic</a></li>
+          <li><a href="chiropractic.html#conditions">Conditions</a></li>
+          <li><a href="chiropractic.html#gonstead">Gonstead diagnostics</a></li>
+          <li><a href="pet-chiro.html">Animal Chiro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clinic</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="news.html">News &amp; Update</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="chiropractic.html#pricing">Pricing</a></li>
+          <li><a href="chiropractic.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <div class="footer__contact">
+          <div><i class="ph ph-map-pin"></i> <span>No 23-8, The Boulevard, Mid Valley City, Lingkaran Syed Putra, 59200 Kuala Lumpur</span></div>
+          <div><i class="ph ph-phone"></i> <span>+6018 662 5503</span></div>
+          <div><i class="ph ph-clock"></i> <span>Mon to Sat, 9am to 7pm</span></div>
+        </div>
+        <a href="#book" class="btn btn-primary" style="margin-top:.4rem"><i class="ph ph-calendar-check"></i> Book now</a>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2026 Aligned Clinic. Helping Malaysia move better.</span>
+      <span>Mid Valley City, Kuala Lumpur, Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile booking -->
+<div class="mobile-book" id="mobileBook">
+  <a href="#book" class="btn btn-primary"><i class="ph ph-paw-print"></i> Book Pet Assessment</a>
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
