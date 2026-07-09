@@ -121,8 +121,8 @@
   /* ---------- Scroll-scrubbed video (.scrub) ----------
      Base markup is a static stack (readable with no JS). When conditions
      allow, add .scrub--on: the stage pins for 300vh, the video's
-     currentTime follows a smoothed scroll progress, and the three panels
-     switch on thirds. Falls back to the static stack on reduced motion,
+     currentTime follows a smoothed scroll progress, and the panels switch
+     on equal fractions of it. Falls back to the static stack on reduced motion,
      Save-Data, or video failure. */
   var scrub = document.querySelector(".scrub");
   if(scrub && !reduce && !(navigator.connection && navigator.connection.saveData) && "IntersectionObserver" in window){
@@ -164,7 +164,7 @@
         if(sDuration && sVideo.readyState > 1){
           try{ sVideo.currentTime = sSmooth * sDuration; }catch(err){}
         }
-        setPanel(target < 1/3 ? 0 : target < 2/3 ? 1 : 2);
+        setPanel(Math.min(sPanels.length - 1, Math.floor(target * sPanels.length)));
         sRaf = requestAnimationFrame(sTick);
       };
 

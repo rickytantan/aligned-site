@@ -60,10 +60,11 @@
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .split__media{position:relative;border-radius:var(--r-media);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
 .split__media img{width:100%;height:100%;object-fit:cover}
-.split__badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(242,242,242,.92);
-  backdrop-filter:blur(6px);border-radius:16px;padding:.9rem 1.1rem;box-shadow:var(--shadow-sm);max-width:240px}
-.split__badge b{display:block;font-size:1.02rem}
-.split__badge span{font-size:.82rem;color:var(--slate)}
+/* words straight on the photo — no tile, a soft ink shadow carries legibility */
+.split__overlay{position:absolute;left:1.4rem;right:1.4rem;bottom:1.3rem;color:var(--white);
+  text-shadow:0 2px 16px rgba(27,29,30,.85),0 1px 3px rgba(27,29,30,.65)}
+.split__overlay b{display:block;font-size:1.15rem;line-height:1.25}
+.split__overlay span{font-size:.84rem;color:rgba(255,255,255,.92)}
 .split__body{display:grid;gap:1.1rem;max-width:56ch;margin-top:1.4rem}
 .split__points{display:grid;gap:.8rem;margin-top:1.4rem}
 .split__points li{display:flex;gap:.7rem;align-items:flex-start;font-size:.97rem;line-height:1.5}
@@ -150,11 +151,10 @@
   <div class="subhero__media"><img src="images/pet-senior-mobility.jpg" alt="" /></div>
   <div class="subhero__scrim"></div>
   <div class="container">
-    <div class="crumbs"><a href="index.html">Home</a> <i class="ph ph-caret-right"></i> <span>Animal Chiro</span></div>
-    <h1 class="tsplit" data-tsdelay=".2">Your dog isn't just getting old. <span class="alt">He's getting stuck.</span></h1>
+    <h1 class="tsplit" data-tsdelay=".2">Your dog is not getting lazy or old, <span class="alt">he's actually stuck.</span></h1>
     <p class="subhero__sub">The stairs he now avoids. The jump he won't attempt. The walk that keeps getting shorter. We call it aging &mdash; but often it's a spine that has stopped moving the way it should. And that, unlike age, can be helped.</p>
     <div class="subhero__actions">
-      <a href="#signs" class="btn btn-primary"><i class="ph ph-list-checks"></i> Check the 8 Signs</a>
+      <a href="#signs" class="btn btn-primary"><i class="ph ph-list-checks"></i> Check the 12 Signs</a>
       <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20I%27d%20like%20to%20book%20an%20Animal%20Chiro%20assessment." target="_blank" rel="noopener" class="btn btn-ghost-light"><i class="ph ph-paw-print"></i> Book Pet Assessment</a>
     </div>
   </div>
@@ -182,7 +182,7 @@
       </div>
       <div class="split__media reveal" data-d="1">
         <img src="https://picsum.photos/seed/aligned-dog-spine/900/1125" alt="A dog standing in profile, spine visible along its back" loading="lazy" />
-        <div class="split__badge"><b>Same joints, same logic</b><span>The Gonstead approach, scaled down and softened</span></div>
+        <div class="split__overlay"><b>Same joints, same logic</b><span>The Gonstead approach, scaled down and softened</span></div>
       </div>
     </div>
   </div>
@@ -193,17 +193,21 @@
   <div class="container">
     <div class="sec__head sec__head--center">
       <h2 class="h-section tsplit">Watch what he does, not what he says.</h2>
-      <p class="lede reveal" data-d="1" style="margin-left:auto;margin-right:auto">Your pet can't tell you &mdash; but movement talks. These eight quiet changes are the most common first clues that a joint is restricted or the spine is under strain.</p>
+      <p class="lede reveal" data-d="1" style="margin-left:auto;margin-right:auto">Your pet can't tell you &mdash; but movement talks. These twelve quiet changes are the most common first clues that a joint is restricted or the spine is under strain.</p>
     </div>
     <div class="signs">
-      <article class="sign reveal"><img src="https://picsum.photos/seed/aligned-sign-jump/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Won't jump anymore</h3><p>Hesitates at the sofa, the car boot or the stairs they used to fly up.</p></div></article>
-      <article class="sign reveal" data-d="1"><img src="https://picsum.photos/seed/aligned-sign-gait/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Walks unevenly</h3><p>Favouring one side, running at an angle, or an odd swing in the hips.</p></div></article>
-      <article class="sign reveal" data-d="2"><img src="https://picsum.photos/seed/aligned-sign-stiff/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Stiff after resting</h3><p>Slow, careful first steps after a nap — loosening up only after a while.</p></div></article>
-      <article class="sign reveal" data-d="3"><img src="https://picsum.photos/seed/aligned-sign-touch/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Flinches when touched</h3><p>Ducks, growls or snaps when a specific spot on the back or neck is handled.</p></div></article>
-      <article class="sign reveal"><img src="https://picsum.photos/seed/aligned-sign-lick/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Licks one spot</h3><p>Obsessively licking or chewing a joint, paw or patch along the spine.</p></div></article>
-      <article class="sign reveal" data-d="1"><img src="https://picsum.photos/seed/aligned-sign-mood/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Mood has changed</h3><p>A playful dog gone withdrawn, or a calm cat suddenly reactive.</p></div></article>
-      <article class="sign reveal" data-d="2"><img src="https://picsum.photos/seed/aligned-sign-play/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Slower at play</h3><p>Less eager to chase, tug or climb — tiring faster than they used to.</p></div></article>
-      <article class="sign reveal" data-d="3"><img src="https://picsum.photos/seed/aligned-sign-posture/500/380" alt="" loading="lazy" /><div class="sign__body"><h3>Posture looks off</h3><p>A roached back, a low tail carriage, or a head held stiffly to one side.</p></div></article>
+      <article class="sign reveal"><img src="images/pet-signs/sign-jump.jpg" alt="Won't jump anymore" loading="lazy" /><div class="sign__body"><h3>Won't jump anymore</h3><p>Hesitates at the sofa, the car boot or the stairs they used to fly up.</p></div></article>
+      <article class="sign reveal" data-d="1"><img src="images/pet-signs/sign-gait.jpg" alt="Walks unevenly" loading="lazy" /><div class="sign__body"><h3>Walks unevenly</h3><p>Favouring one side, running at an angle, or an odd swing in the hips.</p></div></article>
+      <article class="sign reveal" data-d="2"><img src="images/pet-signs/sign-stiff.jpg" alt="Stiff, especially after resting" loading="lazy" /><div class="sign__body"><h3>Stiff, especially after resting</h3><p>Slow, careful first steps after a nap — loosening up only after a while.</p></div></article>
+      <article class="sign reveal" data-d="3"><img src="images/pet-signs/sign-touch.jpg" alt="Flinches when touched" loading="lazy" /><div class="sign__body"><h3>Flinches when touched</h3><p>Ducks, growls or snaps when a specific spot on the back or neck is handled.</p></div></article>
+      <article class="sign reveal"><img src="images/pet-signs/sign-lick.jpg" alt="Licks one spot" loading="lazy" /><div class="sign__body"><h3>Licks one spot</h3><p>Obsessively licking or chewing a joint, paw or patch along the spine.</p></div></article>
+      <article class="sign reveal" data-d="1"><img src="images/pet-signs/sign-mood.jpg" alt="Mood has changed" loading="lazy" /><div class="sign__body"><h3>Mood has changed</h3><p>A playful dog gone withdrawn, or a calm cat suddenly reactive.</p></div></article>
+      <article class="sign reveal" data-d="2"><img src="images/pet-signs/sign-play.jpg" alt="Slower at play" loading="lazy" /><div class="sign__body"><h3>Slower at play</h3><p>Less eager to chase, tug or climb — tiring faster than they used to.</p></div></article>
+      <article class="sign reveal" data-d="3"><img src="images/pet-signs/sign-posture.jpg" alt="Posture looks off" loading="lazy" /><div class="sign__body"><h3>Posture looks off</h3><p>A rounded back, a low tail carriage, or a head held stiffly to one side.</p></div></article>
+      <article class="sign reveal"><img src="images/pet-signs/sign-sit.jpg" alt="Sits to one side" loading="lazy" /><div class="sign__body"><h3>Sits to one side</h3><p>The "mermaid sit" — legs swung to one side instead of a square, even sit.</p></div></article>
+      <article class="sign reveal" data-d="1"><img src="images/pet-signs/sign-slip.jpg" alt="Slips while walking" loading="lazy" /><div class="sign__body"><h3>Slips while walking</h3><p>Paws losing grip on tiles or wood — back legs sliding on floors that never used to be a problem.</p></div></article>
+      <article class="sign reveal" data-d="2"><img src="images/pet-signs/sign-aggression.jpg" alt="Sudden aggression" loading="lazy" /><div class="sign__body"><h3>Sudden aggression</h3><p>Growling or snapping out of character — pain often shows as aggression before it shows as a limp.</p></div></article>
+      <article class="sign reveal" data-d="3"><img src="images/pet-signs/sign-limp.jpg" alt="Limping" loading="lazy" /><div class="sign__body"><h3>Limping</h3><p>An obvious limp, or a subtle head-bob — weight quietly shifted off a leg that hurts.</p></div></article>
     </div>
     <p class="signs__foot reveal" data-d="2">Ticked more than one? <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20my%20pet%20is%20showing%20some%20of%20the%20signs%20on%20your%20checklist.">Message us a short video of your pet walking</a> — it helps us see what you see.</p>
   </div>
@@ -226,7 +230,7 @@
     </div>
     <div class="split__media reveal" data-d="1">
       <img src="https://picsum.photos/seed/aligned-pet-gentle-adjust/900/1125" alt="A calm dog receiving a gentle chiropractic assessment" loading="lazy" />
-      <div class="split__badge"><b>Dogs &amp; cats welcome</b><span>All breeds, all sizes, all temperaments</span></div>
+      <div class="split__overlay"><b>Dogs &amp; cats welcome</b><span>All breeds, all sizes, all temperaments</span></div>
     </div>
   </div>
 </section>
