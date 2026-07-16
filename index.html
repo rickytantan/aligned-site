@@ -200,15 +200,17 @@ section{position:relative;z-index:2}
    LANDING BENTO OVERLAY  (first-visit welcome: dark backdrop (layer 2)
    + rounded glass bento card (layer 1) floating above the site (layer 3))
    ===================================================================== */
-.landing{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
-  padding:clamp(1.1rem,4vw,2rem)}
+/* the overlay scrolls, not the card - so the outdented close button is never clipped.
+   align-items:flex-start + margin:auto centres the card without cutting its top when it overflows */
+.landing{position:fixed;inset:0;z-index:300;display:flex;align-items:flex-start;justify-content:center;
+  overflow-y:auto;padding:clamp(1.1rem,4vw,2rem)}
 .landing[hidden]{display:none}
 /* layer 2: semi-translucent dark scrim behind the card */
 .landing__backdrop{position:absolute;inset:0;z-index:0;background:rgba(27,29,30,.58);
   backdrop-filter:blur(7px) saturate(140%);-webkit-backdrop-filter:blur(7px) saturate(140%);
   opacity:0;transition:opacity .5s var(--ease)}
 /* layer 1: rounded, semi-translucent glass card housing the bento grid */
-.landing__modal{position:relative;z-index:1;width:100%;max-width:860px;
+.landing__modal{position:relative;z-index:1;width:100%;max-width:860px;margin:auto;
   border-radius:30px;padding:clamp(.9rem,2.2vw,1.25rem);
   background:linear-gradient(155deg,rgba(255,255,255,.58),rgba(250,247,241,.4));
   border:1px solid rgba(255,255,255,.55);
@@ -225,24 +227,27 @@ section{position:relative;z-index:2}
   transition:transform .3s var(--ease),background .2s}
 .landing__close:hover{transform:rotate(90deg);background:var(--ivory-deep)}
 
-/* the bento grid: one tall image tile (offer/activity) + two stacked info tiles */
-.landing__bento{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:.85rem;
-  min-height:420px}
+/* the bento grid: one wide offer-artwork tile above two info tiles */
+.landing__bento{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:.85rem}
 .landing__tile{position:relative;border-radius:20px;overflow:hidden;padding:1.4rem;
   display:flex;flex-direction:column}
-.landing__tile--voucher{grid-column:1;grid-row:1 / span 2;justify-content:flex-end}
+/* the voucher artwork carries its own RM50 headline - the tile keeps its 16:9 crop so
+   the voucher card is never cut, and adds no competing heading of its own */
+.landing__tile--voucher{grid-column:1 / span 2;grid-row:1;aspect-ratio:21/9;justify-content:flex-end}
 .landing__tile--voucher img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+/* corner wash: keeps the bottom-left copy legible without dimming the voucher card or the flag */
 .landing__tile-scrim{position:absolute;inset:0;z-index:1;
-  background:linear-gradient(0deg,rgba(27,29,30,.96) 0%,rgba(27,29,30,.86) 42%,rgba(27,29,30,.15) 80%)}
+  background:linear-gradient(to top right,rgba(27,29,30,.92) 0%,rgba(27,29,30,.6) 24%,rgba(27,29,30,0) 54%)}
 .landing__tile-body{position:relative;z-index:2}
-.landing__tile--voucher h3{color:var(--ivory);font-size:1.45rem;line-height:1.1;margin:.4rem 0 .3rem}
-.landing__tile--voucher p{color:rgba(242,242,242,.88);font-size:.9rem;margin:0 0 1rem}
-.landing__tile--voucher .landing__kicker{color:var(--marmalade)}
+/* .landing__tile p below sets a grey at equal specificity - these need to out-rank it */
+.landing__tile--voucher .landing__tile-body p{color:rgba(242,242,242,.94);font-size:.9rem;margin:0 0 .8rem;
+  text-shadow:0 1px 10px rgba(27,29,30,.6)}
+.landing__tile--voucher .landing__kicker{color:var(--marmalade);text-shadow:0 1px 10px rgba(27,29,30,.6)}
 .landing__tile--voucher .btn{padding:.75rem 1.25rem;font-size:.9rem}
 
 .landing__tile--news,.landing__tile--tip{background:var(--ivory);border:1px solid rgba(234,191,127,.1);
   box-shadow:var(--shadow-sm)}
-.landing__tile--news{grid-column:2;grid-row:1}
+.landing__tile--news{grid-column:1;grid-row:2}
 .landing__tile--tip{grid-column:2;grid-row:2}
 .landing__kicker{display:block;font-family:"Hanken Grotesk",sans-serif;font-size:.68rem;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.35rem}
@@ -254,17 +259,21 @@ section{position:relative;z-index:2}
 
 @media (min-width:1000px){
   .landing__modal{max-width:960px;padding:1.6rem}
-  .landing__bento{min-height:480px;gap:1.1rem}
+  .landing__bento{gap:1.1rem}
   .landing__tile{padding:1.8rem}
-  .landing__tile--voucher h3{font-size:1.8rem}
   .landing__tile--news .landing__kicker,.landing__tile--tip .landing__kicker{font-size:1.25rem}
   .landing__tile p{font-size:.96rem}
 }
 @media (max-width:680px){
-  .landing__bento{grid-template-columns:1fr;grid-template-rows:none;min-height:0}
-  .landing__tile--voucher{grid-column:1;grid-row:auto;min-height:220px}
+  .landing__bento{grid-template-columns:1fr;grid-template-rows:none}
   .landing__tile--news,.landing__tile--tip{grid-column:1;grid-row:auto}
-  .landing__modal{max-height:88vh;overflow-y:auto}
+  /* a phone-width tile can't crop the landscape artwork without cutting the voucher off,
+     so show it whole and drop the copy into a strip underneath instead of over it */
+  .landing__tile--voucher{grid-column:1;grid-row:auto;aspect-ratio:auto;display:block;
+    padding:0;background:var(--ink)}
+  .landing__tile--voucher img{position:static;width:100%;height:auto;aspect-ratio:3/2}
+  .landing__tile-scrim{display:none}
+  .landing__tile--voucher .landing__tile-body{padding:1.1rem 1.2rem 1.3rem}
 }
 @media (prefers-reduced-transparency:reduce){
   .landing__backdrop{background:rgba(27,29,30,.72);backdrop-filter:none;-webkit-backdrop-filter:none}
@@ -884,12 +893,11 @@ section{position:relative;z-index:2}
     <button class="landing__close" id="landingClose" aria-label="Close"><i class="ph ph-x"></i></button>
     <div class="landing__bento">
       <div class="landing__tile landing__tile--voucher">
-        <img src="images/gonstead-exam.jpg" alt="" loading="lazy" />
+        <img src="images/merdeka-rm50-assessment.jpg" alt="RM50 voucher towards your better health journey, beside a family celebrating under the Malaysian flag" />
         <div class="landing__tile-scrim"></div>
         <div class="landing__tile-body">
-          <span class="landing__kicker">🎁 Limited-time offer</span>
-          <h3>RM50 off your first assessment</h3>
-          <p>New patients only &mdash; valid this month.</p>
+          <span class="landing__kicker">🎁 Merdeka special</span>
+          <p>RM50 off your first assessment. New patients only &mdash; valid all August.</p>
           <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Claim This Offer</a>
         </div>
       </div>
@@ -917,7 +925,7 @@ section{position:relative;z-index:2}
       <li><a href="chiropractic.html">Gonstead</a></li>
       <li><a href="pet-chiro.html">Animal Chiro</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="news.html">News &amp; Update</a></li>
+      <li><a href="news.html">News &amp; Updates</a></li>
       <li><a href="shop.html">Shop</a></li>
     </ul>
     <div class="nav__cta">
@@ -982,7 +990,7 @@ section{position:relative;z-index:2}
     </div>
     <div class="belief__media reveal" data-d="2">
       <!-- Swap for a real lifestyle image of a patient moving freely -->
-      <img src="https://picsum.photos/seed/aligned-freedom-walk/900/1125" alt="A patient moving freely and pain-free outdoors" loading="lazy" />
+      <img src="images/freedom-walk.jpg" alt="A patient walking freely and pain-free in a park" loading="lazy" />
       <div class="belief__overlay">
         <b>The gold standard for chiropractic systems</b>
         <span>Gonstead &mdash; precise, full-spine, trusted worldwide</span>
@@ -994,7 +1002,7 @@ section{position:relative;z-index:2}
 <!-- ====================== PROBLEM ====================== -->
 <section class="problem" data-progress="The Problem">
   <div class="problem__bg" aria-hidden="true">
-    <img src="images/gonstead-exam.jpg" alt="" loading="lazy" />
+    <img src="images/conditions/back-pain.jpg" alt="" loading="lazy" />
   </div>
   <div class="problem__scrim"></div>
   <div class="container">
@@ -1071,7 +1079,7 @@ section{position:relative;z-index:2}
       </article>
 
       <article class="svc reveal" data-d="1">
-        <div class="svc__media"><img src="images/chiro-physio-together.jpg" alt="Rehabilitation and movement coaching" loading="lazy" /></div>
+        <div class="svc__media"><img src="images/rehab.jpg" alt="Rehabilitation and movement coaching" loading="lazy" /></div>
         <div class="svc__body">
           <h3>Rehab</h3>
           <p>Targeted movement and strengthening that rebuilds what the pain took away, so the same problem does not return once you are back on your feet.</p>
@@ -1080,7 +1088,7 @@ section{position:relative;z-index:2}
       </article>
 
       <article class="svc reveal" data-d="2">
-        <div class="svc__media"><img src="images/pet-senior-mobility.jpg" alt="A calm pet receiving gentle chiropractic care" loading="lazy" /></div>
+        <div class="svc__media"><img src="images/pet-gentle-adjust.jpg" alt="A calm pet receiving gentle chiropractic care" loading="lazy" /></div>
         <div class="svc__body">
           <h3>Animal Chiro</h3>
           <p>The same precise, gentle philosophy &mdash; now for your animals. Chiropractic care designed to keep pets moving comfortably through every life stage.</p>
@@ -1101,11 +1109,11 @@ section{position:relative;z-index:2}
 <!-- ====================== GONSTEAD METHOD (5 tiles, hover swaps background) ====================== -->
 <section class="gonstead" id="gonstead" data-progress="Gonstead">
   <div class="gonstead__bg" id="gonBg">
-    <div class="gonstead__layer active" style="background-image:url('images/gonstead-exam.jpg')"></div>
-    <div class="gonstead__layer" style="background-image:url('images/chiro-physio-together.jpg')"></div>
-    <div class="gonstead__layer" style="background-image:url('images/hero-poster.jpg')"></div>
-    <div class="gonstead__layer" style="background-image:url('images/gonstead-exam.jpg')"></div>
-    <div class="gonstead__layer" style="background-image:url('images/hero-poster.jpg')"></div>
+    <div class="gonstead__layer active" style="background-image:url('images/banners/gonstead-01-visualization.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/banners/gonstead-02-instrumentation.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/banners/gonstead-03-static-palpation.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/banners/gonstead-04-motion-palpation.jpg')"></div>
+    <div class="gonstead__layer" style="background-image:url('images/banners/gonstead-05-xray-analysis.jpg')"></div>
   </div>
   <div class="gonstead__scrim"></div>
   <div class="container">
@@ -1184,6 +1192,7 @@ section{position:relative;z-index:2}
   </div>
   <div class="container">
     <div class="story-track" id="storyTrack">
+      <!-- TODO real photos: replace picsum story thumbnails (aligned-story-*) and avatar faces (aligned-*-face) with real, consented patient photos/videos. These are named testimonials — do not use AI-generated faces. -->
       <article class="story">
         <div class="story__vid">
           <img src="https://picsum.photos/seed/aligned-story-mei/800/500" alt="Patient story video thumbnail" loading="lazy" />
@@ -1233,11 +1242,11 @@ section{position:relative;z-index:2}
 <!-- ====================== SERVICE JOURNEY (split-photo background) ====================== -->
 <section class="journey" data-progress="Your Journey">
   <div class="journey__bg" aria-hidden="true">
-    <span style="background-image:url('images/hero-poster.jpg')"></span>
-    <span style="background-image:url('images/gonstead-exam.jpg')"></span>
-    <span style="background-image:url('images/chiro-physio-together.jpg')"></span>
-    <span style="background-image:url('images/hero-poster.jpg')"></span>
-    <span style="background-image:url('images/gonstead-exam.jpg')"></span>
+    <span style="background-image:url('images/banners/journey-01-listen.jpg')"></span>
+    <span style="background-image:url('images/banners/journey-02-assess.jpg')"></span>
+    <span style="background-image:url('images/banners/journey-03-personalise.jpg')"></span>
+    <span style="background-image:url('images/banners/journey-04-restore.jpg')"></span>
+    <span style="background-image:url('images/banners/journey-05-maintain.jpg')"></span>
   </div>
   <div class="journey__scrim"></div>
   <div class="container">
@@ -1306,7 +1315,7 @@ section{position:relative;z-index:2}
       </div>
     </div>
     <div class="pet__media">
-      <img src="https://picsum.photos/seed/aligned-pet-chiro-dog/900/700" alt="A calm dog receiving gentle chiropractic care" loading="lazy" />
+      <img src="images/pet-chiro-hero.jpg" alt="A calm dog receiving gentle chiropractic care at Aligned" loading="lazy" />
     </div>
   </div>
 </section>
@@ -1314,7 +1323,7 @@ section{position:relative;z-index:2}
 <!-- ====================== FINAL CTA (photo background) ====================== -->
 <section class="final" id="book" data-progress="Contact">
   <div class="final__bg" aria-hidden="true">
-    <img src="images/gonstead-exam.jpg" alt="" loading="lazy" />
+    <img src="images/banners/cta-adjustment.jpg" alt="" loading="lazy" />
   </div>
   <div class="final__scrim"></div>
   <div class="container">
@@ -1357,7 +1366,7 @@ section{position:relative;z-index:2}
         <h4>Clinic</h4>
         <ul>
           <li><a href="about.html">About us</a></li>
-          <li><a href="news.html">News &amp; Update</a></li>
+          <li><a href="news.html">News &amp; Updates</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="chiropractic.html#pricing">Pricing</a></li>
           <li><a href="chiropractic.html#faq">FAQs</a></li>

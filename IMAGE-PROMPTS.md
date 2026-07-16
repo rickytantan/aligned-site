@@ -185,3 +185,64 @@ Test batch generated 2026-07-09: sign-jump, sign-stiff, sign-limp.
    `https://picsum.photos/seed/aligned-sign-<slug>/500/380` with `images/pet-signs/sign-<slug>.jpg`
    (seeds: jump, gait, stiff, touch, lick, mood, play, posture, sit, slip, aggression, limp).
 4. Add descriptive `alt` text per image while swapping (Gonstead + pet cards currently have empty `alt`).
+
+---
+
+## 5. Banner backgrounds — 12 images (sections that currently recycle `gonstead-exam.jpg` / `hero-poster.jpg`)
+
+Save to: `images/banners/<slug>.jpg`
+
+These all sit **behind a dark scrim with light text on top**, so every image must be:
+- **Dim, cinematic, low overall luminance** — slate-navy shadows, soft rim light (same DIM mood as §2b).
+- **Quiet in the centre** — headline text sits mid-frame; keep the subject offset and detail away from dead centre.
+- **Face-safe** — practitioner faces turned away, cropped out, or softly out of focus. These images imply "our clinic / our doctor"; an identifiable AI face would fabricate a staff member. Hands, instruments and backs carry the story. (Long-term, replace the CTA/practitioner banners with real clinic photography; generative is the launch version.)
+
+MCP: `openart_generate_image`, Nano Banana Pro, `autoEnhancePrompt:false`, 2K. Aspect: **16:9** for full-bleed banners, **3:4 portrait** for the Journey strips. Prepend the §1 STYLE_PREFIX, append the anti-warm/no-text tail from §2b.
+
+### 5a. Gonstead method banner — 5 layers (index.html:1104–1108, hover-swapped, one per diagnostic step)
+
+Layer order must match tile order `data-i="0…4"`. 16:9.
+
+| # | Slug | Tile | Scene prompt (append to STYLE_PREFIX) |
+|---|---|---|---|
+| 01 | `gonstead-01-visualization` | Visualization | Seen over a chiropractor's blurred shoulder in the dim foreground, an Asian patient stands upright against a plain slate-grey clinic wall being visually assessed, subtle asymmetry in shoulder height. Dim moody slate-navy clinic, one soft window rim light tracing the patient's silhouette. Patient positioned in the left third, generous dark negative space right. No faces clearly visible. |
+| 02 | `gonstead-02-instrumentation` | Instrumentation | Extreme close-up of a practitioner's hands gliding a dual-probe Nervoscope instrument down the bare upper spine of a patient, the two metal probes straddling the vertebrae. Dim cinematic slate-navy room, a single soft light raking across the skin so the spine's contour reads clearly. Hands and instrument in the lower-left third, deep soft-focus darkness above. No faces. |
+| 03 | `gonstead-03-static-palpation` | Static palpation | Close-up of a practitioner's two thumbs pressing gently either side of a patient's mid spine, patient lying prone on a chiropractic bench, skin and thumbs sharply focused. Dim moody slate-navy clinic, soft rim light along the back's curve. Subject low in frame, dark quiet upper half. No faces. |
+| 04 | `gonstead-04-motion-palpation` | Motion palpation | An Asian patient seated on a chiropractic bench seen from behind, torso gently rotated to one side while a practitioner's hand contacts the lower spine guiding the movement, sense of controlled motion. Dim cinematic slate-navy clinic, rim light on the turning shoulder. Subjects offset right, dark negative space left. Faces turned away. |
+| 05 | `gonstead-05-xray-analysis` | X-ray analysis | A full-length weight-bearing spinal X-ray film clipped to a glowing lightbox in a dark room, a hand holding a fine pencil and clear ruler drawing precise measurement lines across the vertebrae. The lightbox is the only light source, cool blue-white glow. Film offset left, hand entering from lower right, dark negative space around. No text or labels readable on the film. |
+
+### 5b. Service journey strips — 5 portraits (index.html:1236–1240, split-photo background)
+
+Each `<span>` shows one tall strip; generate **3:4 portrait**, subject centred vertically. Order = step order.
+
+| # | Slug | Step | Scene prompt (append to STYLE_PREFIX) |
+|---|---|---|---|
+| 01 | `journey-01-listen` | Listen | Close crop of a consultation across a warm wooden desk: a patient's clasped hands in the foreground, a practitioner's hands with a pen and paper intake form listening opposite, shallow focus. Dim calm slate-navy consult room, soft lamp pool of light on the desk. No faces. |
+| 02 | `journey-02-assess` | Assess | A practitioner's hands checking the level of an Asian patient's hips from behind, thumbs resting on the pelvic crests, patient standing in a dim examination room. Cool cinematic rim light outlining the standing figure. Faces out of frame. |
+| 03 | `journey-03-personalise` | Personalise | A practitioner's hand pointing with a pen at a lumbar vertebra on a white anatomical spine model on a desk, a spinal X-ray glowing softly on a screen behind, patient's shoulder blurred in the foreground. Dim slate-navy consult room, focused pool of light on the spine model. No faces. |
+| 04 | `journey-04-restore` | Restore | An Asian patient lying on their side on a chiropractic bench receiving a precise lumbar adjustment, practitioner's hands stacked in a specific contact on the lower spine, composed and calm. Dim cinematic clinic, soft rim light along the patient's side. Faces turned away or softly blurred. |
+| 05 | `journey-05-maintain` | Maintain | An Asian woman in her 30s in activewear standing tall at a leafy park at first light, arms stretched overhead in an easy morning reach, posture upright and free. Cool fresh early-morning light kept dim and cinematic, green bokeh, figure silhouetted with a soft rim glow. Face small in frame or turned away. |
+
+### 5c. Shared page banners — 2 images
+
+| Slug | Used at | Ratio | Scene prompt (append to STYLE_PREFIX) |
+|---|---|---|---|
+| `cta-adjustment` | Final CTA band on about.html:299, chiropractic.html:385, shop.html:258, news.html:201 (one shared file) | 16:9 | Wide cinematic shot of a chiropractic adjustment in progress: patient prone on the bench, practitioner leaning in with a precise pisiform contact on the lower spine, both figures small and offset in the left third of a dim slate-navy clinic, vast dark negative space across the rest of the frame for headline text. Single soft rim light. Faces turned away. |
+| `fhero-gonstead-legacy` | chiropractic.html:193 founder hero ("Built by an engineer.") | 16:9 | A 1920s engineer's drafting table in a dark room: a technical blueprint drawing of a human spine with fine measurement lines and annotations, a brass drafting compass and steel ruler resting on the paper, warm desk lamp glow kept low and moody against deep shadow. Vintage engineering atmosphere, subject offset low-left, dark negative space upper right. Any lettering on the blueprint must be indistinct and unreadable. |
+
+### 5d. Promo slots — 1 image (+1 reuse)
+
+| Slug | Used at | Ratio | Scene prompt (append to STYLE_PREFIX) |
+|---|---|---|---|
+| `news-featured-offer` | news.html:115 featured card (RM50 first-assessment offer) + reuse on landing modal voucher tile index.html:887 | 16:9 | A bright, welcoming first-assessment moment: a clinic reception desk in soft daylight with a clipboard intake form, a warm cup of tea and a small potted plant, an Asian receptionist's hands passing the clipboard forward, shallow depth of field. Brighter than the banner set but still clean neutral daylight — this card sits on a light page with no scrim. No faces, no readable text. |
+
+**Reuse, don't generate:** the Problem section background at index.html:997 — swap `gonstead-exam.jpg` for `images/conditions/back-pain.jpg` (DIM mood, already on-message).
+
+### 5e. Wiring after generation
+
+1. **Gonstead banner** — index.html:1104–1108: replace the five `background-image` URLs in layer order with `images/banners/gonstead-01-visualization.jpg` … `gonstead-05-xray-analysis.jpg`.
+2. **Journey strips** — index.html:1236–1240: replace the five span URLs in step order with `images/banners/journey-01-listen.jpg` … `journey-05-maintain.jpg`.
+3. **Final CTA ×4** — about.html:299, chiropractic.html:385, shop.html:258, news.html:201: point all four at `images/banners/cta-adjustment.jpg`.
+4. **Founder hero** — chiropractic.html:193 → `images/banners/fhero-gonstead-legacy.jpg`.
+5. **News featured + landing tile** — news.html:115 and index.html:887 → `images/banners/news-featured-offer.jpg`.
+6. **Problem bg** — index.html:997 → `images/conditions/back-pain.jpg` (no new file).

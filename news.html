@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>News &amp; Update | Aligned — Clinic News, Health Tips &amp; Offers</title>
+<title>News &amp; Updates | Aligned — Clinic News, Health Tips &amp; Offers</title>
 <meta name="description" content="Clinic announcements, monthly offers, spine health tips and Animal Chiro stories from Aligned, Mid Valley Kuala Lumpur." />
 <meta name="theme-color" content="#1B1D1E" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EABF7F'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='18' fill='%231B1D1E' text-anchor='middle' font-weight='700'%3EA%3C/text%3E%3C/svg%3E" />
@@ -26,12 +26,14 @@
 .nhero .chips{margin-top:2rem}
 
 /* featured card */
-.featured{position:relative;border-radius:clamp(22px,3vw,30px);overflow:hidden;min-height:420px;
+/* 520 not 420: the wide crop at 420 slices the bottom off the offer artwork */
+.featured{position:relative;border-radius:clamp(22px,3vw,30px);overflow:hidden;min-height:520px;
   display:flex;align-items:flex-end;background:var(--ink);box-shadow:var(--shadow-md);color:var(--cloud)}
 .featured img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .featured:hover img{transform:scale(1.04)}
+/* diagonal wash: carries the bottom-left headline without muddying artwork on the right */
 .featured::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,rgba(27,29,30,.95) 0%,rgba(27,29,30,.55) 45%,rgba(27,29,30,.08) 100%)}
+  background:linear-gradient(to top right,rgba(27,29,30,.94) 0%,rgba(27,29,30,.6) 30%,rgba(27,29,30,.05) 62%)}
 .featured__body{position:relative;z-index:2;padding:clamp(1.6rem,4vw,2.8rem);max-width:62ch}
 .featured__tag{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .9rem;border-radius:999px;
   background:rgba(234,191,127,.9);color:var(--ink);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
@@ -56,7 +58,7 @@
   font-size:.82rem;color:var(--slate)}
 .ncard__meta .text-link{font-size:.88rem}
 @media (max-width:1020px){.news-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.news-grid{grid-template-columns:1fr}.featured{min-height:340px}}
+@media (max-width:640px){.news-grid{grid-template-columns:1fr}.featured{min-height:440px}}
 
 /* subscribe band */
 .subs{background:var(--ink);border-radius:clamp(22px,3vw,30px);color:var(--cloud);
@@ -80,7 +82,7 @@
       <li><a href="chiropractic.html">Gonstead</a></li>
       <li><a href="pet-chiro.html">Animal Chiro</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="news.html" class="active">News &amp; Update</a></li>
+      <li><a href="news.html" class="active">News &amp; Updates</a></li>
       <li><a href="shop.html">Shop</a></li>
     </ul>
     <div class="nav__cta">
@@ -112,12 +114,12 @@
 <section class="sec" style="padding-top:clamp(2.2rem,5vw,3rem)">
   <div class="container">
     <a class="featured reveal" href="#">
-      <img src="images/gonstead-exam.jpg" alt="" loading="lazy" />
+      <img src="images/merdeka-rm50-assessment.jpg" alt="A family celebrating under the Malaysian flag with the KL skyline behind them, beside an RM50 voucher card reading Towards Your Better Health Journey" loading="lazy" />
       <div class="featured__body">
-        <span class="featured__tag"><i class="ph ph-gift"></i> This month's offer</span>
-        <h2>RM50 off your first assessment — July only</h2>
-        <p>New patients get RM50 off the full first assessment: history, five-point Gonstead examination, X-ray analysis if needed, and a plain-language report of findings.</p>
-        <div class="featured__meta"><span>July 2026</span><span>Events &amp; Offers</span></div>
+        <span class="featured__tag"><i class="ph ph-gift"></i> Merdeka special</span>
+        <h2>Stand tall this Merdeka — RM50 off your first assessment</h2>
+        <p>Celebrate independence from aches. All August, new patients get RM50 off the full first assessment: history, five-point Gonstead examination, X-ray analysis if needed, and a plain-language report of findings.</p>
+        <div class="featured__meta"><span>August 2026</span><span>Events &amp; Offers</span></div>
       </div>
     </a>
 
@@ -239,7 +241,7 @@
         <h4>Clinic</h4>
         <ul>
           <li><a href="about.html">About us</a></li>
-          <li><a href="news.html">News &amp; Update</a></li>
+          <li><a href="news.html">News &amp; Updates</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="chiropractic.html#pricing">Pricing</a></li>
           <li><a href="chiropractic.html#faq">FAQs</a></li>
