@@ -965,7 +965,7 @@ section{position:relative;z-index:2}
       </div>
       <div class="hero__meta">
         <div><b>12+</b><span>Years of practice</span></div>
-        <div><b>4,800+</b><span>Patients realigned</span></div>
+        <div><b>13,800+</b><span>Patients realigned</span></div>
         <div><b>4.9</b><span>Average patient rating</span></div>
       </div>
     </div>
@@ -1423,26 +1423,7 @@ section{position:relative;z-index:2}
     landingBackdrop.addEventListener("click", closeLanding);
   }
 
-  /* ---------- Language switcher (EN / 中文) ----------
-     UI + persisted preference only; the actual translated pages/strings
-     land with the multilingual build. The pill shows the language you
-     can switch TO. */
-  var langBtn = document.getElementById("langBtn");
-  if(langBtn){
-    var lang = "en";
-    try{ lang = localStorage.getItem("aligned-lang") || "en"; }catch(err){}
-    function renderLang(){
-      langBtn.innerHTML = '<i class="ph ph-globe"></i> ' + (lang === "en" ? "中文" : "EN");
-      langBtn.setAttribute("aria-label", lang === "en" ? "切换到中文" : "Switch to English");
-      document.documentElement.lang = lang === "en" ? "en" : "zh";
-    }
-    langBtn.addEventListener("click", function(){
-      lang = lang === "en" ? "zh" : "en";
-      try{ localStorage.setItem("aligned-lang", lang); }catch(err){}
-      renderLang();
-    });
-    renderLang();
-  }
+  /* ---------- Language switcher lives in assets/i18n.js (loaded after this script) ---------- */
 
   /* ---------- Nav: scroll state + mobile toggle ---------- */
   var nav = document.getElementById("nav");
@@ -1491,16 +1472,23 @@ section{position:relative;z-index:2}
   var vprogLabel = document.getElementById("vprogLabel");
   if(vprogLabel && "IntersectionObserver" in window){
     var labT = null;
+    var curProg = "Home";                        // current label in English (source of truth)
+    var tProg = function(s){ return (window.AlignedI18n ? window.AlignedI18n.t(s) : s); };
+    vprogLabel.textContent = tProg(curProg);
+    // re-render the current label when the language is switched (i18n.js loads
+    // after this script, so listen for its DOM event rather than registering early)
+    document.addEventListener("aligned:lang", function(){ vprogLabel.textContent = tProg(curProg); });
     var labIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         if(!en.isIntersecting) return;
         var t = en.target.getAttribute("data-progress");
-        if(!t || t === vprogLabel.textContent) return;
-        if(reduce){ vprogLabel.textContent = t; return; }
+        if(!t || t === curProg) return;
+        curProg = t;
+        if(reduce){ vprogLabel.textContent = tProg(t); return; }
         clearTimeout(labT);
         vprogLabel.classList.add("swap");
         labT = setTimeout(function(){
-          vprogLabel.textContent = t;
+          vprogLabel.textContent = tProg(t);
           vprogLabel.classList.remove("swap");
         }, 180);
       });
@@ -1800,5 +1788,6 @@ section{position:relative;z-index:2}
   }
 })();
 </script>
+<script src="assets/i18n.js"></script>
 </body>
 </html>

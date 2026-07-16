@@ -27,23 +27,7 @@
     });
   }
 
-  /* ---------- Language switcher (EN / 中文) — persisted preference ---------- */
-  var langBtn = document.getElementById("langBtn");
-  if(langBtn){
-    var lang = "en";
-    try{ lang = localStorage.getItem("aligned-lang") || "en"; }catch(err){}
-    var renderLang = function(){
-      langBtn.innerHTML = '<i class="ph ph-globe"></i> ' + (lang === "en" ? "中文" : "EN");
-      langBtn.setAttribute("aria-label", lang === "en" ? "切换到中文" : "Switch to English");
-      document.documentElement.lang = lang === "en" ? "en" : "zh";
-    };
-    langBtn.addEventListener("click", function(){
-      lang = lang === "en" ? "zh" : "en";
-      try{ localStorage.setItem("aligned-lang", lang); }catch(err){}
-      renderLang();
-    });
-    renderLang();
-  }
+  /* ---------- Language switcher lives in assets/i18n.js (loaded after this file) ---------- */
 
   /* ---------- Title reveal: split .tsplit headings into masked words ---------- */
   function splitTitle(el){
