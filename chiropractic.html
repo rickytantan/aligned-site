@@ -91,6 +91,13 @@
 .fhero__sub{color:rgba(255,255,255,.87);max-width:58ch;margin:1.3rem 0 0;
   font-size:clamp(1.02rem,1rem + .4vw,1.2rem);line-height:1.6}
 .fhero__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.9rem}
+@media (max-width:880px){
+  /* Box turns portrait here, so cover keeps only ~29% of this landscape frame.
+     Centred, that window is 35-65% of the source and cuts Dr Gonstead's face
+     (61-75%) in half. 70% lands the window on 50-79%: his face sits inside it,
+     right of centre, clear of the scrim's dark left side where the copy sits. */
+  .fhero__media img{object-position:70% center}
+}
 @media (max-width:600px){
   .fhero{padding-top:calc(var(--nav-h) + 4.5rem)}
 }
@@ -193,8 +200,8 @@
   <div class="fhero__media"><img src="images/gonstead-hero.jpg" alt="" /></div>
   <div class="fhero__scrim"></div>
   <div class="container">
-    <h1 class="tsplit" data-tsdelay=".2">Built by an engineer. <span class="alt">Trusted for a century.</span></h1>
-    <p class="fhero__sub">Dr. Clarence S. Gonstead was a mechanical engineer before he was a chiropractor. He brought one principle to the spine &mdash; <em>a structure is only as sound as its foundation</em> &mdash; and turned it into the most precise system of spinal analysis in chiropractic. His small-town Wisconsin clinic grew into the largest in the world, with its own airstrip and hotel for the patients who flew in from every continent.</p>
+    <h1 class="tsplit" data-tsdelay=".2">Built by a mechanic. <span class="alt">Trusted for a century.</span></h1>
+    <p class="fhero__sub">Dr. Clarence S. Gonstead worked on engines before he ever worked on spines. He brought a mechanic's principle to the body &mdash; <em>a structure is only as sound as its foundation</em> &mdash; and spent fifty-five years turning it into a system that checks the spine five ways before touching it. His clinic in Mount Horeb, Wisconsin, a town of some 1,400 people, grew large enough to need its own airstrip and a hotel for the patients who travelled in to see him.</p>
     <div class="fhero__actions">
       <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
       <a href="#method" class="btn btn-ghost-light"><i class="ph ph-play"></i> See the Method</a>
@@ -205,7 +212,7 @@
 <!-- ====================== FOUNDER QUOTE ====================== -->
 <section class="quote" aria-label="Dr. Gonstead's principle">
   <div class="container">
-    <blockquote class="reveal">&ldquo;Find the subluxation, accept it where you find it, correct it, and leave it alone.&rdquo;
+    <blockquote class="reveal">&ldquo;Take your time, give them the utmost of your ability as a chiropractor, find the correct subluxation. Accept it. Correct it. Leave it alone.&rdquo;
       <cite>Dr. Clarence S. Gonstead &middot; 1898&ndash;1978</cite>
     </blockquote>
   </div>
@@ -232,7 +239,7 @@
       </article>
       <article class="scrub__panel" data-side="left">
         <h3>The subluxation: where movement stops.</h3>
-        <p>When one segment misaligns and stops moving, it presses on the nerve and the body compensates around it. That is the restriction you feel as pain and stiffness.</p>
+        <p>When one segment loses its alignment and stops moving freely, the nerves around it are irritated and the body compensates. That is the restriction you feel as pain and stiffness.</p>
       </article>
       <article class="scrub__panel" data-side="right">
         <h3>One specific adjustment.</h3>
@@ -240,7 +247,7 @@
       </article>
       <article class="scrub__panel" data-side="left">
         <h3>Recovery: a happy spine.</h3>
-        <p>With the pressure off the nerve, the body does what it was built to do &mdash; heal. Movement returns, and this time it holds.</p>
+        <p>With the joint moving and the irritation settling, the body does what it was built to do &mdash; heal. Movement returns, and this time it holds.</p>
         <div class="scrub__cta"><a href="#book" class="btn btn-on-dark"><i class="ph ph-calendar-check"></i> Experience the Precision</a></div>
       </article>
     </div>
@@ -257,7 +264,7 @@
     </div>
     <div class="gsteps">
       <div class="gstep reveal"><span class="gstep__n">01</span><span class="gstep__icn"><i class="ph ph-eye"></i></span><h3>Visualization</h3><p>Reading posture, gait and symmetry for the subtle deviations that point to where trouble starts.</p></div>
-      <div class="gstep reveal" data-d="1"><span class="gstep__n">02</span><span class="gstep__icn"><i class="ph ph-thermometer"></i></span><h3>Instrumentation</h3><p>A dual-probe Nervoscope detects skin-temperature differences caused by nerve inflammation.</p></div>
+      <div class="gstep reveal" data-d="1"><span class="gstep__n">02</span><span class="gstep__icn"><i class="ph ph-thermometer"></i></span><h3>Instrumentation</h3><p>A dual-probe Nervoscope glides down the spine, reading small side-to-side differences in skin temperature that flag a level worth a closer look.</p></div>
       <div class="gstep reveal" data-d="2"><span class="gstep__n">03</span><span class="gstep__icn"><i class="ph ph-hand-pointing"></i></span><h3>Static palpation</h3><p>Feeling the spine at rest for swelling, tenderness and tight muscles around each segment.</p></div>
       <div class="gstep reveal" data-d="3"><span class="gstep__n">04</span><span class="gstep__icn"><i class="ph ph-arrows-out-cardinal"></i></span><h3>Motion palpation</h3><p>Moving the spine through its ranges to find joints that are locked or not travelling freely.</p></div>
       <div class="gstep reveal" data-d="4"><span class="gstep__n">05</span><span class="gstep__icn"><i class="ph ph-scan"></i></span><h3>X-ray analysis</h3><p>Full-length, weight-bearing radiographs reveal exact alignment and disc integrity under real load.</p></div>
@@ -269,7 +276,7 @@
 <section class="sec" id="conditions">
   <div class="container">
     <div class="sec__head">
-      <h2 class="h-section tsplit">Symptoms caused by misalignment.</h2>
+      <h2 class="h-section tsplit">What brings people through our door.</h2>
       <p class="lede reveal" data-d="1">Sixteen of the most common reasons people walk through our door. If yours is not on the list, message us — the assessment will tell us if chiropractic is right for you.</p>
     </div>
     <div class="cond-grid">
@@ -287,7 +294,7 @@
       <article class="cond reveal"><img src="images/conditions/sports-injury.jpg" alt="Sports Injury" loading="lazy" /><div class="cond__body"><h3>Sports Injury</h3><p>Strains and overuse injuries keeping you out of training.</p></div></article>
       <article class="cond reveal"><img src="images/conditions/scoliosis.jpg" alt="Scoliosis" loading="lazy" /><div class="cond__body"><h3>Scoliosis</h3><p>Sideways spinal curves we assess, monitor and manage.</p></div></article>
       <article class="cond reveal"><img src="images/conditions/posture.jpg" alt="Posture Correction" loading="lazy" /><div class="cond__body"><h3>Posture Correction</h3><p>Retraining rounded shoulders and forward head.</p></div></article>
-      <article class="cond reveal"><img src="images/conditions/pregnancy.jpg" alt="Pregnancy" loading="lazy" /><div class="cond__body"><h3>Pregnancy</h3><p>Gentle, safe care for back and pelvic comfort.</p></div></article>
+      <article class="cond reveal"><img src="images/conditions/pregnancy.jpg" alt="Pregnancy" loading="lazy" /><div class="cond__body"><h3>Pregnancy</h3><p>Gentle, adapted care for back and pelvic comfort.</p></div></article>
       <article class="cond reveal"><img src="images/conditions/paediatric.jpg" alt="Paediatric" loading="lazy" /><div class="cond__body"><h3>Paediatric</h3><p>Gentle assessments tailored to growing spines.</p></div></article>
     </div>
   </div>
@@ -362,7 +369,7 @@
       </details>
       <details>
         <summary>Is it safe for children, seniors or pregnancy? <i class="ph ph-plus"></i></summary>
-        <p class="faq__a">Yes — techniques are adapted to each body. We use gentler, more specific setups for children, older spines and pregnancy. The five-point examination first tells us exactly what is (and is not) safe to adjust.</p>
+        <p class="faq__a">We adapt the technique to the body in front of us — gentler, more specific setups for children, older spines and pregnancy. The five-point examination always comes first, so we know what should be adjusted and what should not. No treatment is risk-free. We will talk you through what applies to you before we begin. And we will tell you if you are better served elsewhere.</p>
       </details>
       <details>
         <summary>Do I need an X-ray? <i class="ph ph-plus"></i></summary>

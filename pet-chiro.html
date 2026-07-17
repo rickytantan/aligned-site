@@ -31,6 +31,27 @@
   margin-bottom:.45rem;line-height:1.1}
 .statband span{font-size:.95rem;color:var(--slate);line-height:1.55}
 @media (max-width:820px){.statband{grid-template-columns:1fr}}
+
+/* fact-checked hidden-pain band: one ink context panel + three sourced stat cards */
+.painband{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;align-items:stretch}
+.painband>*{border-radius:18px;padding:1.7rem 1.5rem;display:flex;flex-direction:column}
+.painband__lead{background:var(--ink);color:var(--cloud)}
+.painband__lead h3{color:var(--white);font-size:1.22rem;line-height:1.18;margin-bottom:.7rem}
+.painband__hook{font-weight:700;color:var(--marmalade);font-size:.95rem;margin-bottom:.6rem}
+.painband__lead p{color:rgba(242,242,242,.82);font-size:.9rem;line-height:1.6}
+.painband__stat{background:var(--white);border:1px solid var(--cloud-deep);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.painband__stat:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.painband__num{font-family:"Hanken Grotesk",sans-serif;font-weight:800;
+  font-size:clamp(1.9rem,1.5rem + 1.5vw,2.5rem);letter-spacing:-.02em;color:var(--gold-deep);
+  line-height:1;margin-bottom:.7rem}
+.painband__stat h3{font-size:1rem;margin-bottom:.5rem;color:var(--ink)}
+.painband__stat p{font-size:.89rem;color:var(--slate);line-height:1.58}
+.painband__src{margin-top:1.1rem;font-size:.78rem;line-height:1.6;color:var(--slate);max-width:96ch}
+.painband__src em{font-style:italic}
+@media (max-width:1020px){.painband{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.painband{grid-template-columns:1fr}}
+
 .sec--cloud{background:var(--cloud)}
 .sec--warm{background:#F7EFE2}
 .sec__head{max-width:62ch;margin-bottom:clamp(2.2rem,4.5vw,3.2rem)}
@@ -151,7 +172,7 @@
   <div class="subhero__media"><img src="images/pet-chiro-hero.jpg" alt="" /></div>
   <div class="subhero__scrim"></div>
   <div class="container">
-    <h1 class="tsplit" data-tsdelay=".2">Your dog is not getting lazy or old, <span class="alt">he's actually stuck.</span></h1>
+    <h1 class="tsplit" data-tsdelay=".2">Your dog is not getting lazy. <span class="alt">He is getting stuck.</span></h1>
     <p class="subhero__sub">The stairs he now avoids. The jump he won't attempt. The walk that keeps getting shorter. We call it aging &mdash; but often it's a spine that has stopped moving the way it should. And that, unlike age, can be helped.</p>
     <div class="subhero__actions">
       <a href="#signs" class="btn btn-primary"><i class="ph ph-list-checks"></i> Check the 12 Signs</a>
@@ -167,17 +188,35 @@
       <h2 class="h-section tsplit">Dogs are built to hide it.</h2>
       <p class="lede reveal" data-d="1">In a pack, a limping dog is a liability. That instinct never left &mdash; so by the time you can see stiffness, the problem has usually been there for months.</p>
     </div>
-    <div class="statband">
-      <div class="reveal"><b>Silent by design</b><span>Dogs instinctively mask pain and keep up with the pack. They don't complain &mdash; they compensate, quietly, until they can't.</span></div>
-      <div class="reveal" data-d="1"><b>1 in 4</b><span>dogs develops arthritis in its lifetime &mdash; and the signs show up in movement long before they show up on a scan.</span></div>
-      <div class="reveal" data-d="2"><b>Not "just age"</b><span>Much of what owners file under getting old is restricted joints &mdash; and unlike age, a restricted joint is something we can work with.</span></div>
+    <div class="painband">
+      <div class="painband__lead reveal">
+        <h3>Pain doesn't look like pain</h3>
+        <p class="painband__hook">They don't complain. They adapt.</p>
+        <p>Chronic pain shows up as behaviour change first &mdash; less play, hesitating at stairs, sleeping more. By the time there's an obvious limp, it's already late.</p>
+      </div>
+      <div class="painband__stat reveal" data-d="1">
+        <div class="painband__num">1 in 4</div>
+        <h3>Already hurting, still young</h3>
+        <p>When researchers screened 123 dogs aged 8 months to 4 years, nearly a quarter &mdash; 23.6% &mdash; had arthritis painful enough to react to on examination. Not old dogs. Young ones.</p>
+      </div>
+      <div class="painband__stat reveal" data-d="2">
+        <div class="painband__num">7 in 10</div>
+        <h3>Their owners hadn't noticed</h3>
+        <p>Of the 29 dogs in pain, only 9 owners had noticed anything wrong &mdash; about 30%. The other seven in ten looked, to the people who loved them, completely fine.</p>
+      </div>
+      <div class="painband__stat reveal" data-d="3">
+        <div class="painband__num">2 of 9</div>
+        <h3>Even noticing wasn't enough</h3>
+        <p>Of the 9 owners who did notice, only 2 had their dog on any treatment for it. Seeing it is not the same as acting on it.</p>
+      </div>
     </div>
+    <p class="painband__src reveal">Figures from Enomoto M, et al., &ldquo;Prevalence of radiographic appendicular osteoarthritis and associated clinical signs in young dogs&rdquo;, Scientific Reports 14:2827 (2024) &mdash; a study of limb joints, not spines. We cite it for what it shows about how early pain starts and how easily it is missed. For context: in UK primary-care records, the median dog is 10.5 years old before arthritis is first diagnosed.</p>
     <div class="split" style="margin-top:clamp(2.6rem,5vw,4rem)">
       <div>
-        <h2 class="h-section tsplit">His spine works exactly like yours.</h2>
+        <h2 class="h-section tsplit">His spine works on the same principles as yours.</h2>
         <div class="split__body reveal" data-d="1">
-          <p>Same segments, same discs, same nerves &mdash; just carried horizontally. When one segment stops moving well, the body around it compensates: other joints take the load, muscles guard, and movement quietly reorganises itself.</p>
-          <p>That compensation is what you're seeing on the stairs. It looks like aging. Often, it's a joint that simply needs to move again.</p>
+          <p>Vertebrae, discs, joints and nerves &mdash; the same architecture, carried horizontally instead of upright (and with a few more vertebrae through the chest and lower back). Accidents, or repetitive strain over time, can leave a joint moving less freely than it should, just as they do in us. When one segment stops moving well, the body around it compensates: other joints take the load, muscles guard, movement changes, and the joint can quietly deteriorate over time.</p>
+          <p>What seems like aging to you is, often, a joint that simply needs to move again.</p>
         </div>
       </div>
       <div class="split__media reveal" data-d="1">
@@ -209,7 +248,7 @@
       <article class="sign reveal" data-d="2"><img src="images/pet-signs/sign-aggression.jpg" alt="Sudden aggression" loading="lazy" /><div class="sign__body"><h3>Sudden aggression</h3><p>Growling or snapping out of character — pain often shows as aggression before it shows as a limp.</p></div></article>
       <article class="sign reveal" data-d="3"><img src="images/pet-signs/sign-limp.jpg" alt="Limping" loading="lazy" /><div class="sign__body"><h3>Limping</h3><p>An obvious limp, or a subtle head-bob — weight quietly shifted off a leg that hurts.</p></div></article>
     </div>
-    <p class="signs__foot reveal" data-d="2">Ticked more than one? <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20my%20pet%20is%20showing%20some%20of%20the%20signs%20on%20your%20checklist.">Message us a short video of your pet walking</a> — it helps us see what you see.</p>
+    <p class="signs__foot reveal" data-d="2">Ticked more than one? <a href="https://wa.me/60186625503?text=Hi%20Aligned%2C%20my%20pet%20is%20showing%20some%20of%20the%20signs%20on%20your%20checklist."><i class="ph ph-whatsapp-logo"></i> Message us a short video of your pet walking</a> — it helps us see what you see.</p>
   </div>
 </section>
 
@@ -220,10 +259,10 @@
       <h2 class="h-section tsplit">Chiropractic, translated for four legs.</h2>
       <div class="split__body reveal" data-d="1">
         <p>Animal spines work like ours: when a joint stops moving well, the body compensates — and pain, stiffness and behaviour changes follow. Animal chiropractic finds those restricted segments and restores their motion with gentle, specific adjustments.</p>
-        <p>No cracking, no force. Adjustments for animals use far lighter pressure than human care, sized to the animal — a Chihuahua is not adjusted like a Golden Retriever.</p>
+        <p>No unnecessary manipulation, no force. Adjustments for animals use far lighter pressure than human care, sized to the animal — a Chihuahua is not adjusted like a Golden Retriever.</p>
       </div>
       <ul class="split__points reveal" data-d="2">
-        <li><i class="ph ph-check-circle"></i> Gentle, animal-specific techniques — most pets relax into it</li>
+        <li><i class="ph ph-check-circle"></i> Gentle, animal-specific techniques — sized to the animal, never forced</li>
         <li><i class="ph ph-check-circle"></i> Works alongside your vet's care, never against it</li>
         <li><i class="ph ph-check-circle"></i> <b>No referral needed</b> — book directly, bring any vet reports you have</li>
       </ul>
@@ -289,7 +328,7 @@
     <div class="faq reveal" data-d="1">
       <details>
         <summary>Will it hurt my pet? <i class="ph ph-plus"></i></summary>
-        <p class="faq__a">No — adjustments for animals use very light, specific pressure. Most pets visibly relax during the session, and many owners are surprised how calm their usually-nervous dog or cat becomes on the table.</p>
+        <p class="faq__a">It should not. Adjustments for animals use very light, specific pressure — far gentler than human care. Pets tend to settle once they work out that nothing is being forced on them. And if yours tells us they have had enough, we stop. That is the whole rule.</p>
       </details>
       <details>
         <summary>Do I need a referral from my vet? <i class="ph ph-plus"></i></summary>
@@ -301,11 +340,11 @@
       </details>
       <details>
         <summary>How many sessions will my pet need? <i class="ph ph-plus"></i></summary>
-        <p class="faq__a">Many pets show visible change within one to three visits. Chronic or age-related cases may benefit from ongoing maintenance every few weeks. We will tell you honestly what we see after the first assessment.</p>
+        <p class="faq__a">We will not put a number on it before we have seen your pet. Long-standing or age-related cases usually take longer than recent ones. After the first assessment you will get an honest view of what we expect and how we will measure it. If we do not think we can help, we will say so on day one.</p>
       </details>
       <details>
         <summary>When should I go to the vet instead? <i class="ph ph-plus"></i></summary>
-        <p class="faq__a">Sudden severe pain, suspected fractures, wounds, fever, or any rapidly worsening condition should go to your vet first. Chiropractic care is for movement and alignment — and we will redirect you to a vet the moment something looks outside our scope.</p>
+        <p class="faq__a">Suspected fractures, open wounds, fever, or any rapidly worsening condition should go to your vet first. You may reach out to us if you are unsure — our team will redirect you to a vet the moment something looks outside our scope.</p>
       </details>
     </div>
   </div>

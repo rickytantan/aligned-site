@@ -604,7 +604,7 @@ section{position:relative;z-index:2}
 .svc--tall .svc__body{padding:clamp(1.8rem,2.4vw,2.4rem)}
 .svc--tall h3{font-size:1.8rem}
 
-/* feature icon row (navy plinth): safe for all ages / precision / personalise / x-ray */
+/* feature icon row (navy plinth): adapted to all ages / precision / personalise / x-ray */
 .feat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
   margin-top:clamp(1.6rem,3vw,2.2rem);background:var(--ivory-deep);border-radius:var(--r-card);
   border:1px solid var(--powder-blue-deep);
@@ -658,6 +658,24 @@ section{position:relative;z-index:2}
 .gon-tile:hover .gon-tile__icn,.gon-tile.active .gon-tile__icn{background:var(--ink);color:var(--marmalade)}
 .gon-tile__t{font-family:"Hanken Grotesk",sans-serif;font-weight:700;font-size:1.12rem;margin-bottom:.45rem;color:var(--grey)}
 .gon-tile__d{font-size:.85rem;color:var(--grey);line-height:1.45;margin-top:auto}
+/* Mobile: the section stacks to ~1750px tall, so `inset:0` was asking these
+   landscape photos to fill a ~1:4.6 box — cover then kept a 12%-wide slice of
+   dead centre (step 5's x-ray fell outside it entirely). Pin the bg to one
+   viewport so the box is ~1:2.2, then hold each crop on its own subject.
+   `clip` not `hidden`: clip doesn't create a scroll container, so the sticky
+   child still sticks. The sticky box is pulled back out of flow with the
+   negative margin so the tiles sit exactly where they did. */
+@media (max-width:880px){
+  .gonstead{overflow:clip}
+  .gonstead__bg{position:sticky;top:0;height:100svh;margin-bottom:-100svh}
+  .gonstead__layer{transform:scale(1)}
+  .gonstead__layer.active{transform:scale(1.04)}
+  .gonstead__layer[style*="gonstead-01"]{background-position:35% center}
+  .gonstead__layer[style*="gonstead-02"]{background-position:46% center}
+  .gonstead__layer[style*="gonstead-03"]{background-position:38% center}
+  .gonstead__layer[style*="gonstead-04"]{background-position:55% center}
+  .gonstead__layer[style*="gonstead-05"]{background-position:30% center}
+}
 @media (max-width:860px){
   .gon-tiles{grid-template-columns:1fr 1fr;gap:.8rem}
   .gon-tile{min-height:auto}
@@ -958,15 +976,15 @@ section{position:relative;z-index:2}
   <div class="hero__inner">
     <div class="container">
       <h1 class="tsplit" data-tsdelay=".35">A New <span class="alt">Definition</span> Of Health</h1>
-      <p class="hero__sub">We treat the root cause of your pain, not just the symptom. Precise, evidence-based spinal care built around long-term recovery.</p>
+      <p class="hero__sub">We treat the root cause of your pain, not just the symptom. Precise, methodical spinal care built around long-term recovery.</p>
       <div class="hero__actions">
         <a href="#book" class="btn btn-primary"><i class="ph ph-calendar-check"></i> Book Assessment</a>
         <a href="https://wa.me/60186625503" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="ph ph-whatsapp-logo"></i> WhatsApp Us</a>
       </div>
       <div class="hero__meta">
-        <div><b>12+</b><span>Years of practice</span></div>
-        <div><b>13,800+</b><span>Patients realigned</span></div>
-        <div><b>4.9</b><span>Average patient rating</span></div>
+        <div><b>12+</b><span>Years of practice (sample)</span></div>
+        <div><b>13,800+</b><span>Patients realigned (sample)</span></div>
+        <div><b>4.9</b><span>Average patient rating (sample)</span></div>
       </div>
     </div>
   </div>
@@ -978,8 +996,8 @@ section{position:relative;z-index:2}
     <div>
       <h2 class="belief__title tsplit">Movement is <em>freedom.</em></h2>
       <div class="belief__body reveal" data-d="2">
-        <p>Aligned exists to provide the best pain management solution by improving your spinal health through the Gonstead Chiropractic system.</p>
-        <p>Our doctors are committed to the highest quality of care, delivered with the compassion, excellence and professionalism you deserve. We start with why, then we get to work.</p>
+        <p>Aligned exists to find what is actually driving your pain, and to treat that &mdash; through the Gonstead Chiropractic system, segment by segment.</p>
+        <p>Our doctors take the time it takes. Nothing gets adjusted that the examination has not earned.</p>
       </div>
       <div class="belief__sig reveal" data-d="3">
         <i class="ph ph-quotes"></i> Relief should not be temporary.
@@ -993,7 +1011,7 @@ section{position:relative;z-index:2}
       <img src="images/freedom-walk.jpg" alt="A patient walking freely and pain-free in a park" loading="lazy" />
       <div class="belief__overlay">
         <b>The gold standard for chiropractic systems</b>
-        <span>Gonstead &mdash; precise, full-spine, trusted worldwide</span>
+        <span>Gonstead &mdash; precise, full-spine, practised worldwide</span>
       </div>
     </div>
   </div>
@@ -1065,7 +1083,7 @@ section{position:relative;z-index:2}
   <div class="container">
     <div class="method__head">
       <h2 class="h-section tsplit">Our services.</h2>
-      <p class="reveal" data-d="2">Evidence-based care tailored to your body. From precise spinal adjustments to active rehab &mdash; and gentle care for the companions who move beside you.</p>
+      <p class="reveal" data-d="2">Care tailored to your body, and to what the examination actually finds. From precise spinal adjustments to active rehab &mdash; and gentle care for the companions who move beside you.</p>
     </div>
 
     <div class="svc-grid">
@@ -1073,7 +1091,7 @@ section{position:relative;z-index:2}
         <div class="svc__media"><img src="images/gonstead-exam.jpg" alt="A precise spinal adjustment in progress" loading="lazy" /></div>
         <div class="svc__body">
           <h3>Chiro Adjustment</h3>
-          <p>Specific, full-spine Gonstead adjustments that restore alignment and take pressure off the nerve &mdash; treating the root cause, not just the symptom.</p>
+          <p>Specific, full-spine Gonstead adjustments that restore alignment and ease the irritation around the nerve &mdash; treating the root cause, not just the symptom.</p>
           <a href="#gonstead" class="text-link">See the method <i class="ph ph-arrow-right"></i></a>
         </div>
       </article>
@@ -1098,7 +1116,7 @@ section{position:relative;z-index:2}
     </div>
 
     <ul class="feat-row reveal" data-d="2" aria-label="Why our care works">
-      <li><span class="feat__icn"><i class="ph ph-users-three"></i></span><b>Safe for all ages</b><span>Children to seniors</span></li>
+      <li><span class="feat__icn"><i class="ph ph-users-three"></i></span><b>Adapted to all ages</b><span>Children to seniors</span></li>
       <li><span class="feat__icn"><i class="ph ph-crosshair-simple"></i></span><b>Precision</b><span>Down to the segment</span></li>
       <li><span class="feat__icn"><i class="ph ph-user-focus"></i></span><b>Personalised</b><span>Adjustment just for you</span></li>
       <li><span class="feat__icn"><i class="ph ph-scan"></i></span><b>On-site X-ray</b><span>Weight-bearing analysis</span></li>
@@ -1118,7 +1136,7 @@ section{position:relative;z-index:2}
   <div class="gonstead__scrim"></div>
   <div class="container">
     <div class="gonstead__head">
-      <h2 class="tsplit">Five-point diagnostics, down to the millimetre.</h2>
+      <h2 class="tsplit">Five-point diagnostics, down to the segment.</h2>
       <p class="gonstead__sub reveal" data-d="2">Precision is not optional. Hover or tap each step to see it &mdash; the Gonstead system checks your spine five ways before a single adjustment is made.</p>
     </div>
     <div class="gon-tiles" id="gonTiles">
@@ -1132,7 +1150,7 @@ section{position:relative;z-index:2}
         <span class="gon-tile__n">02</span>
         <span class="gon-tile__icn"><i class="ph ph-thermometer"></i></span>
         <span class="gon-tile__t">Instrumentation</span>
-        <span class="gon-tile__d">A dual-probe Nervoscope detects localised skin-temperature differences caused by nerve inflammation.</span>
+        <span class="gon-tile__d">A dual-probe Nervoscope reads small side-to-side differences in skin temperature, flagging the levels worth a closer look.</span>
       </button>
       <button class="gon-tile" data-i="2">
         <span class="gon-tile__n">03</span>
@@ -1203,7 +1221,7 @@ section{position:relative;z-index:2}
           <p class="story__quote">"Two years of lower back pain, gone in a structured plan. I finally understand my own spine."</p>
           <div class="story__by">
             <img class="av" src="https://picsum.photos/seed/aligned-mei-face/100/100" alt="" loading="lazy" />
-            <div><b>Mei Ling Chong</b><span>Office manager, Cheras</span></div>
+            <div><b>Mei Ling Chong</b><span>Office manager, Cheras (sample)</span></div>
           </div>
         </div>
       </article>
@@ -1217,7 +1235,7 @@ section{position:relative;z-index:2}
           <p class="story__quote">"My sciatica used to dictate my week. Now I am back to weekend football with my kids."</p>
           <div class="story__by">
             <img class="av" src="https://picsum.photos/seed/aligned-arvind-face/100/100" alt="" loading="lazy" />
-            <div><b>Arvind Rajoo</b><span>Engineer, Kuala Lumpur</span></div>
+            <div><b>Arvind Rajoo</b><span>Engineer, Kuala Lumpur (sample)</span></div>
           </div>
         </div>
       </article>
@@ -1231,7 +1249,7 @@ section{position:relative;z-index:2}
           <p class="story__quote">"The x-ray analysis showed me exactly what was wrong. No guessing, just a clear plan."</p>
           <div class="story__by">
             <img class="av" src="https://picsum.photos/seed/aligned-faiz-face/100/100" alt="" loading="lazy" />
-            <div><b>Faiz Abdullah</b><span>Photographer, Ampang</span></div>
+            <div><b>Faiz Abdullah</b><span>Photographer, Ampang (sample)</span></div>
           </div>
         </div>
       </article>
@@ -1622,7 +1640,7 @@ section{position:relative;z-index:2}
       {n:"Sports Injury",      s:"sports-injury",  d:"Strains, sprains and overuse injuries that keep you off the field or out of training."},
       {n:"Scoliosis",          s:"scoliosis",      d:"A sideways curve of the spine that we assess, monitor and help you manage."},
       {n:"Posture Correction", s:"posture",        d:"Retraining rounded shoulders and a forward head back into healthy alignment."},
-      {n:"Pregnancy",          s:"pregnancy",      d:"Gentle, safe care for back and pelvic comfort through every trimester."},
+      {n:"Pregnancy",          s:"pregnancy",      d:"Gentle, adapted care for back and pelvic comfort, trimester by trimester."},
       {n:"Paediatric",         s:"paediatric",     d:"Gentle assessments and care tailored to growing spines and developing posture."}
     ];
     var scNum=document.getElementById("scNum");

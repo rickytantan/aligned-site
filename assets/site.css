@@ -175,6 +175,20 @@ section{position:relative;z-index:2}
   background:var(--ink);color:var(--cloud)}
 .subhero__media{position:absolute;inset:0;z-index:0}
 .subhero__media img{width:100%;height:100%;object-fit:cover}
+/* Below ~880px the subhero box turns portrait while these photos stay
+   landscape, so `cover` keeps only a ~30-40% window of the frame and a centred
+   crop lands on the wrong part. The scrim is darkest at the left (where the
+   copy sits) and clears to the right, so each subject is held right of centre.
+   The desktop (landscape box) crop is fine and is left alone. */
+@media (max-width:880px){
+  /* dog 56-84%, doctor 63-93%: centred kept the empty corridor instead */
+  .subhero__media img[src*="pet-chiro-hero"]{object-position:80% center}
+  /* The two staff faces sit at 30-43% and 72-87% — 57 points apart, but only
+     39% of the width survives, so no crop holds both. Framing the near
+     staffer plus the patient he's greeting keeps an actual scene; the far
+     staffer is lost either way. */
+  .subhero__media img[src*="about-team"]{object-position:20% center}
+}
 .subhero__scrim{position:absolute;inset:0;z-index:1;
   background:
     linear-gradient(98deg, rgba(27,29,30,.94) 0%, rgba(27,29,30,.78) 38%, rgba(27,29,30,.34) 68%, rgba(27,29,30,.08) 92%),
