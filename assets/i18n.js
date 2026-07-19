@@ -129,7 +129,7 @@
     ["Weight-bearing analysis", "负重分析"],
 
     /* gonstead 5 (homepage) */
-    ["Precision is not optional. Hover or tap each step to see it — the Gonstead system checks your spine five ways before a single adjustment is made.", "精准并非可选项。悬停或点击每个步骤查看——冈斯特系统在做任何矫正前，会以五种方式检查你的脊椎。"],
+    ["Precision is not optional. Before a single adjustment is made, the Gonstead system checks your spine five separate ways.", "精准并非可选项。在做任何矫正之前，冈斯特系统会以五种方式分别检查你的脊椎。"],
     ["Visualization", "视觉观察"],
     ["Reading posture, gait and symmetry for the subtle deviations that point to where the trouble starts.", "观察姿势、步态与对称性，捕捉指向问题起点的细微偏差。"],
     ["Instrumentation", "仪器检测"],
