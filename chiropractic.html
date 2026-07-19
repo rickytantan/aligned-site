@@ -158,6 +158,23 @@
 .scrub--on .scrub__dots span.on{background:var(--marmalade)}
 
 @media (max-width:1020px){.cond-grid{grid-template-columns:repeat(3,1fr)}}
+/* Below the desktop 4-up, the body copy covers 45-55% of a 210px card, so the
+   bottom-up .94 wash buries most of the photograph — and unlike the pet-signs
+   grid (which survives it because those photos are bright), these condition
+   photos are dark, so the card reads as a black rectangle with text on it.
+   Same anatomy as the homepage services/gonstead cards: photo on top, copy on
+   solid ground, no wash. */
+@media (max-width:1020px){
+  .cond{display:block;min-height:0;align-items:stretch;background:var(--ivory-deep);
+    border:1px solid var(--cloud-deep);box-shadow:var(--shadow-sm)}
+  .cond:hover{transform:none;box-shadow:var(--shadow-sm)}
+  .cond img{position:relative;inset:auto;aspect-ratio:4/3;height:auto;filter:none}
+  .cond:hover img{transform:none}
+  .cond::after{display:none}
+  .cond__body{padding:.85rem .9rem 1rem}
+  .cond h3{color:var(--ink);font-size:1.05rem;margin-bottom:.25rem;line-height:1.25}
+  .cond p{color:var(--slate);font-size:.875rem;line-height:1.45}
+}
 @media (max-width:860px){
   .gsteps{grid-template-columns:1fr 1fr}
   .price-grid{grid-template-columns:1fr}
