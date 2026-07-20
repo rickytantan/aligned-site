@@ -87,7 +87,43 @@ Direction confirmed with Ricky:
 - Output is PNG ~2400×1792 → convert to JPG q85, save as `images/conditions/<slug>.jpg` (slugs below match the code's picsum seeds; wiring steps in §4).
 - Composition: subject centred with breathing room; the glowing region must sit in the middle 70% of the frame (deck crops to ~3:2, grid to 4:3 via `object-fit: cover`).
 
-#### PROMPT_TEMPLATE (assemble per image)
+#### PROMPT_TEMPLATE v3 — CURRENT (2026-07-20, after Daniel's review)
+
+**Daniel's feedback on the v2 set: the faces show no 痛/不适 at all, everything is too dark, and the red is too loud.** All three faults were baked into the v2 template itself, so v2 is retired — use v3 below for every remaining image.
+
+What changed and why:
+- **Expression.** v2's "Composed, dignified expression showing quiet discomfort … never dramatic wincing" over-corrected into a blank face — the tennis-elbow model was outright smirking. v3 replaces it with a specific, FACS-grounded description (brow lowerer + orbital tightening + jaw set), because naming the muscles gets a real face where naming the mood does not. The "not a grimace" guard is kept but demoted below the positive description, and Ricky's brief stands: 表情不要过度疼痛一眼假 AI，表情必须有细节.
+- **Light.** v2's `DIM` mood ("dim moody slate-navy interior, cool evening tones") is **deleted** — it is what made sciatica and whiplash near-black. Every scene is now daylight. Dusk/night settings were rewritten to daytime equivalents (the ride-hailing driver now steps out mid-morning, the rear-end bump happens at a sunlit traffic light).
+- **Red.** "glows bright neon red with a soft radiating red pain aura" → a restrained inflamed-tissue tint confined to the joint, with explicit bans on halos, concentric rings and shockwave circles. Ricky: the red need not be obvious, accuracy matters more.
+- **Anatomy.** Containment is now stated as a hard requirement. Both first-pass whiplash draws put the cervical spine *outside* the neck, floating over the car seat; the reshoot added the CONTAINMENT IS CRITICAL block and fixed it.
+
+> Photorealistic editorial photograph for a chiropractic clinic, with a subtle anatomical X-ray overlay.
+>
+> SCENE: **[SCENE]**
+>
+> FACIAL EXPRESSION — the single most important element of this photograph: a real, restrained expression of physical discomfort, caught mid-moment. The inner ends of both eyebrows pull down and together, leaving a clear vertical crease between the brows. The eyes narrow and tighten, upper lids lowered, fine creases at the outer corners. The cheek and nostril on the sore side lift very slightly. The jaw is set with the back teeth lightly clenched so the muscle stands out along the jawline; the lips press into a thin flat line, parted just enough to hold a breath. The head tilts a few degrees away from the sore side and the tendons in the neck show. The knuckles of the hand touching the sore area are pale from the pressure. **[ONE LINE OF BACKSTORY — "this is a person who has lived with this ache for weeks", "a club player whose elbow has been getting worse for a month"]** — believable, understated, human. Absolutely NOT smiling, NOT smirking, NOT serene, NOT calm, NOT neutral or blank-faced, and NOT a theatrical open-mouthed grimace or exaggerated cartoon wince.
+>
+> LIGHT AND COLOUR: true-to-life colour, bright and full of life. Natural healthy skin with visible warmth and blood in the face, clean neutral white balance, soft directional daylight, open shadows that keep their detail. Rich but natural saturation. Full-frame camera, 50mm lens, shallow depth of field, high definition, candid documentary feel. NOT dark, NOT dim, NOT moody, no cinematic navy or teal shadow grading, no crushed blacks, no sepia, no heavy yellow cast.
+>
+> ANATOMICAL OVERLAY: over the **[REGION]** only, a partial see-through cutaway revealing the skeleton beneath the skin. Medical-illustration accuracy — correct bone shapes, correct vertebra count, joints in their true anatomical positions and proportions, the entire overlay contained strictly inside the body outline. **[GLOW]** is tinted a restrained deep red, like inflamed tissue seen through skin: low intensity, soft-edged, confined to the joint itself. **[FAINT]** are faint cool-white translucent linework fading into skin and clothing. NO neon, NO bright glowing halo, NO concentric rings or shockwave circles, NO lens flare, NO sci-fi hologram look. The rest of the person stays fully photorealistic.
+>
+> No text, no labels, no arrows, no watermark.
+
+**Add for any neck/spine shot** (a first-pass whiplash failure — the spine rendered beside the person, over the car seat), replacing the first line of the overlay block:
+
+> ANATOMICAL OVERLAY — CONTAINMENT IS CRITICAL: … The column must sit ENTIRELY INSIDE the outline of his actual neck, centred exactly where a real spine would be. The overlay must NEVER extend past the edge of his skin onto the car seat, the headrest, the window or the background — not one millimetre outside the body. … NO floating skeleton beside the person.
+
+**Add whenever a first pass renders vertebra labels** (one whiplash draw came back with C3–C7 printed on the bones):
+
+> Absolutely no text anywhere in the image: no vertebra labels, no C1 C2 C3 C4 C5 C6 C7 markings, no numbers, no captions, no arrows, no watermark.
+
+**Run settings:** OpenArt MCP, `nano-banana-pro`, `text2image`, `autoEnhancePrompt:false`, **4:3**, **2K**, `imageCount: 2`. 80 credits per condition — always draw 2 and pick, the expression is the coin-flip. Output is 2400×1792 PNG → `sips -Z 1280` → JPEG q78 → `images/conditions/<slug>.jpg` (matches the existing set at 1280×955, ~200–260KB).
+
+**Status: 6 of 16 regenerated on v3 (2026-07-20)** — `sciatica`, `whiplash`, `tennis-elbow`, `hip-pain`, `knee-pain`, `sports-injury`. Originals recoverable from commit `45b8d4e`. The remaining 10 still carry the dark v2 look and should be re-run on v3 for a consistent set: `slipped-disc`, `back-pain`, `neck-pain`, `migraine`, `shoulder-pain`, `carpal-tunnel`, `scoliosis`, `posture`, `pregnancy`, `paediatric`.
+
+**Also worth carrying over from the sports-injury run:** the v2 image had the red spread over the *entire* lower leg rather than the ankle — for any limb-joint condition, name the joint anatomically ("where the lower ends of the shin bones meet the talus") and add "confined to the joint itself", or the model floods the whole limb. The two-arms/two-legs guard from §"Prompt hardening" is still worth appending to any seated or crossed-limb pose. Note the scene text in the §"Per-image spec" table below is still v2 — reuse the SCENE column but **ignore its Mood column entirely** and rewrite any dusk/night setting as daylight.
+
+#### PROMPT_TEMPLATE v2 (RETIRED — kept for reference only, do not use)
 
 > Premium medical visualization for a chiropractic clinic, photorealistic with anatomical overlay. **[SCENE]** **[MOOD]** Composed, dignified expression showing quiet discomfort — a pause, a held breath — never dramatic wincing. True-to-life Sony color science, crisp neutral white balance, natural skin rendering, high definition, clean premium healthcare-brand aesthetic. Over the **[REGION]**, a partial see-through cutaway X-ray effect: high-quality translucent skeletal illustration, anatomically correct proportions, kept strictly inside the body, where the **[GLOW]** glows bright neon red with a soft radiating red pain aura, while the **[FAINT]** are drawn as faint cool-white glowing linework fading into skin and clothing. The rest of the person stays fully photorealistic. No text, no labels, no arrows, no watermark, no sepia, no yellow or warm color cast.
 

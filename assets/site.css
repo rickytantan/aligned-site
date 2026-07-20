@@ -175,6 +175,10 @@ section{position:relative;z-index:2}
   background:var(--ink);color:var(--cloud)}
 .subhero__media{position:absolute;inset:0;z-index:0}
 .subhero__media img{width:100%;height:100%;object-fit:cover}
+/* The team shot is 3:2, so a wide box loses the frame top and bottom. Centred
+   put the back row's heads under the nav; 30% clears them without leaving a
+   band of empty wall up top, and spends the loss on the uniforms. */
+.subhero__media img[src*="about-team"]{object-position:center 30%}
 /* Below ~880px the subhero box turns portrait while these photos stay
    landscape, so `cover` keeps only a ~30-40% window of the frame and a centred
    crop lands on the wrong part. The scrim is darkest at the left (where the
@@ -183,16 +187,31 @@ section{position:relative;z-index:2}
 @media (max-width:880px){
   /* dog 56-84%, doctor 63-93%: centred kept the empty corridor instead */
   .subhero__media img[src*="pet-chiro-hero"]{object-position:80% center}
-  /* The two staff faces sit at 30-43% and 72-87% — 57 points apart, but only
-     39% of the width survives, so no crop holds both. Framing the near
-     staffer plus the patient he's greeting keeps an actual scene; the far
-     staffer is lost either way. */
-  .subhero__media img[src*="about-team"]{object-position:20% center}
+  /* Six staff in two rows, faces spanning 28-75% and symmetric about centre.
+     A centred crop keeps the middle pair whole and half of each flanking
+     face — the most legible window the narrow box allows. Held slightly
+     right of centre so the scrim's dark left edge doesn't swallow a face. */
+  .subhero__media img[src*="about-team"]{object-position:58% center}
 }
 .subhero__scrim{position:absolute;inset:0;z-index:1;
   background:
     linear-gradient(98deg, rgba(27,29,30,.94) 0%, rgba(27,29,30,.78) 38%, rgba(27,29,30,.34) 68%, rgba(27,29,30,.08) 92%),
     linear-gradient(0deg, rgba(27,29,30,.85) 0%, rgba(27,29,30,0) 52%)}
+/* Team-portrait variant: the side-weighted scrim above was built for photos
+   with an empty left corridor, and it buries the two staff on the left of the
+   group shot. Here the faces sit in the upper two-thirds and the copy sits at
+   the bottom, so the darkness goes bottom-only and the faces stay lit. */
+/* Six people in two rows need vertical room the standard 64vh box doesn't have.
+   82vh shows ~77% of the frame instead of ~60%, which is what it takes to get
+   both rows of faces in above the copy. Desktop only — below 880px the box is
+   already portrait and taller than the photo needs. */
+@media (min-width:881px){
+  .subhero--portrait{min-height:82vh}
+}
+.subhero--portrait .subhero__scrim{
+  background:linear-gradient(0deg,
+    rgba(27,29,30,.93) 0%, rgba(27,29,30,.84) 18%, rgba(27,29,30,.55) 36%,
+    rgba(27,29,30,.22) 54%, rgba(27,29,30,0) 72%)}
 .subhero .container{position:relative;z-index:2}
 .subhero h1{color:var(--white);font-size:clamp(2.4rem,1.8rem + 4.2vw,4.6rem);font-weight:800;
   letter-spacing:-.03em;max-width:17ch;margin:.9rem 0 0}

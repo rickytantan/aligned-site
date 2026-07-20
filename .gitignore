@@ -3,3 +3,7 @@ PAGES-PLAN.md
 AMENDMENT-PLAN.md
 Aligned_Website_Assets.numbers
 Aligned_Website_Assets.xlsx
+
+# local image backups (not for deploy)
+*.bak
+images/banners/_old-diagnostics/

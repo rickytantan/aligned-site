@@ -832,22 +832,37 @@ section{position:relative;z-index:2}
 .doctors{padding:clamp(5rem,10vw,9rem) 0}
 .doctors__head{max-width:60ch;margin-bottom:clamp(2.2rem,4vw,3rem)}
 .doctors__head .h-section{margin-top:1rem}.doctors__head p{margin-top:1rem}
-.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2rem)}
-.doc-grid--one{grid-template-columns:min(760px,100%);justify-content:center}
-.doc{background:var(--ivory-deep);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);
-  display:grid;grid-template-columns:42% 1fr;border:1px solid rgba(234,191,127,.12)}
-.doc__photo{position:relative;background:var(--powder-deep)}
-.doc__photo img{width:100%;height:100%;object-fit:cover;min-height:260px}
-.doc__body{padding:1.6rem 1.6rem 1.8rem}
-.doc__body h3{font-size:1.4rem}
-.doc__role{color:var(--gold-deep);font-weight:700;font-family:"Hanken Grotesk",sans-serif;font-size:.92rem;
-  margin:.3rem 0 .9rem}
-.doc__body p{font-size:.94rem;color:var(--grey)}
-.doc__tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
-.doc__tags span{font-size:.78rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;
+/* The team rail. Same swipe anatomy as .story-track further down this file
+   (drag, snap, hidden scrollbar) so both sliders on the page feel identical,
+   and the five people match about.html one-for-one. Cards are photo-on-top /
+   copy-below — the .pet pattern that survives mobile. */
+.doc-track{display:flex;gap:clamp(1rem,2.4vw,1.4rem);overflow-x:auto;
+  scroll-snap-type:x mandatory;padding:.5rem .5rem 1.4rem;margin:0 -.5rem;
+  scrollbar-width:none;cursor:grab}
+.doc-track::-webkit-scrollbar{display:none}
+.doc-track.dragging{cursor:grabbing}.doc-track.dragging *{pointer-events:none}
+.doc{scroll-snap-align:start;flex:0 0 min(76vw,296px);
+  background:var(--ivory-deep);border-radius:var(--r-card);overflow:hidden;
+  box-shadow:var(--shadow-sm);border:1px solid rgba(234,191,127,.12);
+  display:flex;flex-direction:column;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.doc:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+/* The ratio lives on the <img>, not the wrapper: with height:100% on the
+   child the wrapper's aspect-ratio loses to the portrait's intrinsic 5:7 and
+   the cards come out ~140px taller than intended. flex:0 0 auto stops the
+   photo absorbing the stretch the track applies across cards. */
+.doc__photo{position:relative;background:var(--powder-deep);flex:0 0 auto}
+.doc__photo img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block}
+.doc__body{padding:1.3rem 1.3rem 1.4rem;display:flex;flex-direction:column;flex:1 1 auto}
+.doc__body h3{font-size:1.3rem;line-height:1.2}
+.doc__role{color:var(--gold-deep);font-weight:700;font-family:"Hanken Grotesk",sans-serif;font-size:.84rem;
+  margin:.35rem 0 .8rem;line-height:1.35}
+.doc__body p{font-size:.92rem;color:var(--grey);line-height:1.55}
+.doc__tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:auto;padding-top:.9rem}
+.doc__tags span{font-size:.75rem;font-weight:600;padding:.32rem .7rem;border-radius:999px;
   background:var(--ivory);color:var(--gold-deep);border:1px solid rgba(234,191,127,.18)}
-@media (max-width:860px){.doc-grid{grid-template-columns:1fr}}
-@media (max-width:480px){.doc{grid-template-columns:1fr}.doc__photo img{min-height:300px}}
+.doc__more{margin-top:1rem}
+@media (max-width:480px){.doc{flex:0 0 min(82vw,290px)}}
 
 /* =====================================================================
    STORIES  (testimonial carousel + video thumbs)
@@ -1262,14 +1277,14 @@ section{position:relative;z-index:2}
         <span class="gon-tile__d">A dual-probe Nervoscope reads small side-to-side differences in skin temperature, flagging the levels worth a closer look.</span>
       </button>
       <button class="gon-tile" data-i="2">
-        <span class="gon-tile__ph"><img src="images/banners/gonstead-03-static-palpation.jpg" alt="A gloved hand feeling along the spine of a patient lying face down" loading="lazy" /></span>
+        <span class="gon-tile__ph"><img src="images/banners/gonstead-03-static-palpation.jpg" alt="A chiropractor pressing along the lower spine of a gowned patient resting forward on a knee-chest table" loading="lazy" /></span>
         <span class="gon-tile__n">03</span>
         <span class="gon-tile__icn"><i class="ph ph-hand-pointing"></i></span>
         <span class="gon-tile__t">Static palpation</span>
         <span class="gon-tile__d">Feeling the spine at rest for swelling, tenderness and tight muscles around each segment.</span>
       </button>
       <button class="gon-tile" data-i="3">
-        <span class="gon-tile__ph"><img src="images/banners/gonstead-04-motion-palpation.jpg" alt="A chiropractor guiding a seated patient's lower back through its range of movement" loading="lazy" /></span>
+        <span class="gon-tile__ph"><img src="images/banners/gonstead-04-motion-palpation.jpg" alt="A chiropractor guiding a seated patient's head and neck through its range of movement beside a spinal chart" loading="lazy" /></span>
         <span class="gon-tile__n">04</span>
         <span class="gon-tile__icn"><i class="ph ph-arrows-out-cardinal"></i></span>
         <span class="gon-tile__t">Motion palpation</span>
@@ -1295,21 +1310,72 @@ section{position:relative;z-index:2}
 <section class="doctors" id="doctors" data-progress="About Us">
   <div class="container">
     <div class="doctors__head">
-      <h2 class="h-section tsplit">The doctor behind every adjustment.</h2>
+      <h2 class="h-section tsplit">The team behind every adjustment.</h2>
       <p class="reveal" data-d="2">Human connection first. You will know your doctor, and your doctor will know your spine.</p>
     </div>
-    <div class="doc-grid doc-grid--one">
-      <article class="doc reveal" data-d="1">
+    <!-- Five cards, one per profile on about.html. Portraits use the same
+         picsum seeds as that page so the same faces appear in both places;
+         swap all five for real photography together. -->
+    <div class="doc-track" id="docTrack">
+      <article class="doc reveal">
         <div class="doc__photo">
           <!-- Replace with Dr Daniel's real portrait -->
           <img src="https://picsum.photos/seed/aligned-dr-daniel-portrait/500/700" alt="Portrait of Dr Daniel Tan" loading="lazy" />
         </div>
         <div class="doc__body">
           <h3>Dr Daniel Tan</h3>
-          <p class="doc__role">Chiropractor &middot; Gonstead System</p>
-          <p>Believes recovery is a partnership. Daniel built Aligned around patient education and the kind of careful, full-spine work that holds up over years, not weeks. Registered with the Gonstead Chiropractic Society (Australia) and the Association of Chiropractic Malaysia.</p>
-          <div class="doc__tags"><span>Gonstead</span><span>Sports recovery</span><span>Posture</span><span>Animal Chiro</span></div>
-          <div style="margin-top:1.2rem"><a href="about.html#doctor" class="text-link">More about Dr Daniel <i class="ph ph-arrow-right"></i></a></div>
+          <p class="doc__role">Founder &middot; Chiropractor &middot; Gonstead System</p>
+          <p>Built Aligned around patient education and the kind of careful, full-spine work that holds up over years, not weeks.</p>
+          <div class="doc__tags"><span>Gonstead</span><span>Sports recovery</span><span>Animal Chiro</span></div>
+          <div class="doc__more"><a href="about.html#doctor" class="text-link">More about Dr Daniel <i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+      <article class="doc reveal" data-d="1">
+        <div class="doc__photo">
+          <img src="https://picsum.photos/seed/aligned-dr-sarah-portrait/500/700" alt="Portrait of Dr Sarah Lim" loading="lazy" />
+        </div>
+        <div class="doc__body">
+          <h3>Dr Sarah Lim</h3>
+          <p class="doc__role">Chiropractor &middot; Gonstead System &middot; (sample profile)</p>
+          <p>Takes the complicated histories. If the five criteria do not agree, she keeps examining until they do.</p>
+          <div class="doc__tags"><span>Chronic pain</span><span>Scoliosis</span><span>Posture</span></div>
+          <div class="doc__more"><a href="about.html#dr-sarah-lim" class="text-link">More about Dr Sarah <i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+      <article class="doc reveal" data-d="2">
+        <div class="doc__photo">
+          <img src="https://picsum.photos/seed/aligned-dr-marcus-portrait/500/700" alt="Portrait of Dr Marcus Wong" loading="lazy" />
+        </div>
+        <div class="doc__body">
+          <h3>Dr Marcus Wong</h3>
+          <p class="doc__role">Chiropractor &middot; Sports &amp; Recovery &middot; (sample profile)</p>
+          <p>A former competitive athlete. Expect him to watch how you move before he ever touches your spine.</p>
+          <div class="doc__tags"><span>Sports injury</span><span>Active recovery</span><span>Rehab</span></div>
+          <div class="doc__more"><a href="about.html#dr-marcus-wong" class="text-link">More about Dr Marcus <i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+      <article class="doc reveal" data-d="3">
+        <div class="doc__photo">
+          <img src="https://picsum.photos/seed/aligned-jasmine-portrait/500/700" alt="Portrait of Jasmine Ooi" loading="lazy" />
+        </div>
+        <div class="doc__body">
+          <h3>Jasmine Ooi</h3>
+          <p class="doc__role">Rehab &amp; Movement Therapist &middot; (sample profile)</p>
+          <p>Takes over where the adjustment ends, rebuilding the strength that keeps a corrected spine corrected.</p>
+          <div class="doc__tags"><span>Strength</span><span>Mobility</span><span>Movement retraining</span></div>
+          <div class="doc__more"><a href="about.html#jasmine-ooi" class="text-link">More about Jasmine <i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+      <article class="doc reveal" data-d="4">
+        <div class="doc__photo">
+          <img src="https://picsum.photos/seed/aligned-amanda-portrait/500/700" alt="Portrait of Amanda Lee" loading="lazy" />
+        </div>
+        <div class="doc__body">
+          <h3>Amanda Lee</h3>
+          <p class="doc__role">Clinic Manager &middot; Patient Care &middot; (sample profile)</p>
+          <p>The first voice you hear. Bookings, reports and insurance paperwork, all handled before you arrive.</p>
+          <div class="doc__tags"><span>Bookings</span><span>Insurance</span><span>EN &middot; 中文 &middot; BM</span></div>
+          <div class="doc__more"><a href="about.html#amanda-lee" class="text-link">More about Amanda <i class="ph ph-arrow-right"></i></a></div>
         </div>
       </article>
     </div>
@@ -1739,6 +1805,7 @@ section{position:relative;z-index:2}
     track.addEventListener("click", function(e){ if(moved>6){ e.preventDefault(); e.stopPropagation(); } }, true);
   }
   makeDraggable(document.getElementById("storyTrack"));
+  makeDraggable(document.getElementById("docTrack"));
 
   /* ---------- Self-check: 3D coverflow deck (iPod-style) ----------
      One continuous float position `cur` eases toward `target`; drag,
