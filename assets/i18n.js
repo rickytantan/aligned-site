@@ -69,7 +69,7 @@
     ["Recurring pain", "反复疼痛"],
     ["Poor posture", "不良姿势"],
     ["Old injuries", "旧患"],
-    ["Daily stress load", "日常压力"],
+    ["Daily stress", "日常压力"],
     ["The pain", "疼痛"],
     ["cycle", "循环"],
     ["We treat a wide range of conditions. Drag through the deck — or just let it play.", "我们治疗多种症状。拖动卡片浏览——或让它自动播放。"],
